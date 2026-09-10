@@ -1,0 +1,27 @@
+18([
+  / protected / << {
+  1: -8
+} >>,
+  / unprotected / {
+  4: h'41'
+},
+  / payload / << {
+    265: "tag:ietf.org,2026:rats/ear#04",
+    6: 1788877754,
+    1004: {
+      0: "geoar-verifier-demo",
+      1: "2026-09-08"
+    },
+    266: {
+      "maa:sharedweu.weu": {
+        1000: 2,
+        -70100: {
+          0: "NL",
+          13: h'814f1a077ed25b798641788ef6dab3a1',
+          14: 1
+        }
+      }
+    }
+  } >>,
+  / signature / h'4c707fe5ae66c79dccdda9579a90ab61b3d504f3806913646809095ddb4e6ceaf48cef1cf7efd559287b9a49aab7a89cc614645b3285fb03f356ced22c19a608'
+])

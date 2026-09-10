@@ -1,0 +1,29 @@
+18([
+  / protected / << {
+  1: -8
+} >>,
+  / unprotected / {
+  4: h'42'
+},
+  / payload / << {
+    265: "tag:ietf.org,2026:rats/ear#04",
+    6: 1767283265,
+    1004: {
+      0: "workload-verifier-B",
+      1: "2026-09-10"
+    },
+    266: {
+      "workload": {
+        1000: 2,
+        -70100: {
+          0: "NL",
+          13: h'2bfa42bce6e45c2ab556b6a0862d11f7',
+          14: 2,
+          17: 1(1767226500),
+          18: 1(1767283200)
+        }
+      }
+    }
+  } >>,
+  / signature / h'dcf2339c48172b8fcb62c5695938c3f3f8f6f293a9dcba2d189f4ff23ce3587f262a40887c3340f4cef5c1ddfca40493d126199e2003cf3738cb22a8fe7bf401'
+])

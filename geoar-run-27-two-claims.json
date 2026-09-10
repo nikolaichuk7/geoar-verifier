@@ -1,0 +1,562 @@
+[
+ {
+  "family": "Nitro",
+  "artifact": "eviden/01-VM1-us-east-2a",
+  "sig_ok": true,
+  "debug_mode": false,
+  "locational_in_signed": true,
+  "signed_locational_fields": {
+   "region_token_in_CN": "us-east-2",
+   "L": [
+    "Seattle"
+   ],
+   "ST": [
+    "WA",
+    "Washington"
+   ],
+   "C": [
+    "US"
+   ]
+  },
+  "unsigned_source": null,
+  "country": "US",
+  "basis": "endorsement",
+  "note": "region token is an AWS hostname convention inside CA subject CNs; L/ST/C are issuer corporate address, identical across regions",
+  "source": "AWS: US East (Ohio), United States of America",
+  "ear_hex": "a4190109781d7461673a696574662e6f72672c323032363a726174732f656172233034061a6aa01b3a1903eca2007367656f61722d76657269666965722d64656d6f016a323032362d30392d303819010aa17827692d30653335313930616533313537303935642d656e6330313965303531326135373135643466a21903e8023a000111d3a40062555302644f68696f0d50995f334f002e5233b3d757748e88b4d10e01"
+ },
+ {
+  "family": "Nitro",
+  "artifact": "eviden/02-VM2-us-east-2b",
+  "sig_ok": true,
+  "debug_mode": false,
+  "locational_in_signed": true,
+  "signed_locational_fields": {
+   "region_token_in_CN": "us-east-2",
+   "L": [
+    "Seattle"
+   ],
+   "ST": [
+    "WA",
+    "Washington"
+   ],
+   "C": [
+    "US"
+   ]
+  },
+  "unsigned_source": null,
+  "country": "US",
+  "basis": "endorsement",
+  "note": "region token is an AWS hostname convention inside CA subject CNs; L/ST/C are issuer corporate address, identical across regions",
+  "source": "AWS: US East (Ohio), United States of America",
+  "ear_hex": "a4190109781d7461673a696574662e6f72672c323032363a726174732f656172233034061a6aa01b3a1903eca2007367656f61722d76657269666965722d64656d6f016a323032362d30392d303819010aa17827692d30626433333766363031363539323532362d656e6330313965303531353130663262313631a21903e8023a000111d3a40062555302644f68696f0d50cc5c579978a95c028aa7d87fd80da1de0e01"
+ },
+ {
+  "family": "Nitro",
+  "artifact": "eviden/03-VM3-us-east-2c",
+  "sig_ok": true,
+  "debug_mode": false,
+  "locational_in_signed": true,
+  "signed_locational_fields": {
+   "region_token_in_CN": "us-east-2",
+   "L": [
+    "Seattle"
+   ],
+   "ST": [
+    "WA",
+    "Washington"
+   ],
+   "C": [
+    "US"
+   ]
+  },
+  "unsigned_source": null,
+  "country": "US",
+  "basis": "endorsement",
+  "note": "region token is an AWS hostname convention inside CA subject CNs; L/ST/C are issuer corporate address, identical across regions",
+  "source": "AWS: US East (Ohio), United States of America",
+  "ear_hex": "a4190109781d7461673a696574662e6f72672c323032363a726174732f656172233034061a6aa01b3a1903eca2007367656f61722d76657269666965722d64656d6f016a323032362d30392d303819010aa17827692d30343864623565323233663638353461662d656e6330313965303531366533646366316538a21903e8023a000111d3a40062555302644f68696f0d50fd94f0aa56b05ced9162293adc10bc530e01"
+ },
+ {
+  "family": "Nitro",
+  "artifact": "eviden/04-VM4-eu-west-1a",
+  "sig_ok": true,
+  "debug_mode": false,
+  "locational_in_signed": true,
+  "signed_locational_fields": {
+   "region_token_in_CN": "eu-west-1",
+   "L": [
+    "Seattle"
+   ],
+   "ST": [
+    "WA",
+    "Washington"
+   ],
+   "C": [
+    "US"
+   ]
+  },
+  "unsigned_source": null,
+  "country": "IE",
+  "basis": "endorsement",
+  "note": "region token is an AWS hostname convention inside CA subject CNs; L/ST/C are issuer corporate address, identical across regions",
+  "source": "AWS: Europe (Ireland), Ireland",
+  "ear_hex": "a4190109781d7461673a696574662e6f72672c323032363a726174732f656172233034061a6aa01b3a1903eca2007367656f61722d76657269666965722d64656d6f016a323032362d30392d303819010aa17827692d30626430373737663037393137633039352d656e6330313965303531393164663339326433a21903e8023a000111d3a3006249450d5005d15143a4835972851bed9f7e9602770e01"
+ },
+ {
+  "family": "Nitro",
+  "artifact": "Crypto/01-VM1-us-east-2a",
+  "sig_ok": true,
+  "debug_mode": true,
+  "locational_in_signed": true,
+  "signed_locational_fields": {
+   "region_token_in_CN": "us-east-2",
+   "L": [
+    "Seattle"
+   ],
+   "ST": [
+    "WA",
+    "Washington"
+   ],
+   "C": [
+    "US"
+   ]
+  },
+  "unsigned_source": null,
+  "country": "US",
+  "basis": "endorsement",
+  "note": "region token is an AWS hostname convention inside CA subject CNs; L/ST/C are issuer corporate address, identical across regions",
+  "source": "AWS: US East (Ohio), United States of America",
+  "ear_hex": "a4190109781d7461673a696574662e6f72672c323032363a726174732f656172233034061a6aa01b3a1903eca2007367656f61722d76657269666965722d64656d6f016a323032362d30392d303819010aa17827692d30303932303838333561643030323861342d656e6330313965303365306137313536643166a21903e8023a000111d3a40062555302644f68696f0d5061fdb7b4eac95dd1973571feff14fe9d0e01"
+ },
+ {
+  "family": "Nitro",
+  "artifact": "Crypto/02-VM2-us-east-2b",
+  "sig_ok": true,
+  "debug_mode": true,
+  "locational_in_signed": true,
+  "signed_locational_fields": {
+   "region_token_in_CN": "us-east-2",
+   "L": [
+    "Seattle"
+   ],
+   "ST": [
+    "WA",
+    "Washington"
+   ],
+   "C": [
+    "US"
+   ]
+  },
+  "unsigned_source": null,
+  "country": "US",
+  "basis": "endorsement",
+  "note": "region token is an AWS hostname convention inside CA subject CNs; L/ST/C are issuer corporate address, identical across regions",
+  "source": "AWS: US East (Ohio), United States of America",
+  "ear_hex": "a4190109781d7461673a696574662e6f72672c323032363a726174732f656172233034061a6aa01b3a1903eca2007367656f61722d76657269666965722d64656d6f016a323032362d30392d303819010aa17827692d30303264646131663331623562663935352d656e6330313965303366663531396530386465a21903e8023a000111d3a40062555302644f68696f0d506e3a74fd27fc5dc9a9e43a7fa5d107ce0e01"
+ },
+ {
+  "family": "Nitro",
+  "artifact": "Crypto/03-VM3-us-east-2c",
+  "sig_ok": true,
+  "debug_mode": true,
+  "locational_in_signed": true,
+  "signed_locational_fields": {
+   "region_token_in_CN": "us-east-2",
+   "L": [
+    "Seattle"
+   ],
+   "ST": [
+    "WA",
+    "Washington"
+   ],
+   "C": [
+    "US"
+   ]
+  },
+  "unsigned_source": null,
+  "country": "US",
+  "basis": "endorsement",
+  "note": "region token is an AWS hostname convention inside CA subject CNs; L/ST/C are issuer corporate address, identical across regions",
+  "source": "AWS: US East (Ohio), United States of America",
+  "ear_hex": "a4190109781d7461673a696574662e6f72672c323032363a726174732f656172233034061a6aa01b3a1903eca2007367656f61722d76657269666965722d64656d6f016a323032362d30392d303819010aa17827692d30323431343437366635363264326366302d656e6330313965303430366433303661633636a21903e8023a000111d3a40062555302644f68696f0d506df1c803984f55448802e0d2bab6ef7f0e01"
+ },
+ {
+  "family": "Nitro",
+  "artifact": "Crypto/04-VM4-eu-west-1a",
+  "sig_ok": true,
+  "debug_mode": true,
+  "locational_in_signed": true,
+  "signed_locational_fields": {
+   "region_token_in_CN": "eu-west-1",
+   "L": [
+    "Seattle"
+   ],
+   "ST": [
+    "WA",
+    "Washington"
+   ],
+   "C": [
+    "US"
+   ]
+  },
+  "unsigned_source": null,
+  "country": "IE",
+  "basis": "endorsement",
+  "note": "region token is an AWS hostname convention inside CA subject CNs; L/ST/C are issuer corporate address, identical across regions",
+  "source": "AWS: Europe (Ireland), Ireland",
+  "ear_hex": "a4190109781d7461673a696574662e6f72672c323032363a726174732f656172233034061a6aa01b3a1903eca2007367656f61722d76657269666965722d64656d6f016a323032362d30392d303819010aa17827692d30396635313166623661643335343638662d656e6330313965303432363935633839383961a21903e8023a000111d3a3006249450d502c19de2f18465c4489d5df20acb5ff600e01"
+ },
+ {
+  "family": "Nitro",
+  "artifact": "Crypto/01-VM1-us-east-2a-PROD",
+  "sig_ok": true,
+  "debug_mode": false,
+  "locational_in_signed": true,
+  "signed_locational_fields": {
+   "region_token_in_CN": "us-east-2",
+   "L": [
+    "Seattle"
+   ],
+   "ST": [
+    "WA",
+    "Washington"
+   ],
+   "C": [
+    "US"
+   ]
+  },
+  "unsigned_source": null,
+  "country": "US",
+  "basis": "endorsement",
+  "note": "region token is an AWS hostname convention inside CA subject CNs; L/ST/C are issuer corporate address, identical across regions",
+  "source": "AWS: US East (Ohio), United States of America",
+  "ear_hex": "a4190109781d7461673a696574662e6f72672c323032363a726174732f656172233034061a6aa01b3a1903eca2007367656f61722d76657269666965722d64656d6f016a323032362d30392d303819010aa17827692d30653335313930616533313537303935642d656e6330313965303531326135373135643466a21903e8023a000111d3a40062555302644f68696f0d50995f334f002e5233b3d757748e88b4d10e01"
+ },
+ {
+  "family": "Nitro",
+  "artifact": "Crypto/02-VM2-us-east-2b-PROD",
+  "sig_ok": true,
+  "debug_mode": false,
+  "locational_in_signed": true,
+  "signed_locational_fields": {
+   "region_token_in_CN": "us-east-2",
+   "L": [
+    "Seattle"
+   ],
+   "ST": [
+    "WA",
+    "Washington"
+   ],
+   "C": [
+    "US"
+   ]
+  },
+  "unsigned_source": null,
+  "country": "US",
+  "basis": "endorsement",
+  "note": "region token is an AWS hostname convention inside CA subject CNs; L/ST/C are issuer corporate address, identical across regions",
+  "source": "AWS: US East (Ohio), United States of America",
+  "ear_hex": "a4190109781d7461673a696574662e6f72672c323032363a726174732f656172233034061a6aa01b3a1903eca2007367656f61722d76657269666965722d64656d6f016a323032362d30392d303819010aa17827692d30626433333766363031363539323532362d656e6330313965303531353130663262313631a21903e8023a000111d3a40062555302644f68696f0d50cc5c579978a95c028aa7d87fd80da1de0e01"
+ },
+ {
+  "family": "Nitro",
+  "artifact": "Crypto/03-VM3-us-east-2c-PROD",
+  "sig_ok": true,
+  "debug_mode": false,
+  "locational_in_signed": true,
+  "signed_locational_fields": {
+   "region_token_in_CN": "us-east-2",
+   "L": [
+    "Seattle"
+   ],
+   "ST": [
+    "WA",
+    "Washington"
+   ],
+   "C": [
+    "US"
+   ]
+  },
+  "unsigned_source": null,
+  "country": "US",
+  "basis": "endorsement",
+  "note": "region token is an AWS hostname convention inside CA subject CNs; L/ST/C are issuer corporate address, identical across regions",
+  "source": "AWS: US East (Ohio), United States of America",
+  "ear_hex": "a4190109781d7461673a696574662e6f72672c323032363a726174732f656172233034061a6aa01b3a1903eca2007367656f61722d76657269666965722d64656d6f016a323032362d30392d303819010aa17827692d30343864623565323233663638353461662d656e6330313965303531366533646366316538a21903e8023a000111d3a40062555302644f68696f0d50fd94f0aa56b05ced9162293adc10bc530e01"
+ },
+ {
+  "family": "Nitro",
+  "artifact": "Crypto/04-VM4-eu-west-1a-PROD",
+  "sig_ok": true,
+  "debug_mode": false,
+  "locational_in_signed": true,
+  "signed_locational_fields": {
+   "region_token_in_CN": "eu-west-1",
+   "L": [
+    "Seattle"
+   ],
+   "ST": [
+    "WA",
+    "Washington"
+   ],
+   "C": [
+    "US"
+   ]
+  },
+  "unsigned_source": null,
+  "country": "IE",
+  "basis": "endorsement",
+  "note": "region token is an AWS hostname convention inside CA subject CNs; L/ST/C are issuer corporate address, identical across regions",
+  "source": "AWS: Europe (Ireland), Ireland",
+  "ear_hex": "a4190109781d7461673a696574662e6f72672c323032363a726174732f656172233034061a6aa01b3a1903eca2007367656f61722d76657269666965722d64656d6f016a323032362d30392d303819010aa17827692d30626430373737663037393137633039352d656e6330313965303531393164663339326433a21903e8023a000111d3a3006249450d5005d15143a4835972851bed9f7e9602770e01"
+ },
+ {
+  "family": "SEV-SNP",
+  "artifact": "01-VM1-Iowa-zone-a",
+  "sig_ok": true,
+  "debug_mode": false,
+  "container": "ioctl-wrapped(+32)",
+  "locational_in_signed": false,
+  "signed_locational_fields": {
+   "ascii_region_strings_in_report": [],
+   "chip_id": "33ab24ca87c0c498\u2026"
+  },
+  "unsigned_source": "dirname: evidence",
+  "country": "??",
+  "basis": "attestation-result",
+  "note": "SEV-SNP ATTESTATION_REPORT has no locational field by ABI definition; country comes only from capture metadata",
+  "source": "no identity file \u2014 directory name only",
+  "ear_hex": "a4190109781d7461673a696574662e6f72672c323032363a726174732f656172233034061a6aa01b3c1903eca2007367656f61722d76657269666965722d64656d6f016a323032362d30392d303819010aa174736e703a33336162323463613837633063343938a11903e802"
+ },
+ {
+  "family": "SEV-SNP",
+  "artifact": "02-VM2-Belgium-europe-west4",
+  "sig_ok": true,
+  "debug_mode": false,
+  "container": "ioctl-wrapped(+32)",
+  "locational_in_signed": false,
+  "signed_locational_fields": {
+   "ascii_region_strings_in_report": [],
+   "chip_id": "f1adfba6c1deccc0\u2026"
+  },
+  "unsigned_source": "dirname: evidence",
+  "country": "??",
+  "basis": "attestation-result",
+  "note": "SEV-SNP ATTESTATION_REPORT has no locational field by ABI definition; country comes only from capture metadata",
+  "source": "no identity file \u2014 directory name only",
+  "ear_hex": "a4190109781d7461673a696574662e6f72672c323032363a726174732f656172233034061a6aa01b3e1903eca2007367656f61722d76657269666965722d64656d6f016a323032362d30392d303819010aa174736e703a66316164666261366331646563636330a11903e802"
+ },
+ {
+  "family": "SEV-SNP",
+  "artifact": "03-VM3-Iowa-zone-b",
+  "sig_ok": true,
+  "debug_mode": false,
+  "container": "ioctl-wrapped(+32)",
+  "locational_in_signed": false,
+  "signed_locational_fields": {
+   "ascii_region_strings_in_report": [],
+   "chip_id": "e8a8278ccf9ce48f\u2026"
+  },
+  "unsigned_source": "dirname: evidence",
+  "country": "??",
+  "basis": "attestation-result",
+  "note": "SEV-SNP ATTESTATION_REPORT has no locational field by ABI definition; country comes only from capture metadata",
+  "source": "no identity file \u2014 directory name only",
+  "ear_hex": "a4190109781d7461673a696574662e6f72672c323032363a726174732f656172233034061a6aa01b411903eca2007367656f61722d76657269666965722d64656d6f016a323032362d30392d303819010aa174736e703a65386138323738636366396365343866a11903e802"
+ },
+ {
+  "family": "SEV-SNP",
+  "artifact": "04-VM4-Belgium-v2",
+  "sig_ok": true,
+  "debug_mode": false,
+  "container": "ioctl-wrapped(+32)",
+  "locational_in_signed": false,
+  "signed_locational_fields": {
+   "ascii_region_strings_in_report": [],
+   "chip_id": "f1adfba6c1deccc0\u2026"
+  },
+  "unsigned_source": "dirname: evidence",
+  "country": "??",
+  "basis": "attestation-result",
+  "note": "SEV-SNP ATTESTATION_REPORT has no locational field by ABI definition; country comes only from capture metadata",
+  "source": "no identity file \u2014 directory name only",
+  "ear_hex": "a4190109781d7461673a696574662e6f72672c323032363a726174732f656172233034061a6aa01b431903eca2007367656f61722d76657269666965722d64656d6f016a323032362d30392d303819010aa174736e703a66316164666261366331646563636330a11903e802"
+ },
+ {
+  "family": "SEV-SNP",
+  "artifact": "01-VM1-us-central1-a",
+  "sig_ok": true,
+  "debug_mode": false,
+  "container": "bare",
+  "locational_in_signed": false,
+  "signed_locational_fields": {
+   "ascii_region_strings_in_report": [],
+   "chip_id": "33ab24ca87c0c498\u2026"
+  },
+  "unsigned_source": "00-vm-identity.txt Zone: us-central1-a",
+  "country": "US",
+  "basis": "attestation-result",
+  "note": "SEV-SNP ATTESTATION_REPORT has no locational field by ABI definition; country comes only from capture metadata",
+  "source": "GCP: us-central1 \u2014 Council Bluffs, Iowa",
+  "ear_hex": "a4190109781d7461673a696574662e6f72672c323032363a726174732f656172233034061a6aa01b481903eca2007367656f61722d76657269666965722d64656d6f016a323032362d30392d303819010aa174736e703a33336162323463613837633063343938a21903e8023a000111d3a5006255530264496f7761046e436f756e63696c20426c756666730d5001e04cababc2563d974f6868eed95b2b0e02"
+ },
+ {
+  "family": "SEV-SNP",
+  "artifact": "02-VM2-us-central1-b",
+  "sig_ok": true,
+  "debug_mode": false,
+  "container": "bare",
+  "locational_in_signed": false,
+  "signed_locational_fields": {
+   "ascii_region_strings_in_report": [],
+   "chip_id": "e8a8278ccf9ce48f\u2026"
+  },
+  "unsigned_source": "00-vm-identity.txt Zone: us-central1-b",
+  "country": "US",
+  "basis": "attestation-result",
+  "note": "SEV-SNP ATTESTATION_REPORT has no locational field by ABI definition; country comes only from capture metadata",
+  "source": "GCP: us-central1 \u2014 Council Bluffs, Iowa",
+  "ear_hex": "a4190109781d7461673a696574662e6f72672c323032363a726174732f656172233034061a6aa01b721903eca2007367656f61722d76657269666965722d64656d6f016a323032362d30392d303819010aa174736e703a65386138323738636366396365343866a21903e8023a000111d3a5006255530264496f7761046e436f756e63696c20426c756666730d506c44dc330313550cb4e7e11ca92552590e02"
+ },
+ {
+  "family": "SEV-SNP",
+  "artifact": "03-VM3-europe-west4-a",
+  "sig_ok": true,
+  "debug_mode": false,
+  "container": "bare",
+  "locational_in_signed": false,
+  "signed_locational_fields": {
+   "ascii_region_strings_in_report": [],
+   "chip_id": "f1adfba6c1deccc0\u2026"
+  },
+  "unsigned_source": "00-vm-identity.txt Zone: europe-west4-a",
+  "country": "NL",
+  "basis": "attestation-result",
+  "note": "SEV-SNP ATTESTATION_REPORT has no locational field by ABI definition; country comes only from capture metadata",
+  "source": "GCP: europe-west4 \u2014 Eemshaven, Netherlands",
+  "ear_hex": "a4190109781d7461673a696574662e6f72672c323032363a726174732f656172233034061a6aa01b881903eca2007367656f61722d76657269666965722d64656d6f016a323032362d30392d303819010aa174736e703a66316164666261366331646563636330a21903e8023a000111d3a400624e4c046945656d73686176656e0d505e1a26c009cb5e8489c4f9efa68f78ad0e02"
+ },
+ {
+  "family": "SEV-SNP",
+  "artifact": "04-VM4-us-central1-c-PARTIAL",
+  "sig_ok": true,
+  "debug_mode": false,
+  "container": "bare",
+  "locational_in_signed": false,
+  "signed_locational_fields": {
+   "ascii_region_strings_in_report": [],
+   "chip_id": "55fbbdd5b1f020a1\u2026"
+  },
+  "unsigned_source": "dirname: 04-VM4-us-central1-c-PARTIAL",
+  "country": "??",
+  "basis": "attestation-result",
+  "note": "SEV-SNP ATTESTATION_REPORT has no locational field by ABI definition; country comes only from capture metadata",
+  "source": "no identity file \u2014 directory name only",
+  "ear_hex": "a4190109781d7461673a696574662e6f72672c323032363a726174732f656172233034061a6aa01b8a1903eca2007367656f61722d76657269666965722d64656d6f016a323032362d30392d303819010aa174736e703a35356662626464356231663032306131a11903e802"
+ },
+ {
+  "family": "SEV-SNP",
+  "artifact": "vm1-evidence",
+  "sig_ok": true,
+  "debug_mode": false,
+  "container": "ioctl-wrapped(+32)",
+  "locational_in_signed": false,
+  "signed_locational_fields": {
+   "ascii_region_strings_in_report": [],
+   "chip_id": "33ab24ca87c0c498\u2026"
+  },
+  "unsigned_source": "dirname: evidence",
+  "country": "??",
+  "basis": "attestation-result",
+  "note": "SEV-SNP ATTESTATION_REPORT has no locational field by ABI definition; country comes only from capture metadata",
+  "source": "no identity file \u2014 directory name only",
+  "ear_hex": "a4190109781d7461673a696574662e6f72672c323032363a726174732f656172233034061a6aa01b8c1903eca2007367656f61722d76657269666965722d64656d6f016a323032362d30392d303819010aa174736e703a33336162323463613837633063343938a11903e802"
+ },
+ {
+  "family": "SEV-SNP",
+  "artifact": "vm2-evidence",
+  "sig_ok": true,
+  "debug_mode": false,
+  "container": "ioctl-wrapped(+32)",
+  "locational_in_signed": false,
+  "signed_locational_fields": {
+   "ascii_region_strings_in_report": [],
+   "chip_id": "f1adfba6c1deccc0\u2026"
+  },
+  "unsigned_source": "dirname: vm2-evidence",
+  "country": "??",
+  "basis": "attestation-result",
+  "note": "SEV-SNP ATTESTATION_REPORT has no locational field by ABI definition; country comes only from capture metadata",
+  "source": "no identity file \u2014 directory name only",
+  "ear_hex": "a4190109781d7461673a696574662e6f72672c323032363a726174732f656172233034061a6aa01bba1903eca2007367656f61722d76657269666965722d64656d6f016a323032362d30392d303819010aa174736e703a66316164666261366331646563636330a11903e802"
+ },
+ {
+  "family": "Azure",
+  "artifact": "01-VM1-eastus2",
+  "sig_ok": true,
+  "debug_mode": true,
+  "locational_in_signed": true,
+  "signed_locational_fields": {
+   "iss": "https://sharedeus2.eus2.attest.azure.net",
+   "region_from_issuer_host": "eastus2"
+  },
+  "unsigned_source": null,
+  "country": "US",
+  "basis": "endorsement",
+  "note": "only locational signal is the MAA issuer hostname (region-scoped service), a Microsoft-asserted identity, not a measurement",
+  "source": "Azure: East US 2 \u2014 Virginia, United States",
+  "ear_hex": "a4190109781d7461673a696574662e6f72672c323032363a726174732f656172233034061a6aa01bba1903eca2007367656f61722d76657269666965722d64656d6f016a323032362d30392d303819010aa1736d61613a736861726564657573322e65757332a21903e8023a000111d3a400625553026856697267696e69610d50b76706cf1d455f4f9162dc7d401634310e01"
+ },
+ {
+  "family": "Azure",
+  "artifact": "02-VM2-eastus2",
+  "sig_ok": true,
+  "debug_mode": true,
+  "locational_in_signed": true,
+  "signed_locational_fields": {
+   "iss": "https://sharedeus2.eus2.attest.azure.net",
+   "region_from_issuer_host": "eastus2"
+  },
+  "unsigned_source": null,
+  "country": "US",
+  "basis": "endorsement",
+  "note": "only locational signal is the MAA issuer hostname (region-scoped service), a Microsoft-asserted identity, not a measurement",
+  "source": "Azure: East US 2 \u2014 Virginia, United States",
+  "ear_hex": "a4190109781d7461673a696574662e6f72672c323032363a726174732f656172233034061a6aa01bba1903eca2007367656f61722d76657269666965722d64656d6f016a323032362d30392d303819010aa1736d61613a736861726564657573322e65757332a21903e8023a000111d3a400625553026856697267696e69610d50b14d6704980c566a98ef74175c177db70e01"
+ },
+ {
+  "family": "Azure",
+  "artifact": "03-VM3-eastus2",
+  "sig_ok": true,
+  "debug_mode": true,
+  "locational_in_signed": true,
+  "signed_locational_fields": {
+   "iss": "https://sharedeus2.eus2.attest.azure.net",
+   "region_from_issuer_host": "eastus2"
+  },
+  "unsigned_source": null,
+  "country": "US",
+  "basis": "endorsement",
+  "note": "only locational signal is the MAA issuer hostname (region-scoped service), a Microsoft-asserted identity, not a measurement",
+  "source": "Azure: East US 2 \u2014 Virginia, United States",
+  "ear_hex": "a4190109781d7461673a696574662e6f72672c323032363a726174732f656172233034061a6aa01bba1903eca2007367656f61722d76657269666965722d64656d6f016a323032362d30392d303819010aa1736d61613a736861726564657573322e65757332a21903e8023a000111d3a400625553026856697267696e69610d502f49193b7f355ee2a2d2bf74aa855e4f0e01"
+ },
+ {
+  "family": "Azure",
+  "artifact": "04-VM4-westeurope",
+  "sig_ok": true,
+  "debug_mode": true,
+  "locational_in_signed": true,
+  "signed_locational_fields": {
+   "iss": "https://sharedweu.weu.attest.azure.net",
+   "region_from_issuer_host": "westeurope"
+  },
+  "unsigned_source": null,
+  "country": "NL",
+  "basis": "endorsement",
+  "note": "only locational signal is the MAA issuer hostname (region-scoped service), a Microsoft-asserted identity, not a measurement",
+  "source": "Azure: West Europe \u2014 Netherlands",
+  "ear_hex": "a4190109781d7461673a696574662e6f72672c323032363a726174732f656172233034061a6aa01bba1903eca2007367656f61722d76657269666965722d64656d6f016a323032362d30392d303819010aa1716d61613a7368617265647765752e776575a21903e8023a000111d3a300624e4c0d50814f1a077ed25b798641788ef6dab3a10e01"
+ }
+]

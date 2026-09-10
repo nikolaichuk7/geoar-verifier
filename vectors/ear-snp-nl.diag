@@ -1,0 +1,28 @@
+18([
+  / protected / << {
+  1: -8
+} >>,
+  / unprotected / {
+  4: h'41'
+},
+  / payload / << {
+    265: "tag:ietf.org,2026:rats/ear#04",
+    6: 1788877704,
+    1004: {
+      0: "geoar-verifier-demo",
+      1: "2026-09-08"
+    },
+    266: {
+      "snp:f1adfba6c1deccc0": {
+        1000: 2,
+        -70100: {
+          0: "NL",
+          4: "Eemshaven",
+          13: h'5e1a26c009cb5e8489c4f9efa68f78ad',
+          14: 2
+        }
+      }
+    }
+  } >>,
+  / signature / h'10ca99a60d199da4bbefe10ba06e0d13fdb8ade3cf2f3d22125836b6e61abcf3bfef0576e0aabadf7466ba778a1be42a23f826d58685ae4616f11b76ea32b209'
+])

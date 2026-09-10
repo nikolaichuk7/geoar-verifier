@@ -1,0 +1,104 @@
+{
+ "evidence_source": "Producer-supplied set (trip_synthetic_example.ayerbe.json, labelled synthetic by its author), cells and collection times verbatim; the set carries no signatures, so each breadcrumb is signed here with the example's device key",
+ "verifier_A": "64/64 signatures verified; 64/64 whole cells inside NL",
+ "boundaries": "Natural Earth 10m admin-0 countries (nvkelso/natural-earth-vector, fetched 2026-09-10); rule: the whole H3 cell polygon must lie inside one country polygon",
+ "window": {
+  "cells": 64,
+  "distinct_cells": 64,
+  "interval_min": 15,
+  "span_hours": 15.75,
+  "h3_res10_edge_m": 75.9
+ },
+ "bytes": {
+  "r1-core.cbor": 25,
+  "r1-ext.cbor": 49,
+  "r2.cbor": 57,
+  "r2-noref.cbor": 39,
+  "ear-A.cose": 228,
+  "ear-B.cose": 236,
+  "ear-B-noref.cose": 218,
+  "ear-rogue.cose": 228,
+  "ear-snp-nl.cose": 227,
+  "ear-azure-nl.cose": 213
+ },
+ "r1_core_hex": "a300624e4c0d509c413213e4ad5396b1413d7e1c37c4f60e00",
+ "r1_core_identical_to_yesterday_vector": false,
+ "r2_hex": "a600624e4c0d502bfa42bce6e45c2ab556b6a0862d11f70e0210509c413213e4ad5396b1413d7e1c37c4f611c11a6955bc8412c11a69569a00",
+ "U1": "9c413213-e4ad-5396-b141-3d7e1c37c4f6",
+ "U2": "2bfa42bc-e6e4-5c2a-b556-b6a0862d11f7",
+ "cddl": {
+  "r1-core vs PR#6": true,
+  "r1-ext vs PR#6 (expected false: proposed labels)": false,
+  "r1-ext vs ext": true,
+  "r2 vs ext": true,
+  "r2 vs PR#6 (expected false)": false
+ },
+ "relying_party": [
+  {
+   "case": "R1 EAR from A (evidence)",
+   "strict": [
+    "ACCEPT",
+    "NL, basis 0 (evidence) from geoar-verifier-A"
+   ],
+   "lenient": [
+    "ACCEPT",
+    "NL from trusted geoar-verifier-A, basis 0 not examined"
+   ]
+  },
+  {
+   "case": "R2 EAR from B (attestation-result, basis-ref U1)",
+   "strict": [
+    "ACCEPT",
+    "NL via basis-ref 9c413213: upstream ACCEPT (NL, basis 0 (evidence) from geoar-verifier-A)"
+   ],
+   "lenient": [
+    "ACCEPT",
+    "NL from trusted workload-verifier-B, basis 2 not examined"
+   ]
+  },
+  {
+   "case": "R2 without basis-ref",
+   "strict": [
+    "REJECT",
+    "NL, basis attestation-result from workload-verifier-B with no basis-ref: rests on a result that cannot be audited"
+   ],
+   "lenient": [
+    "ACCEPT",
+    "NL from trusted workload-verifier-B, basis 2 not examined"
+   ]
+  },
+  {
+   "case": "forged EAR, kid A, untrusted key",
+   "strict": [
+    "REJECT",
+    "signature: InvalidSignature"
+   ],
+   "lenient": [
+    "REJECT",
+    "signature: InvalidSignature"
+   ]
+  },
+  {
+   "case": "26-run SEV-SNP NL (basis 2, no ref)",
+   "strict": [
+    "REJECT",
+    "NL, basis attestation-result from geoar-verifier-demo with no basis-ref: rests on a result that cannot be audited"
+   ],
+   "lenient": [
+    "ACCEPT",
+    "NL from trusted geoar-verifier-demo, basis 2 not examined"
+   ]
+  },
+  {
+   "case": "26-run Azure NL (basis 1)",
+   "strict": [
+    "ACCEPT",
+    "NL, basis 1 (endorsement) from geoar-verifier-demo"
+   ],
+   "lenient": [
+    "ACCEPT",
+    "NL from trusted geoar-verifier-demo, basis 1 not examined"
+   ]
+  }
+ ]
+}
