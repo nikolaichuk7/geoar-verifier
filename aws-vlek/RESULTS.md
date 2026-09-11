@@ -24,6 +24,7 @@ after collection; nothing is left running.
 | chain (our script, RSA-PSS) | leaf ← SEV-VLEK-Milan ← ARK-Milan, all OK | same |
 | `openssl verify -CAfile kds-vlek-cert_chain.pem` | OK | OK |
 | second report, same nonce, 2 s later | no field moved | no field moved |
+| VLEK leaf serial number | 0 (RFC 5280 requires a positive serial; a quirk of AMD's VLEK issuance, noted so that nobody mistakes it for tampering) | 0 |
 | certificate table from the hypervisor | `vlek.pem` only (no ASK/ARK; `snpguest verify certs` therefore reports "ark not found"; the chain was fetched from KDS instead) | same |
 
 ## What this settles
