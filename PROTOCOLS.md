@@ -14,7 +14,7 @@ for MSG_REPORT_REQ and KEY_SEL, Section 8.18 for SNP_LAUNCH_FINISH).
 | 2 | Re-attestation | is the workload still on the same chip | Google, one VM, ten reports across 3 minutes, then stop and start, ten more | verified 13:41–13:50Z: same chip across both boots, REPORT_ID changed at the relaunch |
 | 3 | Bound platform statement | the provider's own statement about the place, joined to the chip's report | AWS (identity document), Google (EK certificate, identity token), Azure (native) | AWS verified 13:24Z; Google verified 13:42Z; Azure measured 11 Sep 01:00–01:30Z |
 | 4 | Chained pair | one guest, both AMD keys | Google (mechanics), AWS (refused) | construction verified; no public platform lets a guest complete it today |
-| 5 | Session binding | is this report about the channel I am talking over | AWS SEV-SNP (2 regions), Google (3 VMs), AWS Nitro Enclaves (1 enclave) | mechanism verified; the demo binds a public key, which is not a sufficient session binding (see the note) |
+| 5 | Session binding | is this report about the channel I am talking over | Google (1 VM, TLS 1.3, direct and through a relay holding the guest's key); the key-only form also on AWS SEV-SNP, Google, Nitro | measured 17:58Z: the key binder accepts through the relay, the exporter binder rejects it |
 
 ## 1. Machine record (`tools/fingerprint_ledger.py`, output `LEDGER.md`, `ledger.json`)
 
@@ -146,6 +146,25 @@ Attestation Result should carry into the Relying Party's session.
 binding true and Ed25519 signature over N verified in all five (`runs/dual-summary.json`). AWS Nitro
 Enclaves, 16:48Z: the document's `public_key` field carries the enclave's Ed25519 SPKI and the enclave
 signs the nonce (`aws-nitro/runs/nitro-summary.json`).
+
+**Measured, both binders side by side** (`gcp-cvm/probe-exporter.sh`, `tools/exporter_client.py`,
+`gcp-cvm/exporter/runs/`). One Google SEV-SNP VM runs a TLS 1.3 server; for each client session it derives
+the RFC 9266 exporter value of that session and requests two reports with one nonce: REPORT_DATA =
+SHA-512(nonce || exporter) and REPORT_DATA = SHA-512(nonce || SPKI of the server's TLS key), and signs the
+nonce with the TLS key. The client derives its own exporter and checks both. The relay is a TLS server on
+the operator's machine that holds the guest's TLS key (the leaked-key attacker of the binder analysis),
+terminates the client's session, opens its own session to the guest and forwards the nonce and the blob.
+
+| check at the client | direct to the guest | through the relay |
+|---|---|---|
+| both SNP reports verify under the KDS VCEK for the chip (`a2b2580a…`), same REPORT_ID | yes | yes (genuine reports, genuine chip) |
+| key binder: REPORT_DATA = SHA-512(nonce ‖ SPKI), signature over the nonce, TLS peer key = attested SPKI | accepts | **accepts**: every check passes although the client is talking to the relay |
+| exporter binder: REPORT_DATA = SHA-512(nonce ‖ exporter derived by the client) | accepts (exporters equal) | **rejects**: client exporter `72b395fe…`, guest-side exporter `361367e7…` |
+
+So the two reports are equally genuine and the chip is the same; only the exporter binder tells the client
+that the session it is in is not the session the guest attested. Post-handshake binding of this kind is the
+direction Sardar's work recommends (exported authenticators, RFC 9261); the earlier key-only demo stays in
+the repository as the negative case.
 
 ## What the five together give a Verifier
 
