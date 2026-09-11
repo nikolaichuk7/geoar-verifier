@@ -1,11 +1,11 @@
 ; PR #7 CDDL, root first
 
 geographic-result-claims = non-empty<{
-  ? grm.claim-uuid-label => corim.uuid-type
-  ? grm.basis-label => grm.basis-class
-  ? grm.basis-ref-label => corim.uuid-type
-  ? grm.observed-from-label => time
-  ? grm.observed-until-label => time
+  ? grc.claim-uuid-label => corim.uuid-type
+  ? grc.basis-label => grc.basis-class
+  ? grc.basis-ref-label => corim.uuid-type
+  ? grc.observed-from-label => time
+  ? grc.observed-until-label => time
   ? grc.jurisdiction-country-label => iso-3166-alpha-2-country-code
   ? grc.jurisdiction-country-exclave-label => bool
   ? grc.jurisdiction-subdivision-label => tstr .size (2..16)
@@ -30,19 +30,19 @@ $$ear-appraisal-extension //= (
 
 ear.geographic-result-label = eat.JC<"TBD02", TBD01>
 
-grm.claim-uuid-label = eat.JC<"grm.claim-uuid", 13>
-grm.basis-label = eat.JC<"grm.basis", 14>
+grc.claim-uuid-label = eat.JC<"grc.claim-uuid", 13>
+grc.basis-label = eat.JC<"grc.basis", 14>
 
 ; the class of artifact a geographic result rests on (RFC 9334, Section 4.2)
-grm.basis-class = &(
+grc.basis-class = &(
   evidence: 0,
   endorsement: 1,
   attestation-result: 2,
 )
 ; label 15 is left for the provenance value proposed separately
-grm.basis-ref-label = eat.JC<"grm.basis-ref", 16>
-grm.observed-from-label = eat.JC<"grm.observed-from", 17>
-grm.observed-until-label = eat.JC<"grm.observed-until", 18>
+grc.basis-ref-label = eat.JC<"grc.basis-ref", 16>
+grc.observed-from-label = eat.JC<"grc.observed-from", 17>
+grc.observed-until-label = eat.JC<"grc.observed-until", 18>
 grc.jurisdiction-country-label = eat.JC<"grc.jurisdiction-country", 0>
 grc.jurisdiction-country-exclave-label = eat.JC<"grc.jurisdiction-country-exclave", 1>
 grc.jurisdiction-subdivision-label = eat.JC<"grc.jurisdiction-state", 2>

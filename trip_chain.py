@@ -132,10 +132,10 @@ cases = [("R1 EAR from A (evidence)", ear_A), ("R2 EAR from B (attestation-resul
 table = [{"case": n, "strict": rp(m, "strict"), "lenient": rp(m, "lenient")} for n, m in cases]
 
 # ---- 6. bytes, files, CDDL
-ext_cddl = STRICT.read_text().replace("  ? grm.basis-label => grm.basis-class\n",
-    "  ? grm.basis-label => grm.basis-class\n  ? grm.provence-label => tstr .size (1..12)\n  ? grm.basis-ref-label => corim.uuid-type\n  ? grm.observed-from-label => time\n  ? grm.observed-until-label => time\n") \
+ext_cddl = STRICT.read_text().replace("  ? grc.basis-label => grc.basis-class\n",
+    "  ? grc.basis-label => grc.basis-class\n  ? grc.provence-label => tstr .size (1..12)\n  ? grc.basis-ref-label => corim.uuid-type\n  ? grc.observed-from-label => time\n  ? grc.observed-until-label => time\n") \
     + "\n; PROPOSED labels, not in PR #6: provence from PR #4 moved off 13 (taken by claim-uuid), a reference to the result this one rests on, and an observation window for longitudinal evidence\n" \
-      "grm.provence-label = eat.JC<\"grm.provence\", 15>\ngrm.basis-ref-label = eat.JC<\"grm.basis-ref\", 16>\ngrm.observed-from-label = eat.JC<\"grm.observed-from\", 17>\ngrm.observed-until-label = eat.JC<\"grm.observed-until\", 18>\n; time is the CDDL prelude type #6.1(number)\n"
+      "grc.provence-label = eat.JC<\"grc.provence\", 15>\ngrc.basis-ref-label = eat.JC<\"grc.basis-ref\", 16>\ngrc.observed-from-label = eat.JC<\"grc.observed-from\", 17>\ngrc.observed-until-label = eat.JC<\"grc.observed-until\", 18>\n; time is the CDDL prelude type #6.1(number)\n"
 EXT.write_text(ext_cddl)
 files = {"r1-core.cbor": cbor2.dumps(r1["core"]), "r1-ext.cbor": cbor2.dumps(r1["ext"]), "r2.cbor": cbor2.dumps(r2), "r2-noref.cbor": cbor2.dumps(r2n),
          "ear-A.cose": ear_A, "ear-B.cose": ear_B, "ear-B-noref.cose": ear_B_noref, "ear-rogue.cose": ear_rogue, "ear-snp-nl.cose": ear_snp, "ear-azure-nl.cose": ear_azure}

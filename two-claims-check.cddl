@@ -1,8 +1,8 @@
 ; two-claims CDDL from PR #6, root rule first for the cddl gem
 
 geographic-result-claims = non-empty<{
-  ? grm.claim-uuid-label => corim.uuid-type
-  ? grm.basis-label => grm.basis-class
+  ? grc.claim-uuid-label => corim.uuid-type
+  ? grc.basis-label => grc.basis-class
   ? grc.jurisdiction-country-label => iso-3166-alpha-2-country-code
   ? grc.jurisdiction-country-exclave-label => bool
   ? grc.jurisdiction-subdivision-label => tstr .size (2..16)
@@ -27,11 +27,11 @@ $$ear-appraisal-extension //= (
 
 ear.geographic-result-label = eat.JC<"TBD02", TBD01>
 
-grm.claim-uuid-label = eat.JC<"grm.claim-uuid", 13>
-grm.basis-label = eat.JC<"grm.basis", 14>
+grc.claim-uuid-label = eat.JC<"grc.claim-uuid", 13>
+grc.basis-label = eat.JC<"grc.basis", 14>
 
 ; the class of artifact a geographic result rests on (RFC 9334, Section 4.2)
-grm.basis-class = &(
+grc.basis-class = &(
   evidence: 0,
   endorsement: 1,
   attestation-result: 2,

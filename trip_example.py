@@ -9,7 +9,7 @@ Geographic Verifier policy (this file):
   2. check the window: 64 samples, monotonic timestamps, spacing >= 15 minutes
   3. resolve each cell's centroid to a country by point-in-polygon against Natural Earth 50m admin-0 boundaries
   4. emit a geographic result only if every cell resolves to the same country; otherwise emit nothing
-  5. encode jurisdiction-country with grm.basis = evidence (0) and grm.claim-uuid = uuid5(namespace, sha256(evidence set))
+  5. encode jurisdiction-country with grc.basis = evidence (0) and grc.claim-uuid = uuid5(namespace, sha256(evidence set))
   6. validate the CBOR against the CDDL of PR #6 with the cddl gem
 
 Usage: python3 trip_example.py <ne_50m_admin_0_countries.geojson> <check.cddl>

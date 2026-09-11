@@ -1,12 +1,12 @@
 ; two-claims CDDL from PR #6, root rule first for the cddl gem
 
 geographic-result-claims = non-empty<{
-  ? grm.claim-uuid-label => corim.uuid-type
-  ? grm.basis-label => grm.basis-class
-  ? grm.provence-label => tstr .size (1..12)
-  ? grm.basis-ref-label => corim.uuid-type
-  ? grm.observed-from-label => time
-  ? grm.observed-until-label => time
+  ? grc.claim-uuid-label => corim.uuid-type
+  ? grc.basis-label => grc.basis-class
+  ? grc.provence-label => tstr .size (1..12)
+  ? grc.basis-ref-label => corim.uuid-type
+  ? grc.observed-from-label => time
+  ? grc.observed-until-label => time
   ? grc.jurisdiction-country-label => iso-3166-alpha-2-country-code
   ? grc.jurisdiction-country-exclave-label => bool
   ? grc.jurisdiction-subdivision-label => tstr .size (2..16)
@@ -31,11 +31,11 @@ $$ear-appraisal-extension //= (
 
 ear.geographic-result-label = eat.JC<"TBD02", TBD01>
 
-grm.claim-uuid-label = eat.JC<"grm.claim-uuid", 13>
-grm.basis-label = eat.JC<"grm.basis", 14>
+grc.claim-uuid-label = eat.JC<"grc.claim-uuid", 13>
+grc.basis-label = eat.JC<"grc.basis", 14>
 
 ; the class of artifact a geographic result rests on (RFC 9334, Section 4.2)
-grm.basis-class = &(
+grc.basis-class = &(
   evidence: 0,
   endorsement: 1,
   attestation-result: 2,
@@ -63,8 +63,8 @@ non-empty<M> = (M) .and ({ + any => any })
 TBD01 = -70100
 
 ; PROPOSED labels, not in PR #6: provence from PR #4 moved off 13 (taken by claim-uuid), a reference to the result this one rests on, and an observation window for longitudinal evidence
-grm.provence-label = eat.JC<"grm.provence", 15>
-grm.basis-ref-label = eat.JC<"grm.basis-ref", 16>
-grm.observed-from-label = eat.JC<"grm.observed-from", 17>
-grm.observed-until-label = eat.JC<"grm.observed-until", 18>
+grc.provence-label = eat.JC<"grc.provence", 15>
+grc.basis-ref-label = eat.JC<"grc.basis-ref", 16>
+grc.observed-from-label = eat.JC<"grc.observed-from", 17>
+grc.observed-until-label = eat.JC<"grc.observed-until", 18>
 ; time is the CDDL prelude type #6.1(number)
