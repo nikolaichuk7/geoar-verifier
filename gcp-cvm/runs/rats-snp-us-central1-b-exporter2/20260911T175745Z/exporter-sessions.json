@@ -1,0 +1,27 @@
+[
+ {
+  "n": 1,
+  "peer": "104.14.24.198",
+  "time": "2026-09-11T17:58:15Z",
+  "ok": false,
+  "error": "SysCallError(-1, 'Unexpected EOF')"
+ },
+ {
+  "n": 2,
+  "peer": "104.14.24.198",
+  "time": "2026-09-11T17:58:15Z",
+  "nonce_hex": "d8173bc484210fd7...",
+  "exporter_server": "40d8d7346dfa43004277cc30e851165d653174c95bd3cb77f36993ea24735c8c",
+  "tls": "TLSv1.3",
+  "ok": true
+ },
+ {
+  "n": 3,
+  "peer": "104.14.24.198",
+  "time": "2026-09-11T17:58:18Z",
+  "nonce_hex": "3d33ed0c7376449f...",
+  "exporter_server": "361367e7c21f244a6d9d3820d3f776a4d2dd9ee676a83cac99d2e2d66fa89e19",
+  "tls": "TLSv1.3",
+  "ok": true
+ }
+]
