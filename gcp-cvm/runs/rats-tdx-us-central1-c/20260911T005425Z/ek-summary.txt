@@ -1,0 +1,26 @@
+== ek-rsa.der
+subject=L = us-central1-c, O = Google Compute Engine, OU = rats-probe, CN = 8405672238800367584
+issuer=C = US, ST = California, L = Mountain View, O = Google LLC, OU = Google Cloud, CN = EK/AK CA Intermediate
+serial=A213D1B976FF44C6D8550446B46EFC0AD00199
+notBefore=Sep 11 00:53:42 2026 GMT
+notAfter=Sep  3 00:53:41 2056 GMT
+            Authority Information Access: 
+                CA Issuers - URI:http://privateca-content-6a296e11-0000-2725-92a1-883d24f8f850.storage.googleapis.com/c5d5570c2c122e4f7db7/ca.crt
+            1.3.6.1.4.1.11129.2.1.21: 
+                0f.us-central1-c....,...
+rats-probe..t..]......rats-tdx-us-central1-c. 0...............................
+    Signature Algorithm: sha256WithRSAEncryption
+    Signature Value:
+== ek-ecc.der
+subject=L = us-central1-c, O = Google Compute Engine, OU = rats-probe, CN = 8405672238800367584
+issuer=C = US, ST = California, L = Mountain View, O = Google LLC, OU = Google Cloud, CN = EK/AK CA Intermediate
+serial=19DB778B9331518B8C316CBCEC84E1A6AA3CB3
+notBefore=Sep 11 00:53:42 2026 GMT
+notAfter=Sep  3 00:53:41 2056 GMT
+            Authority Information Access: 
+                CA Issuers - URI:http://privateca-content-6a296e11-0000-2725-92a1-883d24f8f850.storage.googleapis.com/c5d5570c2c122e4f7db7/ca.crt
+            1.3.6.1.4.1.11129.2.1.21: 
+                0f.us-central1-c....,...
+rats-probe..t..]......rats-tdx-us-central1-c. 0...............................
+    Signature Algorithm: sha256WithRSAEncryption
+    Signature Value:

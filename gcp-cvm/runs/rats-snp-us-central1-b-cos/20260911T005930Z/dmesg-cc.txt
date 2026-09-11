@@ -1,0 +1,7 @@
+[    0.369773] Memory Encryption Features active: AMD SEV SEV-ES SEV-SNP
+[    0.809745] SEV: APIC: wakeup_secondary_cpu() replaced with wakeup_cpu_via_vmgexit()
+[    0.882099] SEV: Using SNP CPUID table, 57 entries present.
+[    1.271478] SEV: SNP guest platform device initialized.
+[    1.342200] software IO TLB: Memory encryption is active and system is using DMA bounce buffers
+[    1.380189] sev-guest sev-guest: Initialized SEV guest driver (using vmpck_id 0)
+[   10.654592] systemd[1]: Detected confidential virtualization sev-snp.

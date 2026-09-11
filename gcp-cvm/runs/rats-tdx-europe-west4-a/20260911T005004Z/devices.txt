@@ -1,0 +1,4 @@
+ls: cannot access '/dev/sev-guest': No such file or directory
+crw------- 1 root root  10,   263 Sep 11 00:49 /dev/tdx_guest
+crw------- 1 root root  10,   224 Sep 11 00:49 /dev/tpm0
+crw------- 1 root root 252, 65536 Sep 11 00:49 /dev/tpmrm0

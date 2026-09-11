@@ -1,0 +1,7 @@
+Error: calling v1.VerifyAttestation in europe-west4: googleapi: Error 400: The request was invalid: invalid request: unexpected_snp_attestation: received: &{0x841572cde60}
+error details: name = BadRequest field = VerifyAttestationRequest desc = 
+error details: name = RequestInfo id = a3238b6a08209092 data =
+Error: calling v1.VerifyAttestation in europe-west4: googleapi: Error 400: The request was invalid: invalid request: unexpected_snp_attestation: received: &{0x3eef3d85c540}
+error details: name = BadRequest field = VerifyAttestationRequest desc = 
+error details: name = RequestInfo id = 1a38a23b8f953a4f data =
+gotpm token failed

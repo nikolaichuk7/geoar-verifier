@@ -1,0 +1,50 @@
+Command line tool for the go-tpm TSS
+
+This tool allows performing TPM2 operations from the command line.
+See the per-command documentation for more information.
+
+Usage:
+  gotpm [command]
+
+Available Commands:
+  attest      Create a remote attestation report
+  completion  Generate the autocompletion script for the specified shell
+  flush       Close active handles on the TPM
+  pubkey      Retrieve a public key from the TPM
+  read        Read from the TPM
+  register    Register an SVSM TPM AK
+  seal        Seal some data to the TPM
+  token       Attest and fetch an OIDC token from Google Attestation Verification Service.
+  unseal      Unseal some data previously sealed to the TPM
+  verify      Verify a remote attestation report.
+
+Flags:
+  -h, --help              help for gotpm
+      --quiet             print nothing if command is successful
+      --tpm-path string   path to TPM device (defaults to /dev/tpmrm0 then /dev/tpm0)
+      --verbose           print additional info to stdout
+  -v, --version           version for gotpm
+
+Use "gotpm [command] --help" for more information about a command.
+Gather attestation report and send it to Google Attestation Verification Service for an OIDC token.
+The OIDC token includes claims regarding the GCE VM, which is verified by Attestation Verification Service. Note that Confidential Computing API needs to be enabled for your account to access Google Attestation Verification Service https://console.cloud.google.com/apis/api/confidentialcomputing.googleapis.com.
+--algo flag overrides the public key algorithm for the GCE TPM attestation key. If not provided then by default rsa is used.
+
+Usage:
+  gotpm token [flags]
+
+Flags:
+      --algo algo                  public key algorithm: rsa, ecc (default rsa)
+      --audience string            the audience field in the claims token. Cannot be sts.googleapis.com.
+      --cloud-log                  logs the attestation and token to Cloud Logging for auditing purposes. Requires the audience flag.
+      --custom-nonce stringArray   the custom nonce field in the claims token. use this flag multiple times to add multiple custom nonces.
+      --event-log string           specifies the event log file path. (default "/sys/kernel/security/tpm0/binary_bios_measurements")
+  -h, --help                       help for token
+      --output string              output file (defaults to stdout)
+      --tee-technology string      indicates the type of TEE hardware. Should be either empty or one of sev-snp or tdx
+      --verifier-endpoint string   the attestation verifier endpoint used to retrieve an attestation claims token (default "https://confidentialcomputing.googleapis.com")
+
+Global Flags:
+      --quiet             print nothing if command is successful
+      --tpm-path string   path to TPM device (defaults to /dev/tpmrm0 then /dev/tpm0)
+      --verbose           print additional info to stdout

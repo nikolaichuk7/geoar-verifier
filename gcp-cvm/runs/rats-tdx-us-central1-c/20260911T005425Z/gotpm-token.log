@@ -1,0 +1,3 @@
+Error: calling v1.VerifyAttestation in us-central1: googleapi: Error 400: Unable to verify attestation: no GRUB measurements found
+Error: calling v1.VerifyAttestation in us-central1: googleapi: Error 400: Unable to verify attestation: no GRUB measurements found
+gotpm token failed

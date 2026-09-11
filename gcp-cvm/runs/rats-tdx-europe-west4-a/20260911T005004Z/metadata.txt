@@ -1,0 +1,7 @@
+instance-name=rats-tdx-europe-west4-a
+instance-id=2628234669200436991
+zone=europe-west4-a
+machine-type=c3-standard-4
+project=rats-probe
+captured=20260911T005004Z
+tee=tdx

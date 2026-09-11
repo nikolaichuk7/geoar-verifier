@@ -1,0 +1,8 @@
+runs/*.console
+runs/*/probe.tgz
+runs/*/*/apt.log
+runs/*/*/go-install.log
+runs/*/*/gotpm-build.log
+launched*.txt
+collect*.log
+verify.out

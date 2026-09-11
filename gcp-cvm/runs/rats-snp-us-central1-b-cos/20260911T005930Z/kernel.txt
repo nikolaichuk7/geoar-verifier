@@ -1,0 +1,12 @@
+Linux rats-snp-us-central1-b-cos 6.6.153+ #1 SMP Sat Sep  5 10:13:08 UTC 2026 x86_64 AMD EPYC 7B13 AuthenticAMD GNU/Linux
+NAME="Container-Optimized OS"
+ID=cos
+PRETTY_NAME="Container-Optimized OS from Google"
+HOME_URL="https://cloud.google.com/container-optimized-os/docs"
+BUG_REPORT_URL="https://cloud.google.com/container-optimized-os/docs/resources/support-policy#contact_us"
+GOOGLE_CRASH_ID=Lakitu
+GOOGLE_METRICS_PRODUCT_ID=26
+KERNEL_COMMIT_ID=bce7645596996d31068d8b3c7ad0f24fc8848df3
+VERSION=121
+VERSION_ID=121
+BUILD_ID=18867.584.7

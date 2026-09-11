@@ -1,0 +1,26 @@
+== ek-rsa.der
+subject=L = europe-west4-a, O = Google Compute Engine, OU = rats-probe, CN = 2628234669200436991
+issuer=C = US, ST = California, L = Mountain View, O = Google LLC, OU = Google Cloud, CN = EK/AK CA Intermediate
+serial=2FC5E495785C95F03134C634DE82B3849CCFAE
+notBefore=Sep 11 00:49:25 2026 GMT
+notAfter=Sep  3 00:49:24 2056 GMT
+            Authority Information Access: 
+                CA Issuers - URI:http://privateca-content-6a0eb5bf-0000-2a4c-9470-f4030438c2d4.storage.googleapis.com/a5c5bf4db35f4a0beb70/ca.crt
+            1.3.6.1.4.1.11129.2.1.21: 
+                0h..europe-west4-a....,...
+rats-probe..$y].......rats-tdx-europe-west4-a. 0...............................
+    Signature Algorithm: sha256WithRSAEncryption
+    Signature Value:
+== ek-ecc.der
+subject=L = europe-west4-a, O = Google Compute Engine, OU = rats-probe, CN = 2628234669200436991
+issuer=C = US, ST = California, L = Mountain View, O = Google LLC, OU = Google Cloud, CN = EK/AK CA Intermediate
+serial=B7384D33A052392FEB85C8D29082C7F3F069C1
+notBefore=Sep 11 00:49:25 2026 GMT
+notAfter=Sep  3 00:49:24 2056 GMT
+            Authority Information Access: 
+                CA Issuers - URI:http://privateca-content-6a0eb5bf-0000-2a4c-9470-f4030438c2d4.storage.googleapis.com/a5c5bf4db35f4a0beb70/ca.crt
+            1.3.6.1.4.1.11129.2.1.21: 
+                0h..europe-west4-a....,...
+rats-probe..$y].......rats-tdx-europe-west4-a. 0...............................
+    Signature Algorithm: sha256WithRSAEncryption
+    Signature Value:

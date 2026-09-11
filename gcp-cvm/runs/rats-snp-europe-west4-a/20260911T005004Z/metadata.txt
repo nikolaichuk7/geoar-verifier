@@ -1,0 +1,7 @@
+instance-name=rats-snp-europe-west4-a
+instance-id=1398724620576551195
+zone=europe-west4-a
+machine-type=n2d-standard-2
+project=rats-probe
+captured=20260911T005004Z
+tee=snp

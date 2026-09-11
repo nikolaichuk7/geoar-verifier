@@ -1,0 +1,17 @@
+[    0.000000] efi: TPMFinalLog=0xbf3f7000 ACPI=0xbf37e000 ACPI 2.0=0xbf37e014 SMBIOS=0xbf1ca000 MEMATTR=0xbd12b698 MOKvar=0xbf1c5000 TPMEventLog=0xbd1eb018 Unaccepted=0xbf373018 
+[    0.000601] ACPI: SSDT 0x00000000BF37C000 000316 (v02 GOOGLE Tpm2Tabl 00001000 INTL 20250807)
+[    0.000604] ACPI: TPM2 0x00000000BF37B000 000034 (v04 GOOGLE          00000001 GOOG 00000001)
+[    0.000620] ACPI: Reserving TPM2 table memory at [mem 0xbf37b000-0xbf37b033]
+[    0.677640] Memory Encryption Features active: AMD SEV SEV-ES SEV-SNP
+[    0.678073] SEV: Status: SEV SEV-ES SEV-SNP 
+[    0.797080] SEV: APIC: wakeup_secondary_cpu() replaced with wakeup_cpu_via_vmgexit()
+[    0.857168] SEV: Using SNP CPUID table, 57 entries present.
+[    0.857171] SEV: SNP running at VMPL0.
+[    1.186443] SEV: SNP guest platform devices initialized.
+[    1.339696] tpm_tis MSFT0101:00: 2.0 TPM (device-id 0x9009, rev-id 0)
+[    1.370778] software IO TLB: Memory encryption is active and system is using DMA bounce buffers
+[    1.370921] sev-guest sev-guest: Initialized SEV guest driver (using VMPCK0 communication key)
+[   18.347236] systemd[1]: systemd 255.4-1ubuntu8.17 running in system mode (+PAM +AUDIT +SELINUX +APPARMOR +IMA +SMACK +SECCOMP +GCRYPT -GNUTLS +OPENSSL +ACL +BLKID +CURL +ELFUTILS +FIDO2 +IDN2 -IDN +IPTC +KMOD +LIBCRYPTSETUP +LIBFDISK +PCRE2 -PWQUALITY +P11KIT +QRENCODE +TPM2 +BZIP2 +LZ4 +XZ +ZLIB +ZSTD -BPF_FRAMEWORK -XKBCOMMON +UTMP +SYSVINIT default-hierarchy=unified)
+[   19.215162] systemd[1]: systemd-pcrextend.socket - TPM2 PCR Extension (Varlink) was skipped because of an unmet condition check (ConditionSecurity=measured-uki).
+[   19.873973] systemd[1]: systemd-pcrmachine.service - TPM2 PCR Machine ID Measurement was skipped because of an unmet condition check (ConditionSecurity=measured-uki).
+[   19.893463] systemd[1]: systemd-tpm2-setup-early.service - TPM2 SRK Setup (Early) was skipped because of an unmet condition check (ConditionSecurity=measured-uki).

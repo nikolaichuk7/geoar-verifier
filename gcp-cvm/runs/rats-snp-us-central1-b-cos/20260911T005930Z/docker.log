@@ -1,0 +1,37 @@
+Unable to find image 'golang:1.25' locally
+1.25: Pulling from library/golang
+1da3cb2f93f2: Pulling fs layer
+68b64c51cda3: Pulling fs layer
+ec935196e6a0: Pulling fs layer
+cd6b31ea4633: Pulling fs layer
+2129e38f8eb9: Pulling fs layer
+547e98930135: Pulling fs layer
+4f4fb700ef54: Pulling fs layer
+2129e38f8eb9: Waiting
+547e98930135: Waiting
+4f4fb700ef54: Waiting
+cd6b31ea4633: Waiting
+68b64c51cda3: Verifying Checksum
+68b64c51cda3: Download complete
+1da3cb2f93f2: Verifying Checksum
+1da3cb2f93f2: Download complete
+ec935196e6a0: Verifying Checksum
+ec935196e6a0: Download complete
+547e98930135: Verifying Checksum
+547e98930135: Download complete
+4f4fb700ef54: Verifying Checksum
+4f4fb700ef54: Download complete
+2129e38f8eb9: Verifying Checksum
+2129e38f8eb9: Download complete
+cd6b31ea4633: Verifying Checksum
+cd6b31ea4633: Download complete
+1da3cb2f93f2: Pull complete
+68b64c51cda3: Pull complete
+ec935196e6a0: Pull complete
+cd6b31ea4633: Pull complete
+2129e38f8eb9: Pull complete
+547e98930135: Pull complete
+4f4fb700ef54: Pull complete
+Digest: sha256:699337d620559a59b4a2bb298ad59611e535d2ee755a34cf2d2a98f37578dc80
+Status: Downloaded newer image for golang:1.25
+go: go.work requires go >= 1.26 (running go 1.25.14; GOTOOLCHAIN=local)

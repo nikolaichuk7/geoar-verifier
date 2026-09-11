@@ -1,0 +1,7 @@
+instance-name=rats-snp-us-central1-b
+instance-id=8785493183381302954
+zone=us-central1-b
+machine-type=n2d-standard-2
+project=rats-probe
+captured=20260911T005124Z
+tee=snp
