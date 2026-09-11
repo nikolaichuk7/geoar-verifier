@@ -104,3 +104,53 @@ index and checked against the SHA-256 the VM printed; VMs deleted only after tha
    case the report verifies under the certificate KDS issues for that CHIP_ID. Whether the
    name covers one die or a group is AMD's to say; the data shows a stable per-machine value
    that fresh VMs come back to.
+
+## 11 September, 13:42Z: the provider's statement bound into the chip's report (protocol 3)
+
+One VM in `us-central1-b` (`runs/rats-snp-us-central1-b-bind`), `probe-bind-gcp.sh`. Three
+SEV-SNP reports with one public nonce N: `r0` with REPORT_DATA = N, `r-ek` with REPORT_DATA =
+SHA-512(N ‖ SHA-256 of the vTPM RSA EK certificate), `r-jwt` with REPORT_DATA = SHA-512(N ‖
+SHA-256 of the Compute Engine identity token). Verified offline (`bind_verify.py`,
+`runs/bind-summary.json`):
+
+| check | result |
+|---|---|
+| reports signed by | VCEK, CHIP_ID `a2b2580a…` (an eleventh distinct chip), same REPORT_ID in all three |
+| KDS VCEK for CHIP_ID and TCB verifies all three; hwID == CHIP_ID; chain to ARK-Milan | yes |
+| `r0` REPORT_DATA == N | yes |
+| `r-ek` REPORT_DATA == SHA-512(N ‖ SHA-256(EK cert)) | yes |
+| EK certificate signed by Google `EK/AK CA Intermediate` (fetched via AIA) | yes |
+| EK subject / extension 1.3.6.1.4.1.11129.2.1.21 | `L=us-central1-b`; zone us-central1-b, project rats-probe, instance id and name |
+| `r-jwt` REPORT_DATA == SHA-512(N ‖ SHA-256(identity token)) | yes |
+| identity token signed by Google (JWKS via OpenID discovery), `zone` claim | yes; `us-central1-b` |
+| certificate table from the hypervisor | VCEK + ASK + ARK |
+
+What it settles: Google's two signed statements about the place (a CA statement in the EK
+certificate, an identity-provider statement in the token) can be joined to the chip's report the
+same way AWS's identity document was on `aws-vlek` and the way Azure's paravisor does natively.
+The join proves that this guest held those statements when it asked for the report; the
+statements remain Endorsements by Google, and the Verifier decides whom to trust for the place.
+
+## 11 September, 13:41–13:50Z: re-attestation across a stop and start (protocol 2)
+
+One VM in `us-central1-b` (`runs/rats-snp-us-central1-b-reattest`), `probe-reattest.sh` at every
+boot: ten SEV-SNP reports twenty seconds apart, each with a fresh nonce naming the boot and the
+sample. `reattest.sh` waited for the first boot's archive, stopped and started the VM, waited for
+the second boot's archive, and deleted the VM only then.
+
+| | boot 1 (13:41:27–13:44:27Z) | boot 2 (13:46:54–13:49:54Z) |
+|---|---|---|
+| samples with REPORT_DATA == nonce | 10 / 10 | 10 / 10 |
+| CHIP_ID | `f1cf2d6f…` | `f1cf2d6f…` (same) |
+| REPORT_ID | `08c80326…` (one value in all ten) | `aa4ef53d…` (new) |
+| MEASUREMENT | `0e017d2f…` | `0e017d2f…` (same) |
+| REPORTED_TCB | 4.0.29.222 | 4.0.29.222 |
+| kernel boot id | 7c67fe3b… | 030be523… |
+| GCE instance id | same | same |
+
+What it settles: within one guest lifetime REPORT_ID is constant across reports (as the ABI
+promises) and CHIP_ID is constant; across a stop and start REPORT_ID changes and CHIP_ID may or
+may not, here it did not, the VM returned to the chip it had left. A Verifier that keeps the
+ledger sees both facts without any help from the provider. This chip (`f1cf2d6f…`) is the one the
+first Ubuntu VM (00:51Z) and the `cos` VM (00:59Z) reported: four sightings, three VMs, thirteen
+hours.

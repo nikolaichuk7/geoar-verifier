@@ -1,0 +1,29 @@
+13:42:16 waiting for boot archive 1 (3121 console lines)
+13:42:47 waiting for boot archive 1 (3121 console lines)
+13:43:18 waiting for boot archive 1 (3121 console lines)
+13:43:50 waiting for boot archive 1 (3121 console lines)
+13:44:21 waiting for boot archive 1 (3121 console lines)
+13:44:52 1 boot archive(s) verified
+13:44:52 stopping
+13:45:47 stopped: TERMINATED
+13:45:48 starting
+13:45:56 started: RUNNING
+13:45:59 waiting for boot archive 2 (8 console lines)
+13:46:30 waiting for boot archive 2 (478 console lines)
+13:47:01 waiting for boot archive 2 (1982 console lines)
+13:47:33 waiting for boot archive 2 (2945 console lines)
+13:48:04 waiting for boot archive 2 (2945 console lines)
+13:48:35 waiting for boot archive 2 (2945 console lines)
+13:49:06 waiting for boot archive 2 (2945 console lines)
+13:49:38 waiting for boot archive 2 (2945 console lines)
+13:50:09 waiting for boot archive 2 (3214 console lines)
+13:50:41 2 boot archive(s) verified
+13:51:39 rats-snp-us-central1-b-reattest deleted
+== runs/rats-snp-us-central1-b-reattest/20260911T134127Z
+  boot-id 7c67fe3b-dadc-46a0-9ec7-6044d250c1b1 gce-instance-id 7656605061632080428
+  samples ok: 10 / 10 | distinct chip_id: 1 | distinct report_id: 1 | nonce ok: True
+  chip_id f1cf2d6fac9e8040 report_id 08c80326bc518644 tcb 0xde1d000000000004 measurement 0e017d2fba7c4964 first 2026-09-11T13:41:27Z last 2026-09-11T13:44:27Z
+== runs/rats-snp-us-central1-b-reattest/20260911T134654Z
+  boot-id 030be523-961c-4c03-9bb5-f6f7357d7703 gce-instance-id 7656605061632080428
+  samples ok: 10 / 10 | distinct chip_id: 1 | distinct report_id: 1 | nonce ok: True
+  chip_id f1cf2d6fac9e8040 report_id aa4ef53dd9d4e1b8 tcb 0xde1d000000000004 measurement 0e017d2fba7c4964 first 2026-09-11T13:46:54Z last 2026-09-11T13:49:54Z

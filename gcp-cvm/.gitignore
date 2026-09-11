@@ -1,4 +1,6 @@
 runs/*.console
+runs/*.console2
+runs/*/probe-*.tgz
 runs/*/probe.tgz
 runs/*/*/apt.log
 runs/*/*/go-install.log

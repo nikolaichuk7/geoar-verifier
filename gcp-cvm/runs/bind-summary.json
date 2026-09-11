@@ -1,0 +1,90 @@
+[
+ {
+  "run": "runs/rats-snp-us-central1-b-bind/20260911T134203Z",
+  "instance": "rats-snp-us-central1-b-bind",
+  "zone": "us-central1-b",
+  "reports": {
+   "r0": {
+    "signing_key": "VCEK",
+    "chip_id_prefix": "a2b2580a8a9e3064",
+    "report_id": "979a12c6a81c912c",
+    "signature_ok_with_kds_vcek": true,
+    "vcek_chain_to_ark_ok": true,
+    "hwid_equals_chip_id": true,
+    "report_data_binding_ok": true
+   },
+   "r-ek": {
+    "signing_key": "VCEK",
+    "chip_id_prefix": "a2b2580a8a9e3064",
+    "report_id": "979a12c6a81c912c",
+    "signature_ok_with_kds_vcek": true,
+    "vcek_chain_to_ark_ok": true,
+    "hwid_equals_chip_id": true,
+    "report_data_binding_ok": true
+   },
+   "r-jwt": {
+    "signing_key": "VCEK",
+    "chip_id_prefix": "a2b2580a8a9e3064",
+    "report_id": "979a12c6a81c912c",
+    "signature_ok_with_kds_vcek": true,
+    "vcek_chain_to_ark_ok": true,
+    "hwid_equals_chip_id": true,
+    "report_data_binding_ok": true
+   }
+  },
+  "ek_certificate": {
+   "file": "ek-rsa.der",
+   "subject": "CN=3307953745333697035,OU=rats-probe,O=Google Compute Engine,L=us-central1-b",
+   "issuer": "CN=EK/AK CA Intermediate,OU=Google Cloud,O=Google LLC,L=Mountain View,ST=California,C=US",
+   "not_before": "2026-09-11 13:40:59+00:00",
+   "extension_oids": [
+    "2.5.29.15",
+    "2.5.29.19",
+    "2.5.29.14",
+    "2.5.29.35",
+    "1.3.6.1.5.5.7.1.1",
+    "1.3.6.1.4.1.11129.2.1.21"
+   ],
+   "gce_instance_ext_raw": "306b0c0d75732d63656e7472616c312d62020506082cc6c90c0a726174732d70726f626502082de83667b409ba0b0c1b726174732d736e702d75732d",
+   "gce_instance_ext": {
+    "zone": "us-central1-b",
+    "project_number": 25906955977,
+    "project_id": "rats-probe",
+    "instance_id": 3307953745333697035,
+    "instance_name": "rats-snp-us-central1-b-bind",
+    "security_properties": {
+     "tag": "0xa0",
+     "hex": "301ea003020100a1030101ffa2030101ffa303010100a403010100a503010100"
+    }
+   },
+   "issuer_sig_ok": true,
+   "issuer_of_issuer": "CN=EK/AK CA Root,OU=Google Cloud,O=Google LLC,L=Mountain View,ST=California,C=US"
+  },
+  "ek_names_zone": true,
+  "identity_token": {
+   "file": "gce-identity-token.jwt",
+   "iss": "https://accounts.google.com",
+   "alg": "RS256",
+   "kid": "f10f87405a979c1df36df26606734f33cd85c271",
+   "claims": {
+    "google": {
+     "compute_engine": {
+      "instance_creation_timestamp": 1789134053,
+      "instance_id": "3307953745333697035",
+      "instance_name": "rats-snp-us-central1-b-bind",
+      "project_id": "rats-probe",
+      "project_number": 25906955977,
+      "zone": "us-central1-b"
+     }
+    },
+    "sub": "101533443495650794566",
+    "aud": "rats-probe",
+    "iat": 1789134123,
+    "exp": 1789137723
+   },
+   "sig_ok": true,
+   "jwks_uri": "https://www.googleapis.com/oauth2/v3/certs"
+  },
+  "token_names_zone": true
+ }
+]

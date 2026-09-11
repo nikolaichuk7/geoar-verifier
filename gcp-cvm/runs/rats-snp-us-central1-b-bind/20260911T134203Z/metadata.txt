@@ -1,0 +1,5 @@
+cloud=google
+instance=rats-snp-us-central1-b-bind
+zone=us-central1-b
+captured=20260911T134203Z
+probe=bind

@@ -1,0 +1,44 @@
+{
+ "r0": {
+  "name": "r0",
+  "ok": true,
+  "fw_status": 0,
+  "ioctl_error": null,
+  "signing_key_bits": 0,
+  "chip_id": "a2b2580a8a9e3064",
+  "report_id": "979a12c6a81c912c",
+  "report_data": "47da4997fdd66876032adf50e6aa16a4d1943834bc9b3f9f509bd10087cbdbb06f674614fbb615aba5ded18d5095e677e2dc886d95850210c0e58cf6a10efa47",
+  "table": [
+   "VCEK",
+   "ASK",
+   "ARK"
+  ],
+  "report_data_is_nonce": true
+ },
+ "r-ek": {
+  "name": "r-ek",
+  "ok": true,
+  "fw_status": 0,
+  "ioctl_error": null,
+  "signing_key_bits": 0,
+  "chip_id": "a2b2580a8a9e3064",
+  "report_id": "979a12c6a81c912c",
+  "report_data": "a92e44807359d61bfa8df4e832728f1f727cae687acedc0189e21d2f45178c38a0ca9d5fb7a1301e1e528bbb6029a2fb12818e5471d89a446c9301b3011531b6",
+  "bound_to": "SHA-512(N || SHA-256(ek-rsa.der))",
+  "binding_ok": true,
+  "ek_sha256": "f49a7cd97473c0f72b55cbcb9bf0742afb87b46b5a7be233bdcf525b7fbc7e06"
+ },
+ "r-jwt": {
+  "name": "r-jwt",
+  "ok": true,
+  "fw_status": 0,
+  "ioctl_error": null,
+  "signing_key_bits": 0,
+  "chip_id": "a2b2580a8a9e3064",
+  "report_id": "979a12c6a81c912c",
+  "report_data": "ace001bb6224e6c6a25ba38c63fd1bad1081aaf14111af31f596cff22a0d479eaabd0bc6c2b2df37256b4fd2bcc89c1b4431c428fe47e1a29d1a9be55689eb54",
+  "bound_to": "SHA-512(N || SHA-256(gce-identity-token.jwt))",
+  "binding_ok": true,
+  "jwt_sha256": "7b34803436ea96e4dd52ec3a635585e121459094b665196ca6a9c49dd775eb5f"
+ }
+}

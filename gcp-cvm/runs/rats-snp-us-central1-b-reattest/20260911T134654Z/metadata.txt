@@ -1,0 +1,7 @@
+cloud=google
+instance=rats-snp-us-central1-b-reattest
+zone=us-central1-b
+captured=20260911T134654Z
+probe=reattest
+gce-instance-id=7656605061632080428
+boot-id=030be523-961c-4c03-9bb5-f6f7357d7703

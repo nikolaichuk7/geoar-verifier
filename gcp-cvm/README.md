@@ -26,6 +26,15 @@ that in RFC 9334 terms. Captured 11 September 2026 in `us-central1` and `europe-
   SHA-256 header; `collect.sh` reassembles through `../tools/decode_console.py` and deletes a
   VM only after a verified extraction. Verified offline with `../aws-vlek/dual_verify.py`
   (`runs/dual-summary.json`).
+- `probe-reattest.sh` + `reattest.sh` (protocol 2 in `../PROTOCOLS.md`): ten reports twenty
+  seconds apart with fresh nonces, at every boot; the orchestrator waits for the first boot's
+  archive, stops and starts the VM, waits for the second boot's archive, and only then deletes
+  the VM. Shows whether the VM came back on the same chip (CHIP_ID) and that REPORT_ID changes
+  at every launch.
+- `probe-bind-gcp.sh` + `bind_verify.py` (protocol 3): three reports with one nonce, the second
+  bound to the vTPM EK certificate and the third to the Compute Engine identity token through
+  REPORT_DATA; the verifier checks Google's signatures on both statements, AMD's on the reports,
+  the digests, and that all name the same zone (`runs/bind-summary.json`).
 - `collect.sh`: reads the serial console with `get-serial-port-output`, decodes the archive,
   deletes the VM.
 - `gcp_verify.py`: independent verification on the operator's machine: SEV-SNP signature and
