@@ -35,6 +35,11 @@ that in RFC 9334 terms. Captured 11 September 2026 in `us-central1` and `europe-
   bound to the vTPM EK certificate and the third to the Compute Engine identity token through
   REPORT_DATA; the verifier checks Google's signatures on both statements, AMD's on the reports,
   the digests, and that all name the same zone (`runs/bind-summary.json`).
+- `probe-exporter.sh` + `../tools/exporter_client.py` (protocol 5, measured): a TLS 1.3 server in the guest
+  binds each session's RFC 9266 exporter value, and separately its TLS public key, into two SEV-SNP reports;
+  the client checks both directly and through a relay that holds the guest's key. Results in
+  `exporter/runs/`. The guest's TLS key pair is generated per run on the operator's machine (`exporter/`)
+  and is not committed.
 - `collect.sh`: reads the serial console with `get-serial-port-output`, decodes the archive,
   deletes the VM.
 - `gcp_verify.py`: independent verification on the operator's machine: SEV-SNP signature and

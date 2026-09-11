@@ -154,3 +154,23 @@ may not, here it did not, the VM returned to the chip it had left. A Verifier th
 ledger sees both facts without any help from the provider. This chip (`f1cf2d6f…`) is the one the
 first Ubuntu VM (00:51Z) and the `cos` VM (00:59Z) reported: four sightings, three VMs, thirteen
 hours.
+
+## 11 September, 17:58Z: session binding, two binders through a relay (protocol 5, measured)
+
+Usama Sardar's point on the list (17:17Z): binding a report to a public key is binder #6 of ID-Crisis and
+does not correlate the Evidence with the TLS session. Measured on one VM (`rats-snp-us-central1-b-exporter2`,
+`probe-exporter.sh`) with the client and a leaked-key relay on the operator's machine (`tools/exporter_client.py`):
+
+| | direct | through the relay holding the guest's TLS key |
+|---|---|---|
+| TLS | 1.3 | 1.3 on both legs |
+| exporter (RFC 9266, empty context, 32 bytes), client vs guest | equal | different (`72b395fe…` vs `361367e7…`) |
+| key binder (REPORT_DATA = SHA-512(nonce ‖ SPKI), signature over nonce, peer key = SPKI) | accepts | **accepts** |
+| exporter binder (REPORT_DATA = SHA-512(nonce ‖ client's exporter)) | accepts | **rejects** |
+| both reports under the KDS VCEK (chip `a2b2580a…`), same REPORT_ID | OK | OK |
+
+What it settles: with the key leaked, the key binder is blind to the relay; the exporter binder is not. The
+draft's Security Considerations text was changed the same afternoon to require a binding derived from the
+session's shared secret. Files: `exporter/runs/direct.json`, `relayed.json`, `relay.log`, the reports and blobs;
+the guest's own session log arrives with its archive. The TLS key pair is generated per run on the operator's
+machine and is not published.

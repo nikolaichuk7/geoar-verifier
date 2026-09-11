@@ -8,3 +8,5 @@ runs/*/*/gotpm-build.log
 launched*.txt
 collect*.log
 verify.out
+exporter/guest-tls.key
+exporter/guest-ip.txt

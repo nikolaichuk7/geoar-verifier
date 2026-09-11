@@ -1,0 +1,2 @@
+relay listening on 127.0.0.1:9443, holding the guest's key
+{"relay": "forwarded", "exporter_relay_to_guest": "361367e7c21f244a6d9d3820d3f776a4d2dd9ee676a83cac99d2e2d66fa89e19", "exporter_client_to_relay": "72b395fe7d72b6f7d9d16cf7e8510bd40f9e186023c2e43047265219bdc1d8e2"}

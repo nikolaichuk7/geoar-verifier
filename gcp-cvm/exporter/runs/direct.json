@@ -1,0 +1,24 @@
+{
+ "peer": "136.116.95.251:8443",
+ "tls": "TLSv1.3",
+ "exporter_client": "40d8d7346dfa43004277cc30e851165d653174c95bd3cb77f36993ea24735c8c",
+ "exporter_server_as_reported": "40d8d7346dfa43004277cc30e851165d653174c95bd3cb77f36993ea24735c8c",
+ "exporters_equal": true,
+ "key_binder": {
+  "report_data_is_sha512_nonce_spki": true,
+  "signature_over_nonce_valid": true,
+  "tls_peer_key_equals_attested_spki": true,
+  "client_accepts": true
+ },
+ "exporter_binder": {
+  "report_data_is_sha512_nonce_exporter_client": true,
+  "client_accepts": true
+ },
+ "reports": {
+  "chip_id_prefix": "a2b2580a8a9e3064",
+  "report_exporter_signature_ok": true,
+  "report_key_signature_ok": true,
+  "vcek_chain_to_ark_ok": true,
+  "same_report_id": true
+ }
+}
