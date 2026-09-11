@@ -22,6 +22,7 @@ machine; the raw artifacts are in the per-platform `runs/` directories.
 | Microsoft Azure Attestation token, SGX | regional MAA provider | region only as the issuer's address (`sharedeus2.eus2`, `sharedweu.weu`, `sharedeas.eas`) | Attestation Result | measured, 4 tokens (May 2026) |
 | Microsoft Azure Attestation token, SEV-SNP | regional MAA provider (`sharedeus.eus`, `sharedweu.weu`) | region only as the issuer's address; the `x-ms-sevsnpvm-*` claims name the chip, measurement and policy, never a place | Attestation Result | measured, 2 tokens, East US / West Europe (11 Sep 2026) → `azure-cvm/runs/*-3/`, `*-2/` |
 | Azure Intel TDX (DCesv5) | | | | not available to the subscription in any commercial region |
+| bare metal, hypervisor ours (AMD EPYC Genoa, SEV-SNP) | AMD VCEK ← ASK ← ARK (Genoa) | none; CHIP_ID present and byte-identical to the host's `SEV_GET_ID2`; with `MASK_CHIP_ID` the guest sees zeros while the operator still verifies the same report with the host's value | (no geographic result) | measured, 4 launch configurations, Chicago (11 Sep 2026) → `baremetal/` |
 | bare-metal TPM 2.0 (EK certificate) | TPM vendor CA | none; operator inventory maps EK to a rack | Endorsement | specification only |
 | Arm CCA realm / platform token | platform key | none (implementation and instance identifiers) | (no geographic result) | specification only; no public cloud offer |
 | mobile device with trusted GNSS, RFC 9711 `location` claim | device attester | latitude/longitude from the sensor | Evidence | specification only (RFC 9711 §4.2.10) |
@@ -34,7 +35,9 @@ machine; the raw artifacts are in the per-platform `runs/` directories.
 - The same VM can yield geographic Attestation Results of different classes depending on
   which artifact a Verifier consumed. That is the case for the `basis` field.
 - One guest cannot hold both AMD signatures on any of the three platforms: AWS shared tenancy
-  disables the VCEK per guest (VCEK_DIS), Google and Azure load no VLEK. The chained pair
+  disables the VCEK per guest (VCEK_DIS), Google and Azure load no VLEK. On a host of our own, setting
+  that one launch flag reproduces the AWS refusal exactly, and masking CHIP_ID reproduces the zeroed
+  field, so both are hypervisor policy rather than anything the hardware decides (`baremetal/RESULTS.md`). The chained pair
   (report B carrying SHA-512 of report A in REPORT_DATA) is verified as a construction and
   needs one launch bit from a provider, not a change to the ABI or to the draft.
 - Freshness is provable on every measured platform, but through different chains: a nonce in

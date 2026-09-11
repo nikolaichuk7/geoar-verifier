@@ -1,0 +1,41 @@
+{
+ "k0": {
+  "name": "k0",
+  "key_sel": 0,
+  "ioctl_error": null,
+  "exitinfo2": "0x0",
+  "fw_status": 39,
+  "ok": false
+ },
+ "k1": {
+  "name": "k1",
+  "key_sel": 1,
+  "ioctl_error": null,
+  "exitinfo2": "0x0",
+  "fw_status": 39,
+  "ok": false
+ },
+ "k2": {
+  "name": "k2",
+  "key_sel": 2,
+  "ioctl_error": null,
+  "exitinfo2": "0x0",
+  "fw_status": 39,
+  "ok": false
+ },
+ "cb": {
+  "name": "cb",
+  "key_sel": 0,
+  "ioctl_error": null,
+  "exitinfo2": "0x0",
+  "fw_status": 39,
+  "ok": false
+ },
+ "ext_report": {
+  "ioctl_error": null,
+  "exitinfo2": "0x0",
+  "fw_status": 39,
+  "certs_len_returned": 16384,
+  "table": []
+ }
+}

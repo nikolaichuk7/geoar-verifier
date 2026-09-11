@@ -1,0 +1,5 @@
+cloud=baremetal
+instance=rats-E3-200306
+zone=cherry-chicago
+captured=20260911T200410Z
+probe=dual

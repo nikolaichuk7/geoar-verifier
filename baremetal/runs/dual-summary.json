@@ -1,0 +1,271 @@
+[
+ {
+  "run": "baremetal/runs/E1/20260911T195928Z",
+  "cloud": "baremetal",
+  "instance": "rats-E1-195817",
+  "zone": "cherry-chicago",
+  "host_certs": [],
+  "reports": {
+   "cb": {
+    "signing_key": "VCEK",
+    "product": "Genoa",
+    "report_version": 3,
+    "chip_id_zero": false,
+    "chip_id_prefix": "2d2b2dd3abfaa380",
+    "report_id": "818e4bec218a7292",
+    "report_data_is_nonce": false,
+    "verified_by": "kds:VCEK",
+    "chain_ok": true,
+    "chain": [
+     "CN=SEV-VCEK",
+     "CN=SEV-Genoa",
+     "CN=ARK-Genoa"
+    ],
+    "hwid_equals_chip_id": true
+   },
+   "chA": {
+    "signing_key": "VCEK",
+    "product": "Genoa",
+    "report_version": 3,
+    "chip_id_zero": false,
+    "chip_id_prefix": "2d2b2dd3abfaa380",
+    "report_id": "818e4bec218a7292",
+    "report_data_is_nonce": true,
+    "verified_by": "kds:VCEK",
+    "chain_ok": true,
+    "chain": [
+     "CN=SEV-VCEK",
+     "CN=SEV-Genoa",
+     "CN=ARK-Genoa"
+    ],
+    "hwid_equals_chip_id": true
+   },
+   "chB": {
+    "signing_key": "VCEK",
+    "product": "Genoa",
+    "report_version": 3,
+    "chip_id_zero": false,
+    "chip_id_prefix": "2d2b2dd3abfaa380",
+    "report_id": "818e4bec218a7292",
+    "report_data_is_nonce": false,
+    "verified_by": "kds:VCEK",
+    "chain_ok": true,
+    "chain": [
+     "CN=SEV-VCEK",
+     "CN=SEV-Genoa",
+     "CN=ARK-Genoa"
+    ],
+    "hwid_equals_chip_id": true
+   },
+   "k0": {
+    "signing_key": "VCEK",
+    "product": "Genoa",
+    "report_version": 3,
+    "chip_id_zero": false,
+    "chip_id_prefix": "2d2b2dd3abfaa380",
+    "report_id": "818e4bec218a7292",
+    "report_data_is_nonce": true,
+    "verified_by": "kds:VCEK",
+    "chain_ok": true,
+    "chain": [
+     "CN=SEV-VCEK",
+     "CN=SEV-Genoa",
+     "CN=ARK-Genoa"
+    ],
+    "hwid_equals_chip_id": true
+   },
+   "k1": {
+    "signing_key": "VCEK",
+    "product": "Genoa",
+    "report_version": 3,
+    "chip_id_zero": false,
+    "chip_id_prefix": "2d2b2dd3abfaa380",
+    "report_id": "818e4bec218a7292",
+    "report_data_is_nonce": true,
+    "verified_by": "kds:VCEK",
+    "chain_ok": true,
+    "chain": [
+     "CN=SEV-VCEK",
+     "CN=SEV-Genoa",
+     "CN=ARK-Genoa"
+    ],
+    "hwid_equals_chip_id": true
+   }
+  },
+  "chained": {
+   "chB_report_data_is_sha512_chA": true,
+   "same_report_id": true,
+   "same_measurement": true,
+   "keys": [
+    "VCEK",
+    "VCEK"
+   ]
+  },
+  "channel_binding": {
+   "report_data_is_sha512_nonce_spki": true,
+   "ephemeral_sig_over_nonce_ok": true
+  },
+  "firmware": {
+   "k0": {
+    "ok": true,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 0
+   },
+   "k1": {
+    "ok": true,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 0
+   },
+   "k2": {
+    "ok": false,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 39
+   },
+   "chA": {
+    "ok": true,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 0
+   },
+   "chB": {
+    "ok": true,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 0
+   },
+   "cb": {
+    "ok": true,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 0
+   }
+  },
+  "ext_report": {
+   "ioctl_error": null,
+   "exitinfo2": "0x0",
+   "fw_status": 0,
+   "certs_len_returned": 16384,
+   "table": []
+  }
+ },
+ {
+  "run": "baremetal/runs/E3/20260911T200410Z",
+  "cloud": "baremetal",
+  "instance": "rats-E3-200306",
+  "zone": "cherry-chicago",
+  "host_certs": [],
+  "reports": {
+   "cb": {
+    "signing_key": "VCEK",
+    "product": "Genoa",
+    "report_version": 3,
+    "chip_id_zero": true,
+    "chip_id_prefix": "0000000000000000",
+    "report_id": "e26a1b1d67648afe",
+    "report_data_is_nonce": false,
+    "verified_by": null
+   },
+   "chA": {
+    "signing_key": "VCEK",
+    "product": "Genoa",
+    "report_version": 3,
+    "chip_id_zero": true,
+    "chip_id_prefix": "0000000000000000",
+    "report_id": "e26a1b1d67648afe",
+    "report_data_is_nonce": true,
+    "verified_by": null
+   },
+   "chB": {
+    "signing_key": "VCEK",
+    "product": "Genoa",
+    "report_version": 3,
+    "chip_id_zero": true,
+    "chip_id_prefix": "0000000000000000",
+    "report_id": "e26a1b1d67648afe",
+    "report_data_is_nonce": false,
+    "verified_by": null
+   },
+   "k0": {
+    "signing_key": "VCEK",
+    "product": "Genoa",
+    "report_version": 3,
+    "chip_id_zero": true,
+    "chip_id_prefix": "0000000000000000",
+    "report_id": "e26a1b1d67648afe",
+    "report_data_is_nonce": true,
+    "verified_by": null
+   },
+   "k1": {
+    "signing_key": "VCEK",
+    "product": "Genoa",
+    "report_version": 3,
+    "chip_id_zero": true,
+    "chip_id_prefix": "0000000000000000",
+    "report_id": "e26a1b1d67648afe",
+    "report_data_is_nonce": true,
+    "verified_by": null
+   }
+  },
+  "chained": {
+   "chB_report_data_is_sha512_chA": true,
+   "same_report_id": true,
+   "same_measurement": true,
+   "keys": [
+    "VCEK",
+    "VCEK"
+   ]
+  },
+  "channel_binding": {
+   "report_data_is_sha512_nonce_spki": true,
+   "ephemeral_sig_over_nonce_ok": true
+  },
+  "firmware": {
+   "k0": {
+    "ok": true,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 0
+   },
+   "k1": {
+    "ok": true,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 0
+   },
+   "k2": {
+    "ok": false,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 39
+   },
+   "chA": {
+    "ok": true,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 0
+   },
+   "chB": {
+    "ok": true,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 0
+   },
+   "cb": {
+    "ok": true,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 0
+   }
+  },
+  "ext_report": {
+   "ioctl_error": null,
+   "exitinfo2": "0x0",
+   "fw_status": 0,
+   "certs_len_returned": 16384,
+   "table": []
+  }
+ }
+]

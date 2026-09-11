@@ -13,6 +13,7 @@ One row per run that produced SEV-SNP reports. `key` is the SPKI SHA-256 of the 
 | gcp | rats-snp-us-central1-b-dual4 | 2026-09-11 13:17Z | VCEK | 24d9104938ca35bd… | 95a1042bdd3272b0… | 4.0.29.222 | bff9a1a26449db29… | 5 | OK |
 | gcp | rats-snp-us-central1-b-dual5 | 2026-09-11 13:17Z | VCEK | da7f959f9936e0f8… | c9866e15cc7c510d… | 4.0.29.222 | a221276c5cc95436… | 5 | OK |
 | gcp | rats-snp-us-central1-b-dual6 | 2026-09-11 13:17Z | VCEK | 28e9aeb5bfc75726… | 2683ec360e039272… | 4.0.29.222 | 3c71d10d87f6ebeb… | 5 | OK |
+| gcp | rats-snp-us-central1-b-exporter2 | 2026-09-11 17:57Z | VCEK | a2b2580a8a9e3064… | dc99adcea377f109… | 4.0.29.222 | 115dfa66fea9a625… | 4 | OK |
 | gcp | rats-snp-us-central1-b-reattest | 2026-09-11 13:41Z | VCEK | f1cf2d6fac9e8040… | 25d50d5c674d76b6… | 4.0.29.222 | 08c80326bc518644… | 10 | OK |
 | gcp | rats-snp-us-central1-b-reattest | 2026-09-11 13:46Z | VCEK | f1cf2d6fac9e8040… | 25d50d5c674d76b6… | 4.0.29.222 | aa4ef53dd9d4e1b8… | 10 | OK |
 | gcp | rats-snp-us-central1-b | 2026-09-11 00:51Z | VCEK | f1cf2d6fac9e8040… | 25d50d5c674d76b6… | 4.0.29.222 | a31ca1be5adb1a60… | 2 | OK |
@@ -26,14 +27,16 @@ One row per run that produced SEV-SNP reports. `key` is the SPKI SHA-256 of the 
 | aws | i-0603037ab5b36aada | 2026-09-11 13:24Z | VLEK (CN=cc-us-east-2.amazonaws.com) | all zeros | 5330c95b9cd4976c… | 4.0.29.222 | 43db6c125e3450f0… | 1 | OK |
 | aws | i-0bf334666a8c4868c | 2026-09-11 00:12Z | VLEK (CN=cc-eu-west-1.amazonaws.com) | all zeros | 6f718ce827693226… | 4.0.29.222 | d0965113a4188af5… | 2 | OK |
 | aws | i-0d7bec270b4f73618 | 2026-09-11 00:12Z | VLEK (CN=cc-us-east-2.amazonaws.com) | all zeros | 5330c95b9cd4976c… | 4.0.29.222 | cb5df5e1bedd2315… | 2 | OK |
+| baremetal | E1 | 2026-09-11 19:59Z | VCEK | 2d2b2dd3abfaa380… | ?… | 10.0.23.84 | 818e4bec218a7292… | 5 | None |
+| baremetal | E3 | 2026-09-11 20:04Z | VCEK | all zeros | ?… | 10.0.23.84 | e26a1b1d67648afe… | 5 | None |
 
-## Machines seen more than once (11 distinct CHIP_ID values across 16 VCEK-signed runs)
+## Machines seen more than once (12 distinct CHIP_ID values across 18 VCEK-signed runs that expose one; runs with a masked, all-zero CHIP_ID are excluded)
 
 | CHIP_ID | runs (captured) |
 |---|---|
 | 15f90cb088627a60… | rats-snp-europe-west4-a (2026-09-11 00:50Z) |
 | 99e6176ce83fda32… | rats-snp-europe-west4-b (2026-09-11 00:55Z) |
-| a2b2580a8a9e3064… | rats-snp-us-central1-b-bind (2026-09-11 13:42Z) |
+| a2b2580a8a9e3064… | rats-snp-us-central1-b-bind (2026-09-11 13:42Z); rats-snp-us-central1-b-exporter2 (2026-09-11 17:57Z) |
 | f1cf2d6fac9e8040… | rats-snp-us-central1-b-cos (2026-09-11 00:59Z); rats-snp-us-central1-b-reattest (2026-09-11 13:41Z); rats-snp-us-central1-b-reattest (2026-09-11 13:46Z); rats-snp-us-central1-b (2026-09-11 00:51Z) |
 | da7f959f9936e0f8… | rats-snp-us-central1-b-cos2 (2026-09-11 01:05Z); rats-snp-us-central1-b-dual5 (2026-09-11 13:17Z) |
 | 28e9aeb5bfc75726… | rats-snp-us-central1-b-cos3 (2026-09-11 01:16Z); rats-snp-us-central1-b-dual6 (2026-09-11 13:17Z) |
@@ -42,5 +45,6 @@ One row per run that produced SEV-SNP reports. `key` is the SPKI SHA-256 of the 
 | 24f37eaafea80dae… | rats-snp-eastus (2026-09-11 01:07Z) |
 | 4f939e7a6b883deb… | rats-snp-westeurope-2 (2026-09-11 01:21Z) |
 | 92a89c018c917616… | rats-snp-westeurope (2026-09-11 01:09Z) |
+| 2d2b2dd3abfaa380… | E1 (2026-09-11 19:59Z) |
 
 Reading: a CHIP_ID that comes back in a later run is the same machine seen again (the KDS certificate for it verifies both runs' reports); a run whose reports show two CHIP_ID values would be a VM that moved between reports (none so far). REPORT_ID is per guest and changes at every launch, CHIP_ID does not.

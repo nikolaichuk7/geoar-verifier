@@ -1,0 +1,8 @@
+{
+ "ioctl_error": null,
+ "fw_error": 0,
+ "requested": {
+  "mask_chip_id": 0,
+  "mask_chip_key": 0
+ }
+}

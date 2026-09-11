@@ -1,0 +1,15 @@
+{
+ "ioctl_error": null,
+ "fw_error": 0,
+ "api": "1.55",
+ "state": 1,
+ "is_rmp_init": 1,
+ "build_id": 40,
+ "mask_chip_id": 0,
+ "mask_chip_key": 0,
+ "vlek_en": 0,
+ "feature_info": 1,
+ "guest_count": 0,
+ "current_tcb": "0x541700000000000a",
+ "reported_tcb": "0x541700000000000a"
+}

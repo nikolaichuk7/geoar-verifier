@@ -17,7 +17,7 @@ if qemu-system-x86_64 -object sev-snp-guest,help 2>&1 | grep -q vcek-disabled; t
   echo "building QEMU 9.2.4 (sev-snp-guest with vcek-disabled)"; [ -d qemu-9.2.4 ] || { curl -sSL https://download.qemu.org/qemu-9.2.4.tar.xz | tar xJ; }
   ( cd qemu-9.2.4 && ./configure --target-list=x86_64-softmmu --enable-kvm --enable-slirp --disable-docs --disable-werror > ../qemu-configure.log 2>&1 && make -j"$(nproc)" > ../qemu-make.log 2>&1 ) && QEMU=$R/qemu-9.2.4/build/qemu-system-x86_64 && $QEMU --version | head -1 && $QEMU -object sev-snp-guest,help 2>&1 | grep -E "vcek-disabled|id-block" ; fi
 echo "QEMU=${QEMU:-missing}" > qemu.env
-stage "4 OVMF"; apt-get install -y -qq ovmf > apt-ovmf.log 2>&1; ls -l /usr/share/OVMF/OVMF_CODE_4M.fd /usr/share/OVMF/OVMF_CODE.fd 2>/dev/null; dpkg -s ovmf | grep -i "^Version"
+stage "4 OVMF"; apt-get install -y -qq ovmf > apt-ovmf.log 2>&1; dpkg -s ovmf | grep -i "^Version"; cat /usr/share/OVMF/OVMF_VARS_4M.fd /usr/share/OVMF/OVMF_CODE_4M.fd > $R/OVMF_4M.fd && ls -l $R/OVMF_4M.fd   # one 4 MiB image for -bios (SNP guests cannot use pflash)
 stage "5 guest image"; [ -f noble.img ] || curl -sSL -o noble.img https://cloud-images.ubuntu.com/noble/current/noble-server-cloudimg-amd64.img; qemu-img info noble.img | head -3
 stage "6 snphost (optional)"; command -v cargo >/dev/null || { curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --profile minimal > rustup.log 2>&1; }; export PATH="$HOME/.cargo/bin:$PATH"
 [ -x snphost/target/release/snphost ] || { git clone -q https://github.com/virtee/snphost.git 2>/dev/null; ( cd snphost && cargo build -r > ../snphost-build.log 2>&1 ); }; ls -l snphost/target/release/snphost 2>/dev/null

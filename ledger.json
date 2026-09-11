@@ -154,6 +154,23 @@
  },
  {
   "cloud": "gcp",
+  "run": "rats-snp-us-central1-b-exporter2",
+  "captured": "2026-09-11 17:57Z",
+  "signing_key": "VCEK",
+  "chip_id": "a2b2580a8a9e30649c7ef91b1fb5a1c528edd038512e7dd29f473867eb493d25a4f5215b1f4d3b7b8f0b5d79e93cf18ce52d6325f34256f2e9face8d32b43937",
+  "reported_tcb": "4.0.29.222",
+  "report_id": "115dfa66fea9a625be466cad84f60e29da7d4f7e7e59bde51a1c1c6ba61fa16a",
+  "measurement": "0e017d2fba7c4964575fdd8c770061abf07f0753148d030f94e969a2d1fa5a5747ba0ced9174f2d44b5f6663fa2de00f",
+  "reports": 4,
+  "distinct_chip_ids_in_run": 1,
+  "distinct_report_ids_in_run": 1,
+  "key_source": "AMD KDS by CHIP_ID and TCB",
+  "key_spki_sha256": "dc99adcea377f109c6e7ca777cfad9adb79132c091418c6ed4b6ba853b64d590",
+  "signature_ok": true,
+  "csp_id": null
+ },
+ {
+  "cloud": "gcp",
   "run": "rats-snp-us-central1-b-reattest",
   "captured": "2026-09-11 13:41Z",
   "signing_key": "VCEK",
@@ -372,5 +389,33 @@
   "key_spki_sha256": "5330c95b9cd4976c6322cd0d2ed13d3162f4841a5bb9f90c3f9d46a5ebd00326",
   "signature_ok": true,
   "csp_id": "CN=cc-us-east-2.amazonaws.com"
+ },
+ {
+  "cloud": "baremetal",
+  "run": "E1",
+  "captured": "2026-09-11 19:59Z",
+  "signing_key": "VCEK",
+  "chip_id": "2d2b2dd3abfaa380b70dd1bfcd9bd7755d9c323b20978dcfa22849a1223745882ca516b528383035ff0b47f5188f6b396397d625f7e8445772026fd85d6b2854",
+  "reported_tcb": "10.0.23.84",
+  "report_id": "818e4bec218a7292615e7bf37d4079b8639903d8abebe425d87fc8938fb1a901",
+  "measurement": "378cb49526f65b7dfb1abfd32ea2d1fd9c59c05cf50cf4b149cbfa99b6affc31e891dae02a8131700aa8af62f87046b7",
+  "reports": 5,
+  "distinct_chip_ids_in_run": 1,
+  "distinct_report_ids_in_run": 1,
+  "kds_error": "<HTTPError 404: ''>",
+  "key_source": "AMD KDS by CHIP_ID and TCB"
+ },
+ {
+  "cloud": "baremetal",
+  "run": "E3",
+  "captured": "2026-09-11 20:04Z",
+  "signing_key": "VCEK",
+  "chip_id": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "reported_tcb": "10.0.23.84",
+  "report_id": "e26a1b1d67648afebb2140ff2928c21c8ba706c8193918811f05ccd9a27d94d5",
+  "measurement": "378cb49526f65b7dfb1abfd32ea2d1fd9c59c05cf50cf4b149cbfa99b6affc31e891dae02a8131700aa8af62f87046b7",
+  "reports": 5,
+  "distinct_chip_ids_in_run": 1,
+  "distinct_report_ids_in_run": 1
  }
 ]

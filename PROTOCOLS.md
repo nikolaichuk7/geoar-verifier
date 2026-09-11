@@ -117,7 +117,9 @@ leave VCEK_DIS clear, one bit at launch.
 **Measured.** Google `us-central1-b`, three VMs, 13:16Z: the mechanics with the VCEK standing in for
 both keys, B.REPORT_DATA = SHA-512(A), same REPORT_ID, both signatures verify. AWS `us-east-2a` and
 `eu-west-1a`, 13:16Z: A (VLEK) OK, B refused with status 27h. AWS documents VCEK on Dedicated Hosts;
-not measured (Dedicated Host limit 0 on the account).
+not measured (Dedicated Host limit 0 on the account). On our own Genoa host (`../baremetal/RESULTS.md`)
+the same pair verifies, and setting `VCEK_DIS` at launch reproduces the AWS refusal exactly, which
+confirms that the missing half is a hypervisor policy and not a firmware limit.
 
 ## 5. Session binding against diversion (`probe-dual.sh`, report `cb`)
 

@@ -4,14 +4,13 @@
   snp_platform.py status        -> SNP_PLATFORM_STATUS: api, state, rmp_init, build, mask_chip_id, mask_chip_key, vlek_en, current/reported TCB
   snp_platform.py id            -> SEV_GET_ID2: the 64-byte chip identifier the KDS expects as hwID (must equal the guests' CHIP_ID)
   snp_platform.py config <mask_chip_id 0|1> [mask_chip_key 0|1]   -> SNP_SET_CONFIG (reported TCB left at 0 = committed)
-Command numbers are read from the kernel's own header (/usr/include/linux/psp-sev.h) so that they cannot be mistyped."""
+Command numbers follow the upstream uapi header (see CMD below)."""
 import sys, os, re, fcntl, ctypes, struct, json
-HDR = "/usr/include/linux/psp-sev.h"
-def cmd_id(name):
-    src = open(HDR).read(); body = src[src.index("enum {"):]; body = body[:body.index("};")]
-    names = [t.strip().split("=")[0].strip() for t in body.split("\n") if t.strip() and not t.strip().startswith(("/*", "*", "//"))]
-    names = [n.rstrip(",") for n in names if n and n.rstrip(",").isupper()]
-    return names.index(name)
+# Command ids from include/uapi/linux/psp-sev.h (upstream, verified 2026-09-11); the distribution's libc headers can be
+# older than the running kernel (Ubuntu 24.04 ships 6.8 headers, which lack the SNP_* entries), so they are not parsed.
+CMD = {"SEV_FACTORY_RESET": 0, "SEV_PLATFORM_STATUS": 1, "SEV_PEK_GEN": 2, "SEV_PEK_CSR": 3, "SEV_PDH_GEN": 4, "SEV_PDH_CERT_EXPORT": 5,
+       "SEV_PEK_CERT_IMPORT": 6, "SEV_GET_ID": 7, "SEV_GET_ID2": 8, "SNP_PLATFORM_STATUS": 9, "SNP_COMMIT": 10, "SNP_SET_CONFIG": 11, "SNP_VLEK_LOAD": 12}
+def cmd_id(name): return CMD[name]
 SEV_ISSUE_CMD = 0xC0105300                                   # _IOWR('S', 0, struct sev_issue_cmd {u32 cmd; u64 data; u32 error} __packed)
 class Issue(ctypes.Structure): _pack_ = 1; _fields_ = [("cmd", ctypes.c_uint32), ("data", ctypes.c_uint64), ("error", ctypes.c_uint32)]
 def issue(name, buf):
