@@ -14,7 +14,7 @@ for MSG_REPORT_REQ and KEY_SEL, Section 8.18 for SNP_LAUNCH_FINISH).
 | 2 | Re-attestation | is the workload still on the same chip | Google, one VM, ten reports across 3 minutes, then stop and start, ten more | verified 13:41–13:50Z: same chip across both boots, REPORT_ID changed at the relaunch |
 | 3 | Bound platform statement | the provider's own statement about the place, joined to the chip's report | AWS (identity document), Google (EK certificate, identity token), Azure (native) | AWS verified 13:24Z; Google verified 13:42Z; Azure measured 11 Sep 01:00–01:30Z |
 | 4 | Chained pair | one guest, both AMD keys | Google (mechanics), AWS (refused) | construction verified; no public platform lets a guest complete it today |
-| 5 | Session binding | is this report about the channel I am talking over | AWS SEV-SNP (2 regions), Google (3 VMs), AWS Nitro Enclaves (1 enclave) | verified |
+| 5 | Session binding | is this report about the channel I am talking over | AWS SEV-SNP (2 regions), Google (3 VMs), AWS Nitro Enclaves (1 enclave) | mechanism verified; the demo binds a public key, which is not a sufficient session binding (see the note) |
 
 ## 1. Machine record (`tools/fingerprint_ledger.py`, output `LEDGER.md`, `ledger.json`)
 
@@ -121,15 +121,24 @@ not measured (Dedicated Host limit 0 on the account).
 
 ## 5. Session binding against diversion (`probe-dual.sh`, report `cb`)
 
-**Steps.** In the guest, generate an ephemeral key (Ed25519 here; in TLS, the exporter value of RFC
-9266 serves the same purpose). Request a report with REPORT_DATA = SHA-512(N || SubjectPublicKeyInfo).
-Sign N with the ephemeral key. The Verifier checks the report, the digest and the signature, then
-uses the key (or the exporter) for the session.
+**Steps.** Put a value that only the two ends of the session can derive into the freshness field of
+the Evidence: in TLS the exporter value of RFC 9266, which is derived from the handshake's shared
+secret. Request a report with REPORT_DATA = SHA-512(nonce || that value). The Verifier recomputes the
+value from its side of the session and checks the report.
 
-**What it proves.** That the party holding the session key is the guest that obtained the report,
-so a genuine report obtained by a machine in the attested place cannot be relayed by a peer elsewhere
-(the diversion of Sardar et al., Section 8). This is the binding a geographic Attestation Result
-should carry into the Relying Party's session.
+**What the demo does, and its limit.** The runs in this repository bind a public key: an ephemeral
+Ed25519 key generated in the guest, REPORT_DATA = SHA-512(N || SubjectPublicKeyInfo), and the key
+signs N. That shows the mechanism end to end, but a public key is not a session: Sardar, Moustafa and
+Aura (ASIA CCS 2026) analyse this binder among others and show that binding Evidence to a key alone
+does not correlate it with the TLS session (their goals G-C1a..c fail); the binding that does is one
+derived from the shared secret (their Sol. 5: an exporter-like value in the signed data). Usama Sardar
+made this point on the RATS list on 11 September. So: the field and the construction are right, the
+value to put there must come from the session's shared secret, not from a key.
+
+**What it proves, once bound to the shared secret.** That the peer the Relying Party is talking to is
+the guest that obtained the report, so a genuine report from a machine in the attested place cannot be
+relayed by a peer elsewhere (the diversion of ID-Crisis, Section 8). This is the binding a geographic
+Attestation Result should carry into the Relying Party's session.
 
 **What it does not prove.** The place; and nothing about the chip beyond protocol 1.
 
