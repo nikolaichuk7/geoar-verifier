@@ -1,5 +1,7 @@
 # geoar-verifier
 
+**Where does a place enter an attestation artifact?** Measured on real hardware on 11 September 2026: AWS EC2 SEV-SNP (VLEK), Google Cloud SEV-SNP and Intel TDX, Azure SEV-SNP through the paravisor, plus the earlier AWS Nitro and Azure SGX corpus. Every signature verified against the vendor root with the independent code in this repository, every capture tied to a public nonce. The one-table view is **[ATLAS.md](ATLAS.md)**; the raw reports, certificates, chains, tokens and scripts are in `aws-vlek/`, `gcp-cvm/` and `azure-cvm/`.
+
 A minimal Verifier chain for [draft-richardson-rats-geographic-results](https://datatracker.ietf.org/doc/draft-richardson-rats-geographic-results/)
 with the `basis` and `claim-uuid` claims of PR #6 and the `basis-ref` / `observed-from` / `observed-until` proposal of PR #7.
 Every vector is here as bytes and as CBOR diagnostic notation (`*.diag`), and every byte reproduces from fixed seeds.
