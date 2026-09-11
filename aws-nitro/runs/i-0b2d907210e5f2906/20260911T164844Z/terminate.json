@@ -1,0 +1,8 @@
+Successfully terminated enclave i-0b2d907210e5f2906-enc1a0916058586e5a.
+[
+  {
+    "EnclaveName": "nsm-probe",
+    "EnclaveID": "i-0b2d907210e5f2906-enc1a0916058586e5a",
+    "Terminated": true
+  }
+]

@@ -1,0 +1,4 @@
+source AMI ami-02b1d32fdf87a0437 snapshot snap-021ec849148710859
+copy snap-0bab0d52f85fe8221
+AMI ami-0c3964159e24680b6 TpmSupport=v2.0
+us-east-2 us-east-2a i-0c9265f12ca6bc9d7 ami-0c3964159e24680b6 m6a.xlarge 2026-09-11T16:26:30Z

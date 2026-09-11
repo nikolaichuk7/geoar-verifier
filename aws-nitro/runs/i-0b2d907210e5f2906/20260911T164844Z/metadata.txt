@@ -1,0 +1,6 @@
+cloud=aws
+instance=i-0b2d907210e5f2906
+zone=us-east-2a
+instance-type=m5.xlarge
+captured=20260911T164844Z
+probe=nitro

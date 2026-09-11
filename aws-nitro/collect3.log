@@ -1,0 +1,12 @@
+16:33:51 i-06ee284b50eeff081 (us-east-2a): pending, waiting (0
+0 console lines)
+16:34:38 i-06ee284b50eeff081 (us-east-2a): running, waiting (96 console lines)
+16:35:25 i-06ee284b50eeff081 (us-east-2a): running, waiting (108 console lines)
+16:36:12 i-06ee284b50eeff081 (us-east-2a): running, waiting (130 console lines)
+16:36:59 i-06ee284b50eeff081 (us-east-2a): running, waiting (130 console lines)
+16:37:46 i-06ee284b50eeff081 (us-east-2a): running, waiting (130 console lines)
+16:38:33 i-06ee284b50eeff081 (us-east-2a): running, waiting (130 console lines)
+decode: 20260911T163402Z: sha256 verified over 51 lines; 23 entries extracted into runs/i-06ee284b50eeff081
+16:39:20 i-06ee284b50eeff081 (us-east-2a): archive verified -> runs/i-06ee284b50eeff081/20260911T163402Z
+16:39:20 i-06ee284b50eeff081 terminate: shutting-down
+collect finished 2026-09-11T16:39:21Z

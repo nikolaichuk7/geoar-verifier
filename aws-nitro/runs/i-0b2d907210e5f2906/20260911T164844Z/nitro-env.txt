@@ -1,0 +1,2 @@
+NITRO_CLI_BLOBS=/usr/share/nitro_enclaves/blobs
+NITRO_CLI_ARTIFACTS=/var/lib/nitro_enclaves

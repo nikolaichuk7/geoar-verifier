@@ -1,0 +1,51 @@
+[
+ {
+  "run": "runs/i-0c9265f12ca6bc9d7/20260911T162645Z",
+  "instance": "i-0c9265f12ca6bc9d7",
+  "zone": "us-east-2a",
+  "instance_type": "m6a.xlarge",
+  "TPM2_PT_MANUFACTURER": "AMZN",
+  "TPM2_PT_VENDOR_STRING_1": "Nitr",
+  "TPM2_PT_VENDOR_STRING_2": "oTPM",
+  "TPM2_PT_FIRMWARE_VERSION_1": "0x20191023",
+  "ek_certificate_in_nv": false,
+  "nv_indexes_listed": [],
+  "guest_ek_modulus_sha256": "9c4c60fc51cc9342",
+  "api_ek_equals_guest_ek": null,
+  "quote_sig_alg": "0x14",
+  "quote_signature_ok": true,
+  "quote_extra_data_is_sha256_sentence": true,
+  "pcr_selection": [
+   [
+    "0xb",
+    "ff0000"
+   ]
+  ],
+  "pcr_digest": "8e4f128da4194541\u2026"
+ },
+ {
+  "run": "runs/i-0d2c513e63ec85c64/20260911T163035Z",
+  "instance": "i-0d2c513e63ec85c64",
+  "zone": "us-east-2a",
+  "instance_type": "m6a.xlarge",
+  "TPM2_PT_MANUFACTURER": "AMZN",
+  "TPM2_PT_VENDOR_STRING_1": "Nitr",
+  "TPM2_PT_VENDOR_STRING_2": "oTPM",
+  "TPM2_PT_FIRMWARE_VERSION_1": "0x20191023",
+  "ek_certificate_in_nv": false,
+  "nv_indexes_listed": [],
+  "guest_ek_modulus_sha256": "3813b9397263d936",
+  "api_ek_modulus_sha256": "3813b9397263d936",
+  "api_ek_equals_guest_ek": true,
+  "quote_sig_alg": "0x14",
+  "quote_signature_ok": true,
+  "quote_extra_data_is_sha256_sentence": true,
+  "pcr_selection": [
+   [
+    "0xb",
+    "ff0000"
+   ]
+  ],
+  "pcr_digest": "d5a8878171711fb7\u2026"
+ }
+]

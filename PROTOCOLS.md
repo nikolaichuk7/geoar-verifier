@@ -14,7 +14,7 @@ for MSG_REPORT_REQ and KEY_SEL, Section 8.18 for SNP_LAUNCH_FINISH).
 | 2 | Re-attestation | is the workload still on the same chip | Google, one VM, ten reports across 3 minutes, then stop and start, ten more | verified 13:41–13:50Z: same chip across both boots, REPORT_ID changed at the relaunch |
 | 3 | Bound platform statement | the provider's own statement about the place, joined to the chip's report | AWS (identity document), Google (EK certificate, identity token), Azure (native) | AWS verified 13:24Z; Google verified 13:42Z; Azure measured 11 Sep 01:00–01:30Z |
 | 4 | Chained pair | one guest, both AMD keys | Google (mechanics), AWS (refused) | construction verified; no public platform lets a guest complete it today |
-| 5 | Session binding | is this report about the channel I am talking over | AWS (2 regions), Google (3 VMs) | verified |
+| 5 | Session binding | is this report about the channel I am talking over | AWS SEV-SNP (2 regions), Google (3 VMs), AWS Nitro Enclaves (1 enclave) | verified |
 
 ## 1. Machine record (`tools/fingerprint_ledger.py`, output `LEDGER.md`, `ledger.json`)
 
@@ -134,7 +134,9 @@ should carry into the Relying Party's session.
 **What it does not prove.** The place; and nothing about the chip beyond protocol 1.
 
 **Measured.** AWS `us-east-2a`, `eu-west-1a`, Google `us-central1-b` (three VMs), 13:16Z: REPORT_DATA
-binding true and Ed25519 signature over N verified in all five (`runs/dual-summary.json`).
+binding true and Ed25519 signature over N verified in all five (`runs/dual-summary.json`). AWS Nitro
+Enclaves, 16:48Z: the document's `public_key` field carries the enclave's Ed25519 SPKI and the enclave
+signs the nonce (`aws-nitro/runs/nitro-summary.json`).
 
 ## What the five together give a Verifier
 

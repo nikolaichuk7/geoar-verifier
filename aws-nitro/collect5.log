@@ -1,0 +1,8 @@
+16:48:33 i-0b2d907210e5f2906 (us-east-2a): pending, waiting (0
+0 console lines)
+16:49:20 i-0b2d907210e5f2906 (us-east-2a): running, waiting (96 console lines)
+16:50:07 i-0b2d907210e5f2906 (us-east-2a): running, waiting (113 console lines)
+decode: 20260911T164844Z: sha256 verified over 242 lines; 37 entries extracted into runs/i-0b2d907210e5f2906
+16:50:55 i-0b2d907210e5f2906 (us-east-2a): archive verified -> runs/i-0b2d907210e5f2906/20260911T164844Z
+16:50:55 i-0b2d907210e5f2906 terminate: shutting-down
+collect finished 2026-09-11T16:50:56Z

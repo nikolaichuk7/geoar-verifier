@@ -1,0 +1,14 @@
+Start allocating memory...
+Started enclave with enclave-cid: 16, memory: 1024 MiB, cpu-ids: [1, 3]
+{
+  "EnclaveName": "nsm-probe",
+  "EnclaveID": "i-0b2d907210e5f2906-enc1a0916058586e5a",
+  "ProcessID": 28186,
+  "EnclaveCID": 16,
+  "NumberOfCPUs": 2,
+  "CPUIDs": [
+    1,
+    3
+  ],
+  "MemoryMiB": 1024
+}

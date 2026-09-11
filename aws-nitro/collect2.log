@@ -1,0 +1,12 @@
+16:29:46 i-05f9d221a78e8c180 (us-east-2a): pending, waiting (0
+0 console lines)
+16:30:33 i-05f9d221a78e8c180 (us-east-2a): running, waiting (96 console lines)
+16:30:35 i-0d2c513e63ec85c64 (us-east-2a): running, waiting (0
+0 console lines)
+16:31:22 i-05f9d221a78e8c180 (us-east-2a): running, waiting (117 console lines)
+16:31:24 i-0d2c513e63ec85c64 (us-east-2a): running, waiting (93 console lines)
+decode: 20260911T162956Z: sha256 verified over 51 lines; 22 entries extracted into runs/i-05f9d221a78e8c180
+16:32:11 i-05f9d221a78e8c180 (us-east-2a): archive verified -> runs/i-05f9d221a78e8c180/20260911T162956Z
+16:32:11 i-05f9d221a78e8c180 terminate: shutting-down
+16:32:13 i-0d2c513e63ec85c64 (us-east-2a): instance is terminated without a probe archive; console kept in runs/i-0d2c513e63ec85c64.console
+collect finished 2026-09-11T16:32:13Z

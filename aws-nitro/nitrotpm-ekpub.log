@@ -1,0 +1,22 @@
+us-east-2 us-east-2a i-0d2c513e63ec85c64 ami-0c3964159e24680b6 m6a.xlarge 2026-09-11T16:30:21Z
+16:30:22 rsa-2048 not yet: b.NotFound) when calling the GetInstanceTpmEkPub operation: EkPub record not found for instance 'i-0d2c513e63ec85c64', key type 'rsa-2048' and key format 'der' 
+16:30:23 ecc-sec-p384 not yet: tFound) when calling the GetInstanceTpmEkPub operation: EkPub record not found for instance 'i-0d2c513e63ec85c64', key type 'ecc-sec-p384' and key format 'der' 
+rsa-2048 rsa-2048 der 294 bytes
+ecc-sec-p384 ecc-sec-p384 der 120 bytes
+16:30:47 i-05f9d221a78e8c180 (us-east-2a): running, waiting (96 console lines)
+16:30:48 i-0d2c513e63ec85c64 (us-east-2a): running, waiting (0
+0 console lines)
+16:31:35 i-05f9d221a78e8c180 (us-east-2a): running, waiting (117 console lines)
+decode: 20260911T163035Z: sha256 verified over 165 lines; 26 entries extracted into runs/i-0d2c513e63ec85c64
+16:31:37 i-0d2c513e63ec85c64 (us-east-2a): archive verified -> runs/i-0d2c513e63ec85c64/20260911T163035Z
+ekpub-ecc-sec-p384.der
+ekpub-ecc-sec-p384.err
+ekpub-ecc-sec-p384.json
+ekpub-rsa-2048.der
+ekpub-rsa-2048.err
+ekpub-rsa-2048.json
+16:31:37 i-0d2c513e63ec85c64 terminate: shutting-down
+decode: 20260911T162956Z: sha256 verified over 51 lines; 22 entries extracted into runs/i-05f9d221a78e8c180
+16:32:25 i-05f9d221a78e8c180 (us-east-2a): archive verified -> runs/i-05f9d221a78e8c180/20260911T162956Z
+16:32:25 i-05f9d221a78e8c180 terminate: shutting-down
+collect finished 2026-09-11T16:32:26Z

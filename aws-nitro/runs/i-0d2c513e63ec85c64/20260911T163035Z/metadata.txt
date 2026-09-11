@@ -1,0 +1,6 @@
+cloud=aws
+instance=i-0d2c513e63ec85c64
+zone=us-east-2a
+instance-type=m6a.xlarge
+captured=20260911T163035Z
+probe=nitrotpm
