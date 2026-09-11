@@ -1,0 +1,18 @@
+{
+ "size": 2600,
+ "magic": "HCLA",
+ "header": [
+  1095517000,
+  1,
+  2346,
+  2
+ ],
+ "hw_report_first_u32": 3,
+ "runtime_offset": 1236,
+ "runtime_len": 1110,
+ "runtime_keys": [
+  "keys",
+  "vm-configuration",
+  "user-data"
+ ]
+}

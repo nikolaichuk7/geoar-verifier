@@ -1,0 +1,7 @@
+WARN: Reading full size of the NV index
+WARNING:esys:src/tss2-esys/api/Esys_NV_ReadPublic.c:309:Esys_NV_ReadPublic_Finish() Received TPM Error 
+ERROR:esys:src/tss2-esys/esys_tr.c:243:Esys_TR_FromTPMPublic_Finish() Error NV_ReadPublic ErrorCode (0x0000018b) 
+ERROR:esys:src/tss2-esys/esys_tr.c:398:Esys_TR_FromTPMPublic() Error TR FromTPMPublic ErrorCode (0x0000018b) 
+ERROR: Esys_TR_FromTPMPublic(0x18B) - tpm:handle(1):the handle is not correct for the use
+ERROR: Unable to run tpm2_nvread
+no RSA EK cert

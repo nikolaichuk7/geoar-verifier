@@ -1,0 +1,7 @@
+name=rats-snp-westeurope
+vmid=5a3c9c0d-15a3-4cde-9aba-fe4e632cbed1
+region=westeurope
+zone=
+size=Standard_DC2as_v5
+captured=20260911T010906Z
+tee=snp

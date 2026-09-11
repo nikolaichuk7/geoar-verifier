@@ -1,0 +1,27 @@
+name: 000bf077b5ef37d0fc83cd49f5f066f4fdb30a692e5f70181a30e7d8abab13277d84
+qualified name: 000b3b3b0319740426eac341dd2478c1374d9934ed8b7f2a0540ba8bc5c604a3474d
+name-alg:
+  value: sha256
+  raw: 0xb
+attributes:
+  value: fixedtpm|fixedparent|sensitivedataorigin|userwithauth|noda|restricted|decrypt
+  raw: 0x30472
+type:
+  value: rsa
+  raw: 0x1
+exponent: 65537
+bits: 2048
+scheme:
+  value: null
+  raw: 0x10
+scheme-halg:
+  value: (null)
+  raw: 0x0
+sym-alg:
+  value: aes
+  raw: 0x6
+sym-mode:
+  value: cfb
+  raw: 0x43
+sym-keybits: 128
+rsa: bd82e6ef0000242d37a5a3a2d829bf461d90f747c18ee676c0aefb0d5e757cb662beca41714be2c10d44eec99e4a6f121cfcd25096325e8b241bf26b579bcc423d624b1c3aff7565deaab61b2f1cb7dee73f1db6c14e75bb5e5c3fe3f904e1ec66a602dd11d6cafe4adfa83085c8173eb444c77c3b0fdedaddef4ef2868a6ed3d19e7c9f58e3367a760f63761488e6d4c10297e7e4f25242165322252bd898a2f847cf7401979786054da62d06224efc71d143fb18a2412be0caefddce186a827a617e7cd2c152a788ca7355a0448b734d26c2445f66dd49ecbb4201123626b5517c52d0b84dc4a9424467e69303800e9800d0e2c7107a274721d436599c6a17

@@ -1,0 +1,1 @@
+thim-vcek.pem: OK

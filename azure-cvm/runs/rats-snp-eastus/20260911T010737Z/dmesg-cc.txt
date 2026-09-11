@@ -1,0 +1,31 @@
+[    0.000000] efi: ACPI=0xbfffa000 ACPI 2.0=0xbfffa014 SMBIOS=0xbff88000 SMBIOS 3.0=0xbff86000 TPMFinalLog=0xbecf1000 MEMATTR=0xbecb9118 MOKvar=0xbff84000 INITRD=0xbeca9f98 RNG=0xbffd2018 TPMEventLog=0xbec87018 
+[    0.000000] DMI: Microsoft Corporation Virtual Machine/Virtual Machine, BIOS Hyper-V UEFI Release v4.1 01/08/2026
+[    0.000000] Hypervisor detected: Microsoft Hyper-V
+[    0.000000] Hyper-V: privilege flags low 0xa7e, high 0x688000, ext 0x0, hints 0x200e2c, misc 0x4018c110
+[    0.000000] Hyper-V: HV timer won't be used due to unstable TSC
+[    0.000000] Hyper-V: Isolation Config: Group A 0x1, Group B 0xba2
+[    0.000000] Hyper-V: Nested features: 0x0
+[    0.000000] Hyper-V: LAPIC Timer Frequency: 0x30d40
+[    0.000000] Hyper-V: Using hypercall for remote TLB flush
+[    0.004499] tsc: Marking TSC unstable due to running on Hyper-V
+[    0.069883] ACPI: TPM2 0x00000000BFFD3000 000034 (v03 VRTUAL VTPM     00000001 MSFT 00000001)
+[    0.096308] ACPI: Reserving TPM2 table memory at [mem 0xbffd3000-0xbffd3033]
+[    0.260831] Booting paravirtualized kernel on Hyper-V
+[    0.272793] Hyper-V: PV spinlocks disabled
+[    0.453703] Hyper-V: Host Build 10.0.26102.1438-1-0
+[    0.456503] Hyper-V: Using IPI hypercalls
+[    0.474463] Hyper-V: Using enlightened APIC (x2apic mode)
+[    0.480084] Memory Encryption Features active: AMD SEV
+[    0.480084] SEV: Status: vTom 
+[    0.966966] tpm_crb MSFT1001:00: Disabling hwrng
+[    0.984917] software IO TLB: Memory encryption is active and system is using DMA bounce buffers
+[    1.115728] kvm-guest: setup_efi_kvm_sev_migration : EFI live migration variable not found
+[    1.449190] systemd[1]: systemd 255.4-1ubuntu8.16 running in system mode (+PAM +AUDIT +SELINUX +APPARMOR +IMA +SMACK +SECCOMP +GCRYPT -GNUTLS +OPENSSL +ACL +BLKID +CURL +ELFUTILS +FIDO2 +IDN2 -IDN +IPTC +KMOD +LIBCRYPTSETUP +LIBFDISK +PCRE2 -PWQUALITY +P11KIT +QRENCODE +TPM2 +BZIP2 +LZ4 +XZ +ZLIB +ZSTD -BPF_FRAMEWORK -XKBCOMMON +UTMP +SYSVINIT default-hierarchy=unified)
+[    1.455156] systemd[1]: Detected confidential virtualization sev-snp.
+[    1.582192] systemd[1]: Listening on systemd-pcrextend.socket - TPM2 PCR Extension (Varlink).
+[    1.684927] systemd[1]: systemd-pcrmachine.service - TPM2 PCR Machine ID Measurement was skipped because of an unmet condition check (ConditionPathExists=!/etc/initrd-release).
+[    2.945244] systemd[1]: systemd 255.4-1ubuntu8.17 running in system mode (+PAM +AUDIT +SELINUX +APPARMOR +IMA +SMACK +SECCOMP +GCRYPT -GNUTLS +OPENSSL +ACL +BLKID +CURL +ELFUTILS +FIDO2 +IDN2 -IDN +IPTC +KMOD +LIBCRYPTSETUP +LIBFDISK +PCRE2 -PWQUALITY +P11KIT +QRENCODE +TPM2 +BZIP2 +LZ4 +XZ +ZLIB +ZSTD -BPF_FRAMEWORK -XKBCOMMON +UTMP +SYSVINIT default-hierarchy=unified)
+[    2.951244] systemd[1]: Detected confidential virtualization sev-snp.
+[    3.344138] systemd[1]: Listening on systemd-pcrextend.socket - TPM2 PCR Extension (Varlink).
+[    3.515969] systemd[1]: Starting systemd-pcrmachine.service - TPM2 PCR Machine ID Measurement...
+[    3.533869] systemd[1]: Starting systemd-tpm2-setup-early.service - TPM2 SRK Setup (Early)...

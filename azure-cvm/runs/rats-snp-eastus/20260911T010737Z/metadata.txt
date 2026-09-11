@@ -1,0 +1,7 @@
+name=rats-snp-eastus
+vmid=d01d9654-dc04-4ea1-a5c3-3c2e567e2ac6
+region=eastus
+zone=
+size=Standard_DC2as_v5
+captured=20260911T010737Z
+tee=snp

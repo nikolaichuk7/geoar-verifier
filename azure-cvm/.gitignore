@@ -1,0 +1,10 @@
+runs/*.console
+runs/*/probe.tgz
+runs/*/*/apt.log
+runs/*/*/instance-metadata.json
+launched*.txt
+collect*.log
+runs/*.b64
+verify.out
+runs/*/*/imds-attested-document.json
+runs/*/*/imds-attested.p7b

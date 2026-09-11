@@ -1,0 +1,370 @@
+[
+ {
+  "run": "runs/rats-snp-eastus-3/20260911T013858Z",
+  "region": "eastus",
+  "size": "Standard_DC2as_v5",
+  "tee": "snp",
+  "captured": "20260911T013858Z",
+  "hcl": {
+   "size": 2900,
+   "magic": "HCLA",
+   "hcl_version": 2,
+   "report_size": 2469,
+   "runtime_data_bytes": 1233,
+   "runtime_keys": [
+    "keys",
+    "vm-configuration",
+    "user-data"
+   ],
+   "vm_configuration": {
+    "console-enabled": true,
+    "root-cert-thumbprint": "6nZZnYaJc4KqUZ_yvA-mucFdYNouvlPnITnNMXsHl-0",
+    "secure-boot": true,
+    "tpm-enabled": true,
+    "tpm-persisted": true,
+    "hardware-sealing-policy": "hash",
+    "vmUniqueId": "5B317F99-1AA2-492E-9671-6ACBBC34E139"
+   }
+  },
+  "snp": {
+   "version": 3,
+   "policy": "0x3001f",
+   "flags": {
+    "raw": 0,
+    "author_key_en": 0,
+    "mask_chip_key": 0,
+    "signing_key": "VCEK"
+   },
+   "host_data": "0000000000000000000000000000000000000000000000000000000000000000",
+   "chip_id_zero": false,
+   "reported_tcb": 15787368493747273732,
+   "chip_id_prefix": "294602de49aec498",
+   "report_data_binds_runtime_json": true,
+   "report_sig_ok_thim_vcek": true,
+   "thim_chain": [
+    "CN=SEV-VCEK",
+    "CN=SEV-Milan",
+    "CN=ARK-Milan"
+   ],
+   "thim_chain_ok": true,
+   "thim_vcek_hwid_equals_chip_id": true,
+   "kds_vcek_identical_to_thim_vcek": false
+  },
+  "tpm_quote": {
+   "attest_len": 145,
+   "extra_data_is_our_nonce": true,
+   "quote_sig_ok_with_HCLAkPub": true,
+   "ak_handle_used": "0x81000003"
+  },
+  "maa": {
+   "iss": "https://sharedeus.eus.attest.azure.net",
+   "jku": "https://sharedeus.eus.attest.azure.net/certs",
+   "kid": "rFl9xM+g7TvX63y0iseZtIn20MD5SYAnGblKFasau8I=",
+   "x-ms-attestation-type": "sevsnpvm",
+   "x-ms-compliance-status": "azure-compliant-cvm",
+   "tee_claims": {},
+   "azurevm_claims": {},
+   "sig_ok": true,
+   "signer_cert_subject": "CN=https://sharedeus.eus.attest.azure.net"
+  },
+  "imds_attested": {
+   "payload_keys": [
+    "licenseType",
+    "nonce",
+    "plan",
+    "sku",
+    "subscriptionId",
+    "timeStamp",
+    "vmId"
+   ],
+   "region": {
+    "name": "",
+    "product": "",
+    "publisher": ""
+   },
+   "vmId": "5b317f99-1aa2-492e-9671-6acbbc34e139",
+   "signer": [
+    "Subject: C=US, ST=WA, L=Redmond, O=Microsoft Corporation, CN=metadata.azure.com"
+   ],
+   "encoding": "pkcs7",
+   "payload": {
+    "nonce": "20260911-073858",
+    "sku": "cvm",
+    "timeStamp": {
+     "createdOn": "09/11/26 01:38:58 -0000",
+     "expiresOn": "09/11/26 07:38:58 -0000"
+    },
+    "vmId": "5b317f99-1aa2-492e-9671-6acbbc34e139"
+   }
+  }
+ },
+ {
+  "run": "runs/rats-snp-eastus/20260911T010737Z",
+  "region": "eastus",
+  "size": "Standard_DC2as_v5",
+  "tee": "snp",
+  "captured": "20260911T010737Z",
+  "hcl": {
+   "size": 2900,
+   "magic": "HCLA",
+   "hcl_version": 2,
+   "report_size": 2469,
+   "runtime_data_bytes": 1233,
+   "runtime_keys": [
+    "keys",
+    "vm-configuration",
+    "user-data"
+   ],
+   "vm_configuration": {
+    "console-enabled": true,
+    "root-cert-thumbprint": "6nZZnYaJc4KqUZ_yvA-mucFdYNouvlPnITnNMXsHl-0",
+    "secure-boot": true,
+    "tpm-enabled": true,
+    "tpm-persisted": true,
+    "hardware-sealing-policy": "hash",
+    "vmUniqueId": "D01D9654-DC04-4EA1-A5C3-3C2E567E2AC6"
+   }
+  },
+  "snp": {
+   "version": 3,
+   "policy": "0x3001f",
+   "flags": {
+    "raw": 0,
+    "author_key_en": 0,
+    "mask_chip_key": 0,
+    "signing_key": "VCEK"
+   },
+   "host_data": "0000000000000000000000000000000000000000000000000000000000000000",
+   "chip_id_zero": false,
+   "reported_tcb": 15787368493747273732,
+   "chip_id_prefix": "24f37eaafea80dae",
+   "report_data_binds_runtime_json": true,
+   "report_sig_ok_thim_vcek": true,
+   "thim_chain": [
+    "CN=SEV-VCEK",
+    "CN=SEV-Milan",
+    "CN=ARK-Milan"
+   ],
+   "thim_chain_ok": true,
+   "thim_vcek_hwid_equals_chip_id": true,
+   "kds_vcek_identical_to_thim_vcek": false
+  },
+  "tpm_quote": {
+   "attest_len": 145,
+   "extra_data_is_our_nonce": true,
+   "quote_sig_ok_with_HCLAkPub": true,
+   "ak_handle_used": "0x81000003"
+  },
+  "imds_attested": {
+   "payload_keys": [
+    "licenseType",
+    "nonce",
+    "plan",
+    "sku",
+    "subscriptionId",
+    "timeStamp",
+    "vmId"
+   ],
+   "region": {
+    "name": "",
+    "product": "",
+    "publisher": ""
+   },
+   "vmId": "d01d9654-dc04-4ea1-a5c3-3c2e567e2ac6",
+   "signer": [
+    "Subject: C=US, ST=WA, L=Redmond, O=Microsoft Corporation, CN=metadata.azure.com"
+   ],
+   "encoding": "pkcs7",
+   "payload": {
+    "nonce": "20260911-070738",
+    "sku": "cvm",
+    "timeStamp": {
+     "createdOn": "09/11/26 01:07:38 -0000",
+     "expiresOn": "09/11/26 07:07:38 -0000"
+    },
+    "vmId": "d01d9654-dc04-4ea1-a5c3-3c2e567e2ac6"
+   }
+  }
+ },
+ {
+  "run": "runs/rats-snp-westeurope-2/20260911T012116Z",
+  "region": "westeurope",
+  "size": "Standard_DC2as_v5",
+  "tee": "snp",
+  "captured": "20260911T012116Z",
+  "hcl": {
+   "size": 2600,
+   "magic": "HCLA",
+   "hcl_version": 1,
+   "report_size": 2346,
+   "runtime_data_bytes": 1110,
+   "runtime_keys": [
+    "keys",
+    "vm-configuration",
+    "user-data"
+   ],
+   "vm_configuration": {
+    "console-enabled": true,
+    "secure-boot": true,
+    "tpm-enabled": true,
+    "vmUniqueId": "04DEE574-C8E1-4A3D-927F-C63939DFEEB2"
+   }
+  },
+  "snp": {
+   "version": 3,
+   "policy": "0x3001f",
+   "flags": {
+    "raw": 0,
+    "author_key_en": 0,
+    "mask_chip_key": 0,
+    "signing_key": "VCEK"
+   },
+   "host_data": "0000000000000000000000000000000000000000000000000000000000000000",
+   "chip_id_zero": false,
+   "reported_tcb": 15787368493747273732,
+   "chip_id_prefix": "4f939e7a6b883deb",
+   "report_data_binds_runtime_json": true,
+   "report_sig_ok_thim_vcek": true,
+   "thim_chain": [
+    "CN=SEV-VCEK",
+    "CN=SEV-Milan",
+    "CN=ARK-Milan"
+   ],
+   "thim_chain_ok": true,
+   "thim_vcek_hwid_equals_chip_id": true,
+   "kds_vcek_identical_to_thim_vcek": false
+  },
+  "tpm_quote": {
+   "attest_len": 145,
+   "extra_data_is_our_nonce": true,
+   "quote_sig_ok_with_HCLAkPub": true,
+   "ak_handle_used": "0x81000003"
+  },
+  "maa": {
+   "iss": "https://sharedweu.weu.attest.azure.net",
+   "jku": "https://sharedweu.weu.attest.azure.net/certs",
+   "kid": "dRKh+hBcWUfQimSl3Iv6ZhStW3TSOt0ThwiTgUUqZAo=",
+   "x-ms-attestation-type": "sevsnpvm",
+   "x-ms-compliance-status": "azure-compliant-cvm",
+   "tee_claims": {},
+   "azurevm_claims": {},
+   "sig_ok": true,
+   "signer_cert_subject": "CN=https://sharedweu.weu.attest.azure.net"
+  },
+  "imds_attested": {
+   "payload_keys": [
+    "licenseType",
+    "nonce",
+    "plan",
+    "sku",
+    "subscriptionId",
+    "timeStamp",
+    "vmId"
+   ],
+   "region": {
+    "name": "",
+    "product": "",
+    "publisher": ""
+   },
+   "vmId": "04dee574-c8e1-4a3d-927f-c63939dfeeb2",
+   "signer": [
+    "Subject: C=US, ST=WA, L=Redmond, O=Microsoft Corporation, CN=metadata.azure.com"
+   ],
+   "encoding": "pkcs7",
+   "payload": {
+    "nonce": "20260911-072117",
+    "sku": "cvm",
+    "timeStamp": {
+     "createdOn": "09/11/26 01:21:17 -0000",
+     "expiresOn": "09/11/26 07:21:17 -0000"
+    },
+    "vmId": "04dee574-c8e1-4a3d-927f-c63939dfeeb2"
+   }
+  }
+ },
+ {
+  "run": "runs/rats-snp-westeurope/20260911T010906Z",
+  "region": "westeurope",
+  "size": "Standard_DC2as_v5",
+  "tee": "snp",
+  "captured": "20260911T010906Z",
+  "hcl": {
+   "size": 2600,
+   "magic": "HCLA",
+   "hcl_version": 1,
+   "report_size": 2346,
+   "runtime_data_bytes": 1110,
+   "runtime_keys": [
+    "keys",
+    "vm-configuration",
+    "user-data"
+   ],
+   "vm_configuration": {
+    "console-enabled": true,
+    "secure-boot": true,
+    "tpm-enabled": true,
+    "vmUniqueId": "5A3C9C0D-15A3-4CDE-9ABA-FE4E632CBED1"
+   }
+  },
+  "snp": {
+   "version": 3,
+   "policy": "0x3001f",
+   "flags": {
+    "raw": 0,
+    "author_key_en": 0,
+    "mask_chip_key": 0,
+    "signing_key": "VCEK"
+   },
+   "host_data": "0000000000000000000000000000000000000000000000000000000000000000",
+   "chip_id_zero": false,
+   "reported_tcb": 15787368493747273732,
+   "chip_id_prefix": "92a89c018c917616",
+   "report_data_binds_runtime_json": true,
+   "report_sig_ok_thim_vcek": true,
+   "thim_chain": [
+    "CN=SEV-VCEK",
+    "CN=SEV-Milan",
+    "CN=ARK-Milan"
+   ],
+   "thim_chain_ok": true,
+   "thim_vcek_hwid_equals_chip_id": true,
+   "kds_vcek_identical_to_thim_vcek": false
+  },
+  "tpm_quote": {
+   "attest_len": 145,
+   "extra_data_is_our_nonce": true,
+   "quote_sig_ok_with_HCLAkPub": true,
+   "ak_handle_used": "0x81000003"
+  },
+  "imds_attested": {
+   "payload_keys": [
+    "licenseType",
+    "nonce",
+    "plan",
+    "sku",
+    "subscriptionId",
+    "timeStamp",
+    "vmId"
+   ],
+   "region": {
+    "name": "",
+    "product": "",
+    "publisher": ""
+   },
+   "vmId": "5a3c9c0d-15a3-4cde-9aba-fe4e632cbed1",
+   "signer": [
+    "Subject: C=US, ST=WA, L=Redmond, O=Microsoft Corporation, CN=metadata.azure.com"
+   ],
+   "encoding": "pkcs7",
+   "payload": {
+    "nonce": "20260911-070906",
+    "sku": "cvm",
+    "timeStamp": {
+     "createdOn": "09/11/26 01:09:06 -0000",
+     "expiresOn": "09/11/26 07:09:06 -0000"
+    },
+    "vmId": "5a3c9c0d-15a3-4cde-9aba-fe4e632cbed1"
+   }
+  }
+ }
+]

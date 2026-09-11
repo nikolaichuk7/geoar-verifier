@@ -1,0 +1,13 @@
+{
+ "size": 2600,
+ "magic": "HCLA",
+ "header": [
+  1095517000,
+  1,
+  2346,
+  2
+ ],
+ "hw_report_first_u32": 3,
+ "runtime_parse": "UnicodeDecodeError('utf-8', b'{\\x02BQ\\xd6\\x8f\\xe3.\\x05\\xaf4\\x04\\x8df\\x07g\\x8c\\xd",
+ "runtime_offset": 203
+}
