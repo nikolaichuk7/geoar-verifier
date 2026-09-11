@@ -1,0 +1,372 @@
+[
+ {
+  "run": "aws-vlek/runs/i-02587934b18bc3016/20260911T131612Z",
+  "cloud": "aws",
+  "instance": "i-02587934b18bc3016",
+  "zone": "us-east-2a",
+  "host_certs": [
+   "c24b07a8-5aa2-3e48-aae6-39c045a0b8a1"
+  ],
+  "reports": {
+   "cb": {
+    "signing_key": "VLEK",
+    "chip_id_zero": true,
+    "chip_id_prefix": "0000000000000000",
+    "report_id": "ae4b8b1bba9b861b",
+    "report_data_is_nonce": false,
+    "verified_by": "host:c24b07a8-5aa2-3e48-aae6-39c045a0b8a1",
+    "chain_ok": true,
+    "chain": [
+     "CN=SEV-VLEK",
+     "CN=SEV-VLEK-Milan",
+     "CN=ARK-Milan"
+    ],
+    "csp_id": "CN=cc-us-east-2.amazonaws.com"
+   },
+   "chA": {
+    "signing_key": "VLEK",
+    "chip_id_zero": true,
+    "chip_id_prefix": "0000000000000000",
+    "report_id": "ae4b8b1bba9b861b",
+    "report_data_is_nonce": true,
+    "verified_by": "host:c24b07a8-5aa2-3e48-aae6-39c045a0b8a1",
+    "chain_ok": true,
+    "chain": [
+     "CN=SEV-VLEK",
+     "CN=SEV-VLEK-Milan",
+     "CN=ARK-Milan"
+    ],
+    "csp_id": "CN=cc-us-east-2.amazonaws.com"
+   },
+   "k0": {
+    "signing_key": "VLEK",
+    "chip_id_zero": true,
+    "chip_id_prefix": "0000000000000000",
+    "report_id": "ae4b8b1bba9b861b",
+    "report_data_is_nonce": true,
+    "verified_by": "host:c24b07a8-5aa2-3e48-aae6-39c045a0b8a1",
+    "chain_ok": true,
+    "chain": [
+     "CN=SEV-VLEK",
+     "CN=SEV-VLEK-Milan",
+     "CN=ARK-Milan"
+    ],
+    "csp_id": "CN=cc-us-east-2.amazonaws.com"
+   },
+   "k2": {
+    "signing_key": "VLEK",
+    "chip_id_zero": true,
+    "chip_id_prefix": "0000000000000000",
+    "report_id": "ae4b8b1bba9b861b",
+    "report_data_is_nonce": true,
+    "verified_by": "host:c24b07a8-5aa2-3e48-aae6-39c045a0b8a1",
+    "chain_ok": true,
+    "chain": [
+     "CN=SEV-VLEK",
+     "CN=SEV-VLEK-Milan",
+     "CN=ARK-Milan"
+    ],
+    "csp_id": "CN=cc-us-east-2.amazonaws.com"
+   }
+  },
+  "channel_binding": {
+   "report_data_is_sha512_nonce_spki": true,
+   "ephemeral_sig_over_nonce_ok": true
+  },
+  "firmware": {
+   "k0": {
+    "ok": true,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 0
+   },
+   "k1": {
+    "ok": false,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 39
+   },
+   "k2": {
+    "ok": true,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 0
+   },
+   "chA": {
+    "ok": true,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 0
+   },
+   "chB": {
+    "ok": false,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 39
+   },
+   "cb": {
+    "ok": true,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 0
+   }
+  },
+  "ext_report": {
+   "ioctl_error": null,
+   "exitinfo2": "0x0",
+   "fw_status": 0,
+   "certs_len_returned": 16384,
+   "table": [
+    {
+     "guid": "c24b07a8-5aa2-3e48-aae6-39c045a0b8a1",
+     "offset": 48,
+     "length": 1319,
+     "pem": false
+    }
+   ]
+  }
+ },
+ {
+  "run": "aws-vlek/runs/i-036d8dbd13f29cba2/20260911T125721Z",
+  "cloud": "aws",
+  "instance": "i-036d8dbd13f29cba2",
+  "zone": "us-east-2a",
+  "host_certs": [
+   "VLEK"
+  ],
+  "reports": {
+   "keysel0": {
+    "signing_key": "VLEK",
+    "chip_id_zero": true,
+    "chip_id_prefix": "0000000000000000",
+    "report_id": "21d6df81cec11674",
+    "report_data_is_nonce": true,
+    "verified_by": "host:VLEK",
+    "chain_ok": true,
+    "chain": [
+     "CN=SEV-VLEK",
+     "CN=SEV-VLEK-Milan",
+     "CN=ARK-Milan"
+    ],
+    "csp_id": "CN=cc-us-east-2.amazonaws.com"
+   },
+   "keysel2": {
+    "signing_key": "VLEK",
+    "chip_id_zero": true,
+    "chip_id_prefix": "0000000000000000",
+    "report_id": "21d6df81cec11674",
+    "report_data_is_nonce": true,
+    "verified_by": "host:VLEK",
+    "chain_ok": true,
+    "chain": [
+     "CN=SEV-VLEK",
+     "CN=SEV-VLEK-Milan",
+     "CN=ARK-Milan"
+    ],
+    "csp_id": "CN=cc-us-east-2.amazonaws.com"
+   }
+  },
+  "firmware": {
+   "default": {
+    "ok": null,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 0,
+    "signing_key": "VLEK"
+   },
+   "vcek": {
+    "ok": null,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 39,
+    "signing_key": null
+   },
+   "vlek": {
+    "ok": null,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 0,
+    "signing_key": "VLEK"
+   }
+  }
+ },
+ {
+  "run": "aws-vlek/runs/i-03dcf507880e1961e/20260911T131614Z",
+  "cloud": "aws",
+  "instance": "i-03dcf507880e1961e",
+  "zone": "eu-west-1a",
+  "host_certs": [
+   "c24b07a8-5aa2-3e48-aae6-39c045a0b8a1"
+  ],
+  "reports": {
+   "cb": {
+    "signing_key": "VLEK",
+    "chip_id_zero": true,
+    "chip_id_prefix": "0000000000000000",
+    "report_id": "121a50ef8935d165",
+    "report_data_is_nonce": false,
+    "verified_by": "host:c24b07a8-5aa2-3e48-aae6-39c045a0b8a1",
+    "chain_ok": true,
+    "chain": [
+     "CN=SEV-VLEK",
+     "CN=SEV-VLEK-Milan",
+     "CN=ARK-Milan"
+    ],
+    "csp_id": "CN=cc-eu-west-1.amazonaws.com"
+   },
+   "chA": {
+    "signing_key": "VLEK",
+    "chip_id_zero": true,
+    "chip_id_prefix": "0000000000000000",
+    "report_id": "121a50ef8935d165",
+    "report_data_is_nonce": true,
+    "verified_by": "host:c24b07a8-5aa2-3e48-aae6-39c045a0b8a1",
+    "chain_ok": true,
+    "chain": [
+     "CN=SEV-VLEK",
+     "CN=SEV-VLEK-Milan",
+     "CN=ARK-Milan"
+    ],
+    "csp_id": "CN=cc-eu-west-1.amazonaws.com"
+   },
+   "k0": {
+    "signing_key": "VLEK",
+    "chip_id_zero": true,
+    "chip_id_prefix": "0000000000000000",
+    "report_id": "121a50ef8935d165",
+    "report_data_is_nonce": true,
+    "verified_by": "host:c24b07a8-5aa2-3e48-aae6-39c045a0b8a1",
+    "chain_ok": true,
+    "chain": [
+     "CN=SEV-VLEK",
+     "CN=SEV-VLEK-Milan",
+     "CN=ARK-Milan"
+    ],
+    "csp_id": "CN=cc-eu-west-1.amazonaws.com"
+   },
+   "k2": {
+    "signing_key": "VLEK",
+    "chip_id_zero": true,
+    "chip_id_prefix": "0000000000000000",
+    "report_id": "121a50ef8935d165",
+    "report_data_is_nonce": true,
+    "verified_by": "host:c24b07a8-5aa2-3e48-aae6-39c045a0b8a1",
+    "chain_ok": true,
+    "chain": [
+     "CN=SEV-VLEK",
+     "CN=SEV-VLEK-Milan",
+     "CN=ARK-Milan"
+    ],
+    "csp_id": "CN=cc-eu-west-1.amazonaws.com"
+   }
+  },
+  "channel_binding": {
+   "report_data_is_sha512_nonce_spki": true,
+   "ephemeral_sig_over_nonce_ok": true
+  },
+  "firmware": {
+   "k0": {
+    "ok": true,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 0
+   },
+   "k1": {
+    "ok": false,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 39
+   },
+   "k2": {
+    "ok": true,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 0
+   },
+   "chA": {
+    "ok": true,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 0
+   },
+   "chB": {
+    "ok": false,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 39
+   },
+   "cb": {
+    "ok": true,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 0
+   }
+  },
+  "ext_report": {
+   "ioctl_error": null,
+   "exitinfo2": "0x0",
+   "fw_status": 0,
+   "certs_len_returned": 16384,
+   "table": [
+    {
+     "guid": "c24b07a8-5aa2-3e48-aae6-39c045a0b8a1",
+     "offset": 48,
+     "length": 1319,
+     "pem": false
+    }
+   ]
+  }
+ },
+ {
+  "run": "aws-vlek/runs/i-0bf334666a8c4868c/20260911T001218Z",
+  "cloud": "aws",
+  "instance": "i-0bf334666a8c4868c",
+  "zone": "eu-west-1a",
+  "host_certs": [
+   "VLEK"
+  ],
+  "reports": {
+   "2": {
+    "signing_key": "VLEK",
+    "chip_id_zero": true,
+    "chip_id_prefix": "0000000000000000",
+    "report_id": "d0965113a4188af5",
+    "report_data_is_nonce": true,
+    "verified_by": "host:VLEK",
+    "chain_ok": true,
+    "chain": [
+     "CN=SEV-VLEK",
+     "CN=SEV-VLEK-Milan",
+     "CN=ARK-Milan"
+    ],
+    "csp_id": "CN=cc-eu-west-1.amazonaws.com"
+   }
+  }
+ },
+ {
+  "run": "aws-vlek/runs/i-0d7bec270b4f73618/20260911T001214Z",
+  "cloud": "aws",
+  "instance": "i-0d7bec270b4f73618",
+  "zone": "us-east-2a",
+  "host_certs": [
+   "VLEK"
+  ],
+  "reports": {
+   "2": {
+    "signing_key": "VLEK",
+    "chip_id_zero": true,
+    "chip_id_prefix": "0000000000000000",
+    "report_id": "cb5df5e1bedd2315",
+    "report_data_is_nonce": true,
+    "verified_by": "host:VLEK",
+    "chain_ok": true,
+    "chain": [
+     "CN=SEV-VLEK",
+     "CN=SEV-VLEK-Milan",
+     "CN=ARK-Milan"
+    ],
+    "csp_id": "CN=cc-us-east-2.amazonaws.com"
+   }
+  }
+ }
+]

@@ -1,0 +1,3 @@
+== cert-c24b07a8-5aa2-3e48-aae6-39c045a0b8a1.bin
+subject=OU=Engineering, C=US, L=Santa Clara, ST=CA, O=Advanced Micro Devices, CN=SEV-VLEK
+issuer=OU=Engineering, C=US, L=Santa Clara, ST=CA, O=Advanced Micro Devices, CN=SEV-VLEK-Milan

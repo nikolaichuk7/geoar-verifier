@@ -1,11 +1,15 @@
 # per-run files that carry account or network identifiers, bulk logs, and raw archives
-runs/*.console
+collect-*.log
+collect.log
+launched*.txt
+launched.old
 runs/*.b64
 runs/*.b64err
-runs/*/*/instance-identity.json
-runs/*/*/instance-identity.pkcs7
+runs/*.console
 runs/*/*/build.log
 runs/*/*/dnf.log
+runs/*/*/identity-*
+runs/*/*/instance-identity.json
+runs/*/*/instance-identity.pkcs7
+runs/*/*/tenancy.txt
 runs/*/probe.tgz
-launched*.txt
-collect.log

@@ -1,0 +1,120 @@
+{
+ "k0": {
+  "name": "k0",
+  "key_sel": 0,
+  "ioctl_error": null,
+  "exitinfo2": "0x0",
+  "fw_status": 0,
+  "ok": true,
+  "version": 5,
+  "signing_key": "VCEK",
+  "mask_chip_key": 0,
+  "chip_id_zero": false,
+  "chip_id_prefix": "da7f959f9936e0f8",
+  "report_id": "a221276c5cc95436",
+  "measurement": "0e017d2fba7c4964",
+  "report_data": "cae46ffc679d8c322573f8daf4beac62efaa10b26ebd037539c8199d790fe3796ae26a686cebcfa9a56ee3560eb81b2be99ad61f5c148deea7f742348dfc43a5"
+ },
+ "k1": {
+  "name": "k1",
+  "key_sel": 1,
+  "ioctl_error": null,
+  "exitinfo2": "0x0",
+  "fw_status": 0,
+  "ok": true,
+  "version": 5,
+  "signing_key": "VCEK",
+  "mask_chip_key": 0,
+  "chip_id_zero": false,
+  "chip_id_prefix": "da7f959f9936e0f8",
+  "report_id": "a221276c5cc95436",
+  "measurement": "0e017d2fba7c4964",
+  "report_data": "cae46ffc679d8c322573f8daf4beac62efaa10b26ebd037539c8199d790fe3796ae26a686cebcfa9a56ee3560eb81b2be99ad61f5c148deea7f742348dfc43a5"
+ },
+ "k2": {
+  "name": "k2",
+  "key_sel": 2,
+  "ioctl_error": null,
+  "exitinfo2": "0x0",
+  "fw_status": 39,
+  "ok": false
+ },
+ "chA": {
+  "name": "chA",
+  "key_sel": 0,
+  "ioctl_error": null,
+  "exitinfo2": "0x0",
+  "fw_status": 0,
+  "ok": true,
+  "version": 5,
+  "signing_key": "VCEK",
+  "mask_chip_key": 0,
+  "chip_id_zero": false,
+  "chip_id_prefix": "da7f959f9936e0f8",
+  "report_id": "a221276c5cc95436",
+  "measurement": "0e017d2fba7c4964",
+  "report_data": "cae46ffc679d8c322573f8daf4beac62efaa10b26ebd037539c8199d790fe3796ae26a686cebcfa9a56ee3560eb81b2be99ad61f5c148deea7f742348dfc43a5"
+ },
+ "chB": {
+  "name": "chB",
+  "key_sel": 1,
+  "ioctl_error": null,
+  "exitinfo2": "0x0",
+  "fw_status": 0,
+  "ok": true,
+  "version": 5,
+  "signing_key": "VCEK",
+  "mask_chip_key": 0,
+  "chip_id_zero": false,
+  "chip_id_prefix": "da7f959f9936e0f8",
+  "report_id": "a221276c5cc95436",
+  "measurement": "0e017d2fba7c4964",
+  "report_data": "c2e2768ac942e1e6a22cdbe4e41af6490eb4a7e1426757388f97df694d67878c5c743189ba6f8b2cbc23a8c894de3952d80f6cd185e6a8fde38346e8f52f869f",
+  "report_data_is_sha512_of_chA": true,
+  "same_report_id_as_chA": true
+ },
+ "cb": {
+  "name": "cb",
+  "key_sel": 0,
+  "ioctl_error": null,
+  "exitinfo2": "0x0",
+  "fw_status": 0,
+  "ok": true,
+  "version": 5,
+  "signing_key": "VCEK",
+  "mask_chip_key": 0,
+  "chip_id_zero": false,
+  "chip_id_prefix": "da7f959f9936e0f8",
+  "report_id": "a221276c5cc95436",
+  "measurement": "0e017d2fba7c4964",
+  "report_data": "9e167ee1e46f5b1e4fcdfce08c69b3da8d0057db7462b17eade4fbaf1cb9aa25a02a95611548ac2e0886a43a78350b79e64fc075a8c98a6c1abb485d455b3669",
+  "report_data_is_sha512_nonce_spki": true,
+  "spki_sha256": "6ba5b6407223c985"
+ },
+ "ext_report": {
+  "ioctl_error": null,
+  "exitinfo2": "0x0",
+  "fw_status": 0,
+  "certs_len_returned": 16384,
+  "table": [
+   {
+    "guid": "8d75da63-64e6-6445-adc5-f4b93be8accd",
+    "offset": 96,
+    "length": 1351,
+    "pem": false
+   },
+   {
+    "guid": "79b3b74a-acbb-e44f-a02f-05aef327c782",
+    "offset": 1447,
+    "length": 1677,
+    "pem": false
+   },
+   {
+    "guid": "a406b4c0-03a8-5249-9743-3fb6014cd0ae",
+    "offset": 3124,
+    "length": 1639,
+    "pem": false
+   }
+  ]
+ }
+}

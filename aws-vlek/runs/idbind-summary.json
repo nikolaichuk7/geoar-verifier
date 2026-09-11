@@ -1,0 +1,47 @@
+[
+ {
+  "run": "runs/i-0603037ab5b36aada/20260911T132454Z",
+  "instance": "i-0603037ab5b36aada",
+  "zone": "us-east-2a",
+  "document": {
+   "region": "us-east-2",
+   "availabilityZone": "us-east-2a",
+   "instanceId": "i-0603037ab5b36aada",
+   "sha256": "eee69fa169825f214d15899d4b7deaeee73ad7458bd607534319311ac327c595"
+  },
+  "report": {
+   "signing_key": "VLEK",
+   "chip_id_zero": true,
+   "report_data_is_sha512_nonce_docdigest": true
+  },
+  "aws_region_certificates_found": 5,
+  "pkcs7": [
+   {
+    "cert": 0,
+    "cert_signature_algorithm": "dsa-with-sha1",
+    "verified": true
+   },
+   {
+    "cert": 3,
+    "cert_signature_algorithm": "dsa-with-sha1",
+    "verified": true
+   }
+  ],
+  "rsa2048": [
+   {
+    "cert": 1,
+    "verified": true
+   },
+   {
+    "cert": 4,
+    "verified": true
+   }
+  ],
+  "vlek": {
+   "report_signature_ok": true,
+   "chain_to_ark_ok": true,
+   "csp_id": "CN=cc-us-east-2.amazonaws.com",
+   "csp_id_names_document_region": true
+  }
+ }
+]

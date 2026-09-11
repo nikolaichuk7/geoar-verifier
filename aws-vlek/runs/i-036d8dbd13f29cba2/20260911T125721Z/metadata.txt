@@ -1,0 +1,5 @@
+instance-id=i-036d8dbd13f29cba2
+az=us-east-2a
+type=m6a.large
+captured=20260911T125721Z
+probe=keysel

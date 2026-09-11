@@ -60,3 +60,70 @@ build logs, raw console captures. `runs/summary.json` is the output of `vlek_ver
 00:06Z three `kernel-default` (6.18.44) instances shut themselves down within seconds of the
 kernel starting (`Client.InstanceInitiatedShutdown`); 00:14Z a 6.18 control without user-data
 did the same; 00:11Z two 6.1 instances booted, ran the probe and reported by 00:20Z.
+
+## 11 September, 12:57–13:25Z: key selection, the chained pair, channel binding, identity-document binding
+
+Answering Muhammad Usama Sardar's question of 11 September 10:31Z ("if I need both VCEK and
+VLEK together, can I do that?"). Four fresh `m6a.large` instances on shared tenancy, Amazon
+Linux 2023 kernel 6.1, no Rust build: the report is requested through the `SNP_GET_REPORT` /
+`SNP_GET_EXT_REPORT` ioctls from Python. Every archive was reassembled from the serial console
+by line index and checked against the SHA-256 the instance printed; every instance was
+terminated only after that check. Nothing is left running.
+
+| | us-east-2a 12:57Z | us-east-2a 13:16Z | eu-west-1a 13:16Z | us-east-2a 13:24Z |
+|---|---|---|---|---|
+| instance | i-036d8dbd13f29cba2 | i-02587934b18bc3016 | i-03dcf507880e1961e | i-0603037ab5b36aada |
+| probe | `probe-keysel.sh` | `probe-dual.sh` | `probe-dual.sh` | `probe-idbind.sh` |
+| KEY_SEL 0 (firmware default) | **VLEK**, ok | **VLEK**, ok | **VLEK**, ok | VLEK, ok |
+| KEY_SEL 1 (VCEK) | **status 0x27 INVALID_KEY** | **0x27** | **0x27** | — |
+| KEY_SEL 2 (VLEK) | VLEK, ok | VLEK, ok | VLEK, ok | — |
+| chained pair A (KEY_SEL 2) → B (KEY_SEL 1, REPORT_DATA = SHA-512(A)) | — | A ok, **B refused 0x27** | A ok, **B refused 0x27** | — |
+| channel binding, REPORT_DATA = SHA-512(nonce ‖ SPKI), Ed25519 signature over nonce | — | both verify | both verify | — |
+| certificate table from the hypervisor (extended report, 16 KiB buffer) | `vlek.pem` via snpguest | VLEK only | VLEK only | VLEK only |
+| report signature / chain to ARK-Milan via SEV-VLEK-Milan | OK / OK | OK / OK | OK / OK | OK / OK |
+| CSP_ID in the VLEK certificate | cc-us-east-2 | cc-us-east-2 | cc-eu-west-1 | cc-us-east-2 |
+| CHIP_ID | zeros | zeros | zeros | zeros |
+| MASK_CHIP_KEY bit in FLAGS | 0 | 0 | 0 | 0 |
+
+Identity-document binding (fourth column): REPORT_DATA = SHA-512(nonce ‖ SHA-256 of the EC2
+instance identity document). The document (region us-east-2, availability zone us-east-2a,
+instance id) verifies under AWS's PKCS#7 signature (DSA-SHA1 certificate) and under the
+detached RSA-2048 signature (SHA-256 certificate), both certificates taken from the AWS
+documentation page for Ohio; the report verifies under the VLEK whose CSP_ID names the same
+region. The binding proves that the guest held the document when it asked for the report,
+nothing more. The document itself is not published (it carries the account id);
+`runs/idbind-summary.json` records the checks and the document's SHA-256.
+
+### What this settles
+
+1. **On AWS shared tenancy a guest cannot obtain a VCEK signature.** The ABI (56860 Rev. 1.58,
+   Section 7.3, the actions under Table 22) lists exactly three conditions for INVALID_KEY on
+   a report request: KEY_SEL 1 with VcekDis set; KEY_SEL 2 with no VLEK loaded; KEY_SEL 0
+   with both. KEY_SEL 0 and 2 succeed, so a VLEK is loaded; KEY_SEL 1 fails, so VcekDis is
+   set for the guest, the VCEK_DIS flag of SNP_LAUNCH_FINISH (Section 8.18) that Section 3.7
+   describes as "the hypervisor can restrict guests to use only the VLEK". The guest cannot
+   read the flag; this is the only rule that produces the status, and MASK_CHIP_KEY is 0.
+2. **The chip is hidden on both paths.** MASK_CHIP_ID zeroes CHIP_ID and VCEK_DIS removes the
+   per-chip key, so no AWS shared-tenancy artifact names the chip. The one signed statement
+   about place remains AMD's CSP_ID in the VLEK certificate, a region-scoped name AWS chose.
+3. **The chained pair is a one-bit ask to the provider, not a change to the ABI.** The
+   construction works wherever both keys are usable (mechanics verified on Google with the
+   VCEK standing in for both, see `../gcp-cvm/RESULTS.md`); on AWS report B is refused.
+4. **Two signers about place can already be joined in one report:** AMD's CSP_ID (region) and
+   AWS's signed identity document (availability zone), bound through REPORT_DATA. Both stay
+   Endorsements in RFC 9334 terms.
+
+Files per run add `dual-results.json` / `keysel-results.json` / `idbind-results.json`
+(firmware status of every request), `report-k0/k1/k2/chA/chB/cb.bin` or `report-idbind.bin`,
+`cert-VLEK.bin` (from the hypervisor's table), `eph-pub.der`, `eph-sig.bin`, `certs-summary.txt`,
+`sha256sums.txt`. `runs/dual-summary.json` and `runs/idbind-summary.json` are the verifier outputs.
+
+### Attempt log
+
+13:04Z the first `probe-dual.sh` instance (i-07d86beca7f85f13f) printed its archive as one long
+line; cloud-init lines landed inside it and the capture could not be decoded (the collector of
+that hour terminated the instance anyway; it now terminates only after a verified extraction).
+The 13:16Z runs use indexed 76-character lines, three copies, SHA-256 in the header. The same
+run also showed that `SNP_GET_EXT_REPORT` rejects a 32 KiB certificate buffer with EINVAL
+(the driver caps it at 16 KiB, page-aligned); 16 KiB works. A Dedicated Host (the VCEK case AWS
+documents) could not be allocated: the account's Dedicated Host limit is 0.

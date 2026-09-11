@@ -10,8 +10,8 @@ machine; the raw artifacts are in the per-platform `runs/` directories.
 | platform and artifact | signer | locational content | class | status |
 |---|---|---|---|---|
 | AWS Nitro Enclaves attestation document | AWS Nitro Root G1 chain (in the COSE payload) | region only as a hostname label in the certificate CN; L/ST/C are the issuer's own address, byte-identical across regions | Endorsement | measured, 12 documents, us-east-2 / eu-west-1 (May 2026) |
-| AWS EC2 SEV-SNP, shared tenancy | AMD VLEK ← SEV-VLEK-Milan ← ARK-Milan | none in the report (CHIP_ID zeroed); the VLEK certificate's CSP_ID is `cc-<region>.amazonaws.com`, keys differ per region | Endorsement | measured, 2 reports, us-east-2a / eu-west-1a (11 Sep 2026) → `aws-vlek/` |
-| Google Cloud SEV-SNP | AMD VCEK ← ASK ← ARK | none; CHIP_ID present, hwID == CHIP_ID | (no geographic result) | measured, 10 (May) + 2 (11 Sep) reports → `gcp-cvm/` |
+| AWS EC2 SEV-SNP, shared tenancy | AMD VLEK ← SEV-VLEK-Milan ← ARK-Milan | none in the report (CHIP_ID zeroed); the VLEK certificate's CSP_ID is `cc-<region>.amazonaws.com`, keys differ per region. A VCEK signature cannot be requested: KEY_SEL 1 returns INVALID_KEY, the ABI's VCEK_DIS launch flag | Endorsement | measured, 6 instances, us-east-2a / eu-west-1a (11 Sep 2026), incl. KEY_SEL 0/1/2, the chained pair, channel binding and the identity-document binding → `aws-vlek/` |
+| Google Cloud SEV-SNP | AMD VCEK ← ASK ← ARK | none; CHIP_ID present, hwID == CHIP_ID. No VLEK loaded: KEY_SEL 2 returns INVALID_KEY | (no geographic result) | measured, 10 (May) + 2 + 3 (11 Sep) VMs; 13 VCEK-signed VMs with Azure give 10 distinct CHIP_ID values → `gcp-cvm/` |
 | Google Cloud Intel TDX | quote AK ← QE ← PCK ← Intel SGX Root CA | none | (no geographic result) | measured, 2 quotes, us-central1-a / europe-west4-a → `gcp-cvm/` |
 | Google vTPM EK certificate | Google `EK/AK CA Intermediate` ← `EK/AK CA Root` | zone in the subject `L=` and in extension 1.3.6.1.4.1.11129.2.1.21 with project and instance | Endorsement | measured, 8 certificates → `gcp-cvm/` |
 | Google Compute Engine identity token | `accounts.google.com` | `google.compute_engine.zone` | Endorsement | measured, 6 tokens → `gcp-cvm/` |
@@ -32,6 +32,10 @@ machine; the raw artifacts are in the per-platform `runs/` directories.
   provider statement: a certificate subject, a key-domain name, a token issuer's address.
 - The same VM can yield geographic Attestation Results of different classes depending on
   which artifact a Verifier consumed. That is the case for the `basis` field.
+- One guest cannot hold both AMD signatures on any of the three platforms: AWS shared tenancy
+  disables the VCEK per guest (VCEK_DIS), Google and Azure load no VLEK. The chained pair
+  (report B carrying SHA-512 of report A in REPORT_DATA) is verified as a construction and
+  needs one launch bit from a provider, not a change to the ABI or to the draft.
 - Freshness is provable on every measured platform, but through different chains: a nonce in
   REPORT_DATA (AWS, Google SEV-SNP), REPORTDATA (Google TDX), or a vTPM quote signed by an AK
   that the chip's report binds (Azure).

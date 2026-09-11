@@ -1,0 +1,4 @@
+[    0.893923] Memory Encryption Features active: AMD SEV SEV-ES SEV-SNP
+[    1.135316] SEV: Using SNP CPUID table, 38 entries present.
+[    1.466385] SEV: SNP guest platform device initialized.
+[    6.572587] sev-guest sev-guest: Initialized SEV guest driver (using vmpck_id 0)

@@ -9,11 +9,11 @@ while :; do
     case "$done_list" in *" $NAME "*) continue;; esac
     gcloud compute instances get-serial-port-output "$NAME" --zone "$ZONE" --port 1 > "runs/$NAME.console" 2>/dev/null || true
     if grep -q "===PROBE-END===" "runs/$NAME.console"; then
-      mkdir -p "runs/$NAME"
-      awk '/===PROBE-BEGIN===/{f=1;next} /===PROBE-END===/{if(f)exit} f' "runs/$NAME.console" | tr -d '\r\n' | sed -E 's/\[[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9:.]+\]//g' | tr -cd 'A-Za-z0-9+/=' | base64 -d > "runs/$NAME/probe.tgz" \
-        && tar xzf "runs/$NAME/probe.tgz" -C "runs/$NAME" && echo "$(date -u +%T) $NAME: archive decoded -> runs/$NAME/$(ls runs/$NAME | grep -v tgz)"
-      gcloud compute instances delete "$NAME" --zone "$ZONE" --quiet > /dev/null 2>&1 && echo "$(date -u +%T) $NAME deleted"
-      done_list="$done_list$NAME "
+      # reassemble by line index across the three copies and verify the SHA-256 (tools/decode_console.py);
+      # the VM is deleted only after a verified extraction, never on a failed decode (dual1/dual2 were lost that way on 11 Sep)
+      if python3 ../tools/decode_console.py "runs/$NAME.console" "runs/$NAME"; then
+        echo "$(date -u +%T) $NAME: archive verified -> runs/$NAME/$(ls runs/$NAME | grep -v tgz)"; gcloud compute instances delete "$NAME" --zone "$ZONE" --quiet > /dev/null 2>&1 && echo "$(date -u +%T) $NAME deleted"; done_list="$done_list$NAME "
+      else pending=$((pending+1)); echo "$(date -u +%T) $NAME: END marker seen but payload not yet complete; keeping the VM and re-reading"; fi
     else
       st=$(gcloud compute instances describe "$NAME" --zone "$ZONE" --format="value(status)" 2>/dev/null || echo GONE)
       if [ "$st" = "TERMINATED" ] || [ "$st" = "GONE" ]; then echo "$(date -u +%T) $NAME: $st without archive; console kept"; done_list="$done_list$NAME "; else pending=$((pending+1)); echo "$(date -u +%T) $NAME: $st, waiting ($(grep -c . "runs/$NAME.console" 2>/dev/null || echo 0) console lines)"; fi

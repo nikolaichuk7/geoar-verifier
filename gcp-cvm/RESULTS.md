@@ -67,3 +67,40 @@ Not published: raw consoles, package and build logs.
 00:48Z `us-central1-a` had no n2d capacity for SEV-SNP (`resource_availability`); `us-central1-b`
 did. 00:48–00:50Z four Ubuntu VMs launched; all four reported within ~70 s of boot. 00:53Z second
 pair with an in-tree gotpm build: token refused by the verifier (messages above). 00:58Z COS pair.
+
+## 11 September, 13:16Z: key selection, the chained pair, channel binding (three VMs, one zone)
+
+Three Ubuntu 24.04 SEV-SNP VMs launched within one minute in `us-central1-b` with
+`probe-dual.sh` (the same script as `../aws-vlek/probe-dual.sh`): the report requested three
+times with KEY_SEL = 0, 1, 2, then the chained pair, the channel-binding report and the
+certificate table from the hypervisor. Archives reassembled from the serial console by line
+index and checked against the SHA-256 the VM printed; VMs deleted only after that check.
+
+| | dual4 | dual5 | dual6 |
+|---|---|---|---|
+| KEY_SEL 0 (default) | **VCEK**, ok | VCEK, ok | VCEK, ok |
+| KEY_SEL 1 (VCEK) | VCEK, ok | VCEK, ok | VCEK, ok |
+| KEY_SEL 2 (VLEK) | **status 0x27 INVALID_KEY** | 0x27 | 0x27 |
+| chained pair: B.REPORT_DATA == SHA-512(A), same REPORT_ID, both signatures verify | yes | yes | yes |
+| channel binding: REPORT_DATA == SHA-512(nonce ‖ SPKI), Ed25519 signature over nonce | yes | yes | yes |
+| certificate table from the hypervisor | VCEK + ASK (SEV-Milan) + ARK-Milan | same | same |
+| report signatures verified with | the hypervisor's VCEK; chain to ARK-Milan OK | same | same |
+| VCEK hwID == CHIP_ID | yes | yes | yes |
+| CHIP_ID (first 16 hex) | 24d9104938ca35bd | da7f959f9936e0f8 | 28e9aeb5bfc75726 |
+
+### What this settles
+
+1. **Google loads no VLEK.** KEY_SEL 2 returns INVALID_KEY, the ABI's one condition for that
+   value (56860 Rev. 1.58, Section 7.3); KEY_SEL 1 succeeds, so VcekDis is clear. The
+   mirror image of AWS shared tenancy (`../aws-vlek/RESULTS.md`).
+2. **The chained-pair construction is sound.** With the VCEK standing in for both keys, report
+   B carries the SHA-512 of report A in REPORT_DATA, the firmware signs it, and a verifier can
+   follow the digest from B to A. Where a provider exposes both keys the same two requests
+   join a CSP identity (VLEK, CSP_ID) and a chip identity (VCEK, hwID = CHIP_ID).
+3. **CHIP_ID across every VCEK-signed run so far: 13 VMs (9 Google, 4 Azure), 10 distinct
+   values.** The three repeats are all `us-central1-b`: `dual5` and `dual6` returned the values
+   of `cos2` and `cos3` (launched hours earlier), and the first Ubuntu VM and `cos` share a
+   value. Three VMs launched in the same minute landed on three different values. In every
+   case the report verifies under the certificate KDS issues for that CHIP_ID. Whether the
+   name covers one die or a group is AMD's to say; the data shows a stable per-machine value
+   that fresh VMs come back to.

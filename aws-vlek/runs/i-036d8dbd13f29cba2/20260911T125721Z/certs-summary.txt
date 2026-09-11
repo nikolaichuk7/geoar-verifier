@@ -1,0 +1,3 @@
+== certs/vlek.pem
+subject=OU=Engineering, C=US, L=Santa Clara, ST=CA, O=Advanced Micro Devices, CN=SEV-VLEK
+issuer=OU=Engineering, C=US, L=Santa Clara, ST=CA, O=Advanced Micro Devices, CN=SEV-VLEK-Milan

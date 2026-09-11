@@ -20,6 +20,12 @@ that in RFC 9334 terms. Captured 11 September 2026 in `us-central1` and `europe-
   4. the Google Cloud Attestation token (`gotpm token`, built from go-tpm-tools in-tree) where
      the build succeeded (second pass);
   5. kernel, `dmesg`, devices, metadata.
+- `probe-dual.sh` (11 September, identical to `aws-vlek/probe-dual.sh`): KEY_SEL = 0, 1, 2
+  through the `SNP_GET_REPORT` ioctl, the chained pair, the channel-binding report and the
+  hypervisor's certificate table, written to the serial console as indexed lines with a
+  SHA-256 header; `collect.sh` reassembles through `../tools/decode_console.py` and deletes a
+  VM only after a verified extraction. Verified offline with `../aws-vlek/dual_verify.py`
+  (`runs/dual-summary.json`).
 - `collect.sh`: reads the serial console with `get-serial-port-output`, decodes the archive,
   deletes the VM.
 - `gcp_verify.py`: independent verification on the operator's machine: SEV-SNP signature and

@@ -1,0 +1,100 @@
+{
+ "k0": {
+  "name": "k0",
+  "key_sel": 0,
+  "ioctl_error": null,
+  "exitinfo2": "0x0",
+  "fw_status": 0,
+  "ok": true,
+  "version": 5,
+  "signing_key": "VLEK",
+  "mask_chip_key": 0,
+  "chip_id_zero": true,
+  "chip_id_prefix": "0000000000000000",
+  "report_id": "121a50ef8935d165",
+  "measurement": "7a89cceaaba0bbdd",
+  "report_data": "454bef9929a5b2da3173fca61038e4ae7f015be257073b119aadc0a2f6b3349eb9632bf99b000d347e54cfcd213fd36504543e09b2f96a803c0133953d424a45"
+ },
+ "k1": {
+  "name": "k1",
+  "key_sel": 1,
+  "ioctl_error": null,
+  "exitinfo2": "0x0",
+  "fw_status": 39,
+  "ok": false
+ },
+ "k2": {
+  "name": "k2",
+  "key_sel": 2,
+  "ioctl_error": null,
+  "exitinfo2": "0x0",
+  "fw_status": 0,
+  "ok": true,
+  "version": 5,
+  "signing_key": "VLEK",
+  "mask_chip_key": 0,
+  "chip_id_zero": true,
+  "chip_id_prefix": "0000000000000000",
+  "report_id": "121a50ef8935d165",
+  "measurement": "7a89cceaaba0bbdd",
+  "report_data": "454bef9929a5b2da3173fca61038e4ae7f015be257073b119aadc0a2f6b3349eb9632bf99b000d347e54cfcd213fd36504543e09b2f96a803c0133953d424a45"
+ },
+ "chA": {
+  "name": "chA",
+  "key_sel": 2,
+  "ioctl_error": null,
+  "exitinfo2": "0x0",
+  "fw_status": 0,
+  "ok": true,
+  "version": 5,
+  "signing_key": "VLEK",
+  "mask_chip_key": 0,
+  "chip_id_zero": true,
+  "chip_id_prefix": "0000000000000000",
+  "report_id": "121a50ef8935d165",
+  "measurement": "7a89cceaaba0bbdd",
+  "report_data": "454bef9929a5b2da3173fca61038e4ae7f015be257073b119aadc0a2f6b3349eb9632bf99b000d347e54cfcd213fd36504543e09b2f96a803c0133953d424a45"
+ },
+ "chB": {
+  "name": "chB",
+  "key_sel": 1,
+  "ioctl_error": null,
+  "exitinfo2": "0x0",
+  "fw_status": 39,
+  "ok": false,
+  "report_data_is_sha512_of_chA": null,
+  "same_report_id_as_chA": null
+ },
+ "cb": {
+  "name": "cb",
+  "key_sel": 0,
+  "ioctl_error": null,
+  "exitinfo2": "0x0",
+  "fw_status": 0,
+  "ok": true,
+  "version": 5,
+  "signing_key": "VLEK",
+  "mask_chip_key": 0,
+  "chip_id_zero": true,
+  "chip_id_prefix": "0000000000000000",
+  "report_id": "121a50ef8935d165",
+  "measurement": "7a89cceaaba0bbdd",
+  "report_data": "21f8dc4c8683a0fdfa5b155384a529416a86a335f2bc35f73b167e88375549a5251919f914cc75be039da5acc4865b368d2ddb61ae758666a75e9bc27193e1df",
+  "report_data_is_sha512_nonce_spki": true,
+  "spki_sha256": "d217e1addb650f11"
+ },
+ "ext_report": {
+  "ioctl_error": null,
+  "exitinfo2": "0x0",
+  "fw_status": 0,
+  "certs_len_returned": 16384,
+  "table": [
+   {
+    "guid": "c24b07a8-5aa2-3e48-aae6-39c045a0b8a1",
+    "offset": 48,
+    "length": 1319,
+    "pem": false
+   }
+  ]
+ }
+}

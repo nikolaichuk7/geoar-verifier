@@ -1,0 +1,14 @@
+{
+ "ioctl_error": null,
+ "exitinfo2": "0x0",
+ "fw_status": 0,
+ "ok": true,
+ "table": [
+  "VLEK"
+ ],
+ "signing_key": "VLEK",
+ "chip_id_zero": true,
+ "report_id": "43db6c125e3450f0",
+ "report_data_is_sha512_nonce_docdigest": true,
+ "doc_sha256": "eee69fa169825f214d15899d4b7deaeee73ad7458bd607534319311ac327c595"
+}

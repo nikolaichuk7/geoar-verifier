@@ -1,0 +1,5 @@
+cloud=aws
+instance=i-03dcf507880e1961e
+zone=eu-west-1a
+captured=20260911T131614Z
+probe=dual

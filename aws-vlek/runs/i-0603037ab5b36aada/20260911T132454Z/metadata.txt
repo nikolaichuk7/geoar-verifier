@@ -1,0 +1,5 @@
+cloud=aws
+instance=i-0603037ab5b36aada
+zone=us-east-2a
+captured=20260911T132454Z
+probe=idbind

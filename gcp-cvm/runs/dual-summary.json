@@ -1,0 +1,497 @@
+[
+ {
+  "run": "gcp-cvm/runs/rats-snp-us-central1-b-dual4/20260911T131714Z",
+  "cloud": "google",
+  "instance": "rats-snp-us-central1-b-dual4",
+  "zone": "us-central1-b",
+  "host_certs": [
+   "79b3b74a-acbb-e44f-a02f-05aef327c782",
+   "8d75da63-64e6-6445-adc5-f4b93be8accd",
+   "a406b4c0-03a8-5249-9743-3fb6014cd0ae"
+  ],
+  "reports": {
+   "cb": {
+    "signing_key": "VCEK",
+    "chip_id_zero": false,
+    "chip_id_prefix": "24d9104938ca35bd",
+    "report_id": "bff9a1a26449db29",
+    "report_data_is_nonce": false,
+    "verified_by": "host:8d75da63-64e6-6445-adc5-f4b93be8accd",
+    "chain_ok": true,
+    "chain": [
+     "CN=SEV-VCEK",
+     "CN=SEV-Milan",
+     "CN=ARK-Milan"
+    ],
+    "hwid_equals_chip_id": true
+   },
+   "chA": {
+    "signing_key": "VCEK",
+    "chip_id_zero": false,
+    "chip_id_prefix": "24d9104938ca35bd",
+    "report_id": "bff9a1a26449db29",
+    "report_data_is_nonce": true,
+    "verified_by": "host:8d75da63-64e6-6445-adc5-f4b93be8accd",
+    "chain_ok": true,
+    "chain": [
+     "CN=SEV-VCEK",
+     "CN=SEV-Milan",
+     "CN=ARK-Milan"
+    ],
+    "hwid_equals_chip_id": true
+   },
+   "chB": {
+    "signing_key": "VCEK",
+    "chip_id_zero": false,
+    "chip_id_prefix": "24d9104938ca35bd",
+    "report_id": "bff9a1a26449db29",
+    "report_data_is_nonce": false,
+    "verified_by": "host:8d75da63-64e6-6445-adc5-f4b93be8accd",
+    "chain_ok": true,
+    "chain": [
+     "CN=SEV-VCEK",
+     "CN=SEV-Milan",
+     "CN=ARK-Milan"
+    ],
+    "hwid_equals_chip_id": true
+   },
+   "k0": {
+    "signing_key": "VCEK",
+    "chip_id_zero": false,
+    "chip_id_prefix": "24d9104938ca35bd",
+    "report_id": "bff9a1a26449db29",
+    "report_data_is_nonce": true,
+    "verified_by": "host:8d75da63-64e6-6445-adc5-f4b93be8accd",
+    "chain_ok": true,
+    "chain": [
+     "CN=SEV-VCEK",
+     "CN=SEV-Milan",
+     "CN=ARK-Milan"
+    ],
+    "hwid_equals_chip_id": true
+   },
+   "k1": {
+    "signing_key": "VCEK",
+    "chip_id_zero": false,
+    "chip_id_prefix": "24d9104938ca35bd",
+    "report_id": "bff9a1a26449db29",
+    "report_data_is_nonce": true,
+    "verified_by": "host:8d75da63-64e6-6445-adc5-f4b93be8accd",
+    "chain_ok": true,
+    "chain": [
+     "CN=SEV-VCEK",
+     "CN=SEV-Milan",
+     "CN=ARK-Milan"
+    ],
+    "hwid_equals_chip_id": true
+   }
+  },
+  "chained": {
+   "chB_report_data_is_sha512_chA": true,
+   "same_report_id": true,
+   "same_measurement": true,
+   "keys": [
+    "VCEK",
+    "VCEK"
+   ]
+  },
+  "channel_binding": {
+   "report_data_is_sha512_nonce_spki": true,
+   "ephemeral_sig_over_nonce_ok": true
+  },
+  "firmware": {
+   "k0": {
+    "ok": true,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 0
+   },
+   "k1": {
+    "ok": true,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 0
+   },
+   "k2": {
+    "ok": false,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 39
+   },
+   "chA": {
+    "ok": true,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 0
+   },
+   "chB": {
+    "ok": true,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 0
+   },
+   "cb": {
+    "ok": true,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 0
+   }
+  },
+  "ext_report": {
+   "ioctl_error": null,
+   "exitinfo2": "0x0",
+   "fw_status": 0,
+   "certs_len_returned": 16384,
+   "table": [
+    {
+     "guid": "8d75da63-64e6-6445-adc5-f4b93be8accd",
+     "offset": 96,
+     "length": 1351,
+     "pem": false
+    },
+    {
+     "guid": "79b3b74a-acbb-e44f-a02f-05aef327c782",
+     "offset": 1447,
+     "length": 1677,
+     "pem": false
+    },
+    {
+     "guid": "a406b4c0-03a8-5249-9743-3fb6014cd0ae",
+     "offset": 3124,
+     "length": 1639,
+     "pem": false
+    }
+   ]
+  }
+ },
+ {
+  "run": "gcp-cvm/runs/rats-snp-us-central1-b-dual5/20260911T131737Z",
+  "cloud": "google",
+  "instance": "rats-snp-us-central1-b-dual5",
+  "zone": "us-central1-b",
+  "host_certs": [
+   "79b3b74a-acbb-e44f-a02f-05aef327c782",
+   "8d75da63-64e6-6445-adc5-f4b93be8accd",
+   "a406b4c0-03a8-5249-9743-3fb6014cd0ae"
+  ],
+  "reports": {
+   "cb": {
+    "signing_key": "VCEK",
+    "chip_id_zero": false,
+    "chip_id_prefix": "da7f959f9936e0f8",
+    "report_id": "a221276c5cc95436",
+    "report_data_is_nonce": false,
+    "verified_by": "host:8d75da63-64e6-6445-adc5-f4b93be8accd",
+    "chain_ok": true,
+    "chain": [
+     "CN=SEV-VCEK",
+     "CN=SEV-Milan",
+     "CN=ARK-Milan"
+    ],
+    "hwid_equals_chip_id": true
+   },
+   "chA": {
+    "signing_key": "VCEK",
+    "chip_id_zero": false,
+    "chip_id_prefix": "da7f959f9936e0f8",
+    "report_id": "a221276c5cc95436",
+    "report_data_is_nonce": true,
+    "verified_by": "host:8d75da63-64e6-6445-adc5-f4b93be8accd",
+    "chain_ok": true,
+    "chain": [
+     "CN=SEV-VCEK",
+     "CN=SEV-Milan",
+     "CN=ARK-Milan"
+    ],
+    "hwid_equals_chip_id": true
+   },
+   "chB": {
+    "signing_key": "VCEK",
+    "chip_id_zero": false,
+    "chip_id_prefix": "da7f959f9936e0f8",
+    "report_id": "a221276c5cc95436",
+    "report_data_is_nonce": false,
+    "verified_by": "host:8d75da63-64e6-6445-adc5-f4b93be8accd",
+    "chain_ok": true,
+    "chain": [
+     "CN=SEV-VCEK",
+     "CN=SEV-Milan",
+     "CN=ARK-Milan"
+    ],
+    "hwid_equals_chip_id": true
+   },
+   "k0": {
+    "signing_key": "VCEK",
+    "chip_id_zero": false,
+    "chip_id_prefix": "da7f959f9936e0f8",
+    "report_id": "a221276c5cc95436",
+    "report_data_is_nonce": true,
+    "verified_by": "host:8d75da63-64e6-6445-adc5-f4b93be8accd",
+    "chain_ok": true,
+    "chain": [
+     "CN=SEV-VCEK",
+     "CN=SEV-Milan",
+     "CN=ARK-Milan"
+    ],
+    "hwid_equals_chip_id": true
+   },
+   "k1": {
+    "signing_key": "VCEK",
+    "chip_id_zero": false,
+    "chip_id_prefix": "da7f959f9936e0f8",
+    "report_id": "a221276c5cc95436",
+    "report_data_is_nonce": true,
+    "verified_by": "host:8d75da63-64e6-6445-adc5-f4b93be8accd",
+    "chain_ok": true,
+    "chain": [
+     "CN=SEV-VCEK",
+     "CN=SEV-Milan",
+     "CN=ARK-Milan"
+    ],
+    "hwid_equals_chip_id": true
+   }
+  },
+  "chained": {
+   "chB_report_data_is_sha512_chA": true,
+   "same_report_id": true,
+   "same_measurement": true,
+   "keys": [
+    "VCEK",
+    "VCEK"
+   ]
+  },
+  "channel_binding": {
+   "report_data_is_sha512_nonce_spki": true,
+   "ephemeral_sig_over_nonce_ok": true
+  },
+  "firmware": {
+   "k0": {
+    "ok": true,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 0
+   },
+   "k1": {
+    "ok": true,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 0
+   },
+   "k2": {
+    "ok": false,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 39
+   },
+   "chA": {
+    "ok": true,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 0
+   },
+   "chB": {
+    "ok": true,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 0
+   },
+   "cb": {
+    "ok": true,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 0
+   }
+  },
+  "ext_report": {
+   "ioctl_error": null,
+   "exitinfo2": "0x0",
+   "fw_status": 0,
+   "certs_len_returned": 16384,
+   "table": [
+    {
+     "guid": "8d75da63-64e6-6445-adc5-f4b93be8accd",
+     "offset": 96,
+     "length": 1351,
+     "pem": false
+    },
+    {
+     "guid": "79b3b74a-acbb-e44f-a02f-05aef327c782",
+     "offset": 1447,
+     "length": 1677,
+     "pem": false
+    },
+    {
+     "guid": "a406b4c0-03a8-5249-9743-3fb6014cd0ae",
+     "offset": 3124,
+     "length": 1639,
+     "pem": false
+    }
+   ]
+  }
+ },
+ {
+  "run": "gcp-cvm/runs/rats-snp-us-central1-b-dual6/20260911T131756Z",
+  "cloud": "google",
+  "instance": "rats-snp-us-central1-b-dual6",
+  "zone": "us-central1-b",
+  "host_certs": [
+   "79b3b74a-acbb-e44f-a02f-05aef327c782",
+   "8d75da63-64e6-6445-adc5-f4b93be8accd",
+   "a406b4c0-03a8-5249-9743-3fb6014cd0ae"
+  ],
+  "reports": {
+   "cb": {
+    "signing_key": "VCEK",
+    "chip_id_zero": false,
+    "chip_id_prefix": "28e9aeb5bfc75726",
+    "report_id": "3c71d10d87f6ebeb",
+    "report_data_is_nonce": false,
+    "verified_by": "host:8d75da63-64e6-6445-adc5-f4b93be8accd",
+    "chain_ok": true,
+    "chain": [
+     "CN=SEV-VCEK",
+     "CN=SEV-Milan",
+     "CN=ARK-Milan"
+    ],
+    "hwid_equals_chip_id": true
+   },
+   "chA": {
+    "signing_key": "VCEK",
+    "chip_id_zero": false,
+    "chip_id_prefix": "28e9aeb5bfc75726",
+    "report_id": "3c71d10d87f6ebeb",
+    "report_data_is_nonce": true,
+    "verified_by": "host:8d75da63-64e6-6445-adc5-f4b93be8accd",
+    "chain_ok": true,
+    "chain": [
+     "CN=SEV-VCEK",
+     "CN=SEV-Milan",
+     "CN=ARK-Milan"
+    ],
+    "hwid_equals_chip_id": true
+   },
+   "chB": {
+    "signing_key": "VCEK",
+    "chip_id_zero": false,
+    "chip_id_prefix": "28e9aeb5bfc75726",
+    "report_id": "3c71d10d87f6ebeb",
+    "report_data_is_nonce": false,
+    "verified_by": "host:8d75da63-64e6-6445-adc5-f4b93be8accd",
+    "chain_ok": true,
+    "chain": [
+     "CN=SEV-VCEK",
+     "CN=SEV-Milan",
+     "CN=ARK-Milan"
+    ],
+    "hwid_equals_chip_id": true
+   },
+   "k0": {
+    "signing_key": "VCEK",
+    "chip_id_zero": false,
+    "chip_id_prefix": "28e9aeb5bfc75726",
+    "report_id": "3c71d10d87f6ebeb",
+    "report_data_is_nonce": true,
+    "verified_by": "host:8d75da63-64e6-6445-adc5-f4b93be8accd",
+    "chain_ok": true,
+    "chain": [
+     "CN=SEV-VCEK",
+     "CN=SEV-Milan",
+     "CN=ARK-Milan"
+    ],
+    "hwid_equals_chip_id": true
+   },
+   "k1": {
+    "signing_key": "VCEK",
+    "chip_id_zero": false,
+    "chip_id_prefix": "28e9aeb5bfc75726",
+    "report_id": "3c71d10d87f6ebeb",
+    "report_data_is_nonce": true,
+    "verified_by": "host:8d75da63-64e6-6445-adc5-f4b93be8accd",
+    "chain_ok": true,
+    "chain": [
+     "CN=SEV-VCEK",
+     "CN=SEV-Milan",
+     "CN=ARK-Milan"
+    ],
+    "hwid_equals_chip_id": true
+   }
+  },
+  "chained": {
+   "chB_report_data_is_sha512_chA": true,
+   "same_report_id": true,
+   "same_measurement": true,
+   "keys": [
+    "VCEK",
+    "VCEK"
+   ]
+  },
+  "channel_binding": {
+   "report_data_is_sha512_nonce_spki": true,
+   "ephemeral_sig_over_nonce_ok": true
+  },
+  "firmware": {
+   "k0": {
+    "ok": true,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 0
+   },
+   "k1": {
+    "ok": true,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 0
+   },
+   "k2": {
+    "ok": false,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 39
+   },
+   "chA": {
+    "ok": true,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 0
+   },
+   "chB": {
+    "ok": true,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 0
+   },
+   "cb": {
+    "ok": true,
+    "ioctl_error": null,
+    "exitinfo2": "0x0",
+    "fw_status": 0
+   }
+  },
+  "ext_report": {
+   "ioctl_error": null,
+   "exitinfo2": "0x0",
+   "fw_status": 0,
+   "certs_len_returned": 16384,
+   "table": [
+    {
+     "guid": "8d75da63-64e6-6445-adc5-f4b93be8accd",
+     "offset": 96,
+     "length": 1351,
+     "pem": false
+    },
+    {
+     "guid": "79b3b74a-acbb-e44f-a02f-05aef327c782",
+     "offset": 1447,
+     "length": 1677,
+     "pem": false
+    },
+    {
+     "guid": "a406b4c0-03a8-5249-9743-3fb6014cd0ae",
+     "offset": 3124,
+     "length": 1639,
+     "pem": false
+    }
+   ]
+  }
+ }
+]

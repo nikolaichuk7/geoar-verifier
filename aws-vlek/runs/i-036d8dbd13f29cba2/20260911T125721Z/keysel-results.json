@@ -1,0 +1,41 @@
+[
+ {
+  "key_sel": 0,
+  "label": "default",
+  "ioctl_error": null,
+  "exitinfo2": "0x0",
+  "fw_status": 0,
+  "report_size": 1184,
+  "report_ok": true,
+  "signing_key_bits": 1,
+  "signing_key": "VLEK",
+  "mask_chip_key": 0,
+  "chip_id_zero": true,
+  "chip_id_prefix": "0000000000000000",
+  "report_data_is_nonce": true
+ },
+ {
+  "key_sel": 1,
+  "label": "vcek",
+  "ioctl_error": null,
+  "exitinfo2": "0x0",
+  "fw_status": 39,
+  "report_size": 1184,
+  "report_ok": false
+ },
+ {
+  "key_sel": 2,
+  "label": "vlek",
+  "ioctl_error": null,
+  "exitinfo2": "0x0",
+  "fw_status": 0,
+  "report_size": 1184,
+  "report_ok": true,
+  "signing_key_bits": 1,
+  "signing_key": "VLEK",
+  "mask_chip_key": 0,
+  "chip_id_zero": true,
+  "chip_id_prefix": "0000000000000000",
+  "report_data_is_nonce": true
+ }
+]

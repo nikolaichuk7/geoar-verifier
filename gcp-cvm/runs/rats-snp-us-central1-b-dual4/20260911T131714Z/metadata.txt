@@ -1,0 +1,5 @@
+cloud=google
+instance=rats-snp-us-central1-b-dual4
+zone=us-central1-b
+captured=20260911T131714Z
+probe=dual
