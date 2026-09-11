@@ -26,9 +26,15 @@ nonce (REPORT_DATA / REPORTDATA = SHA-512 of `nonce-sentence.txt`).
 | Compute Engine identity token (JWT) | `accounts.google.com`, RS256 | JWKS via OpenID discovery, signature OK on all 4 | `google.compute_engine.zone`, `instance_id`, `project_id` | Endorsement |
 | Google Cloud Attestation token (`gotpm token`) | Google attestation verifier | see below | `submods.gce.zone`, `hwmodel` | Attestation Result |
 
-The attestation verifier refused the Ubuntu VMs: TDX "no GRUB measurements found", SEV-SNP
-"unexpected_snp_attestation". The COS runs (`runs/*-cos/`) record whether Google's own image
-gets the token; their outcome is in `runs/summary.json` and in the log excerpts kept per run.
+The attestation verifier (`gotpm token`, go-tpm-tools at commit ee8ec5b) refused every VM,
+Ubuntu and Container-Optimized OS alike: TDX "Unable to verify attestation: no GRUB
+measurements found", SEV-SNP "invalid request: unexpected_snp_attestation". Three attempts
+(`runs/*-cos*`), the last with a privileged container so that the tool could read the TCG
+event log and the TEE devices; the full `gotpm attest` output (TPM quote, event log, EK
+certificate, TEE report) is kept per run as `gotpm-attestation.bin`, only the server-side
+verification step is refused. Google documents the token for Confidential Space workloads,
+which is a different launcher; that path was not exercised here. So for Google the two
+signed zone statements in hand are the EK certificate and the identity token, both Endorsements.
 
 ## What this settles
 

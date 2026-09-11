@@ -1,0 +1,3 @@
+Error: failed to attest: failed to retrieve TCG Event Log: open /sys/kernel/security/tpm0/binary_bios_measurements: permission denied
+Error: failed to attest: failed to retrieve TCG Event Log: open /sys/kernel/security/tpm0/binary_bios_measurements: permission denied
+gotpm token failed

@@ -1,0 +1,7 @@
+Error: calling v1.VerifyAttestation in us-central1: googleapi: Error 400: The request was invalid: invalid request: unexpected_snp_attestation: received: &{0x1abd8fc0000}
+error details: name = BadRequest field = VerifyAttestationRequest desc = 
+error details: name = RequestInfo id = b57bb1466a9f00ad data =
+Error: calling v1.VerifyAttestation in us-central1: googleapi: Error 400: The request was invalid: invalid request: unexpected_snp_attestation: received: &{0x375428dcd800}
+error details: name = BadRequest field = VerifyAttestationRequest desc = 
+error details: name = RequestInfo id = f66c0c3ff605f018 data =
+gotpm token failed

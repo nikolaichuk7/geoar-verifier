@@ -1,0 +1,4 @@
+edfe2af2c06eb4f2104ba4b259a96d17af81d5acbd3add9b4be55bc8d2bd7ff4  tsm-outblob.bin
+9c6ca339cbb82fd39990bad00fe5e959d95d45a8966e7ce14bf7345daa7b001d  request-file.bin
+fb5decbe882eb3d8c82d35ae552872c3a378825a3eef21c835631dcf1a54b6c2  gce-identity-token.jwt
+747cd79e3d62759d3a5ac29f43e60a5ca34002cc72f940b5f2109aa7aedc3f36  gotpm-attestation.bin

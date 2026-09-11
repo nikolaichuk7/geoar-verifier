@@ -1,0 +1,8 @@
+instance-name=rats-tdx-us-central1-c-cos3
+instance-id=1079909339928389805
+zone=us-central1-c
+machine-type=c3-standard-4
+project=rats-probe
+captured=20260911T011615Z
+image=cos
+tee=tdx

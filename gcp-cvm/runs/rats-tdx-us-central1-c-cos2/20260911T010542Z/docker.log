@@ -1,0 +1,87 @@
+Unable to find image 'golang:1.26' locally
+1.26: Pulling from library/golang
+27ee9a825048: Pulling fs layer
+00f78834a2fe: Pulling fs layer
+cbc19164244e: Pulling fs layer
+83a28bc05de7: Pulling fs layer
+2cb3e687d353: Pulling fs layer
+468a6fc9482b: Pulling fs layer
+4f4fb700ef54: Pulling fs layer
+83a28bc05de7: Waiting
+2cb3e687d353: Waiting
+468a6fc9482b: Waiting
+4f4fb700ef54: Waiting
+00f78834a2fe: Verifying Checksum
+00f78834a2fe: Download complete
+27ee9a825048: Download complete
+cbc19164244e: Download complete
+468a6fc9482b: Verifying Checksum
+468a6fc9482b: Download complete
+4f4fb700ef54: Verifying Checksum
+4f4fb700ef54: Download complete
+2cb3e687d353: Verifying Checksum
+2cb3e687d353: Download complete
+83a28bc05de7: Verifying Checksum
+83a28bc05de7: Download complete
+27ee9a825048: Pull complete
+00f78834a2fe: Pull complete
+cbc19164244e: Pull complete
+83a28bc05de7: Pull complete
+2cb3e687d353: Pull complete
+468a6fc9482b: Pull complete
+4f4fb700ef54: Pull complete
+Digest: sha256:3c3e25a4da13fd0478eed2df1eb35a0e667094a7124d3993a6a1d30f71c17e79
+Status: Downloaded newer image for golang:1.26
+go: downloading cloud.google.com/go/compute/metadata v0.9.0
+go: downloading cloud.google.com/go/logging v1.13.2
+go: downloading github.com/golang-jwt/jwt/v4 v4.5.2
+go: downloading cloud.google.com/go/compute v1.54.0
+go: downloading github.com/golang/protobuf v1.5.4
+go: downloading cloud.google.com/go v0.123.0
+go: downloading github.com/google/gce-tcb-verifier v0.3.1
+go: downloading github.com/google/gce-tcb-verifier/gcetcbendorsement v0.0.0-20250301004354-d18ce1139be2
+go: downloading github.com/google/go-configfs-tsm v0.3.3
+go: downloading github.com/google/go-sev-guest v0.14.0
+go: downloading github.com/google/go-tdx-guest v0.3.2-0.20250814004405-ffb0869e6f4d
+go: downloading github.com/google/go-tpm v0.9.8
+go: downloading github.com/spf13/cobra v1.8.1
+go: downloading golang.org/x/oauth2 v0.36.0
+go: downloading google.golang.org/api v0.283.0
+go: downloading google.golang.org/grpc v1.81.1
+go: downloading google.golang.org/protobuf v1.36.12
+go: downloading go.opentelemetry.io/otel/trace v1.43.0
+go: downloading github.com/googleapis/gax-go/v2 v2.22.0
+go: downloading go.opentelemetry.io/otel v1.43.0
+go: downloading google.golang.org/genproto/googleapis/api v0.0.0-20260526163538-3dc84a4a5aaa
+go: downloading google.golang.org/genproto v0.0.0-20260319201613-d00831a3d3e7
+go: downloading cloud.google.com/go/longrunning v0.8.0
+go: downloading google.golang.org/genproto/googleapis/rpc v0.0.0-20260526163538-3dc84a4a5aaa
+go: downloading go.uber.org/multierr v1.11.0
+go: downloading github.com/google/uuid v1.6.0
+go: downloading golang.org/x/term v0.43.0
+go: downloading github.com/google/logger v1.1.1
+go: downloading golang.org/x/crypto v0.51.0
+go: downloading github.com/GoogleCloudPlatform/confidential-space/server v0.0.0-20260706204617-c9f710ef3461
+go: downloading cloud.google.com/go/confidentialcomputing v1.17.0
+go: downloading golang.org/x/net v0.55.0
+go: downloading github.com/google/go-eventlog v0.0.3-0.20260617163629-883cc5652c69
+go: downloading golang.org/x/sys v0.45.0
+go: downloading github.com/spf13/pflag v1.0.5
+go: downloading go.opentelemetry.io/otel/metric v1.43.0
+go: downloading github.com/cyphar/filepath-securejoin v0.2.5
+go: downloading golang.org/x/text v0.37.0
+go: downloading github.com/pkg/errors v0.9.1
+go: downloading cloud.google.com/go/auth v0.20.0
+go: downloading cloud.google.com/go/auth/oauth2adapt v0.2.8
+go: downloading golang.org/x/sync v0.20.0
+go: downloading go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.67.0
+go: downloading golang.org/x/time v0.15.0
+go: downloading go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.67.0
+go: downloading github.com/go-logr/logr v1.4.3
+go: downloading golang.org/x/exp v0.0.0-20250813145105-42675adae3e6
+go: downloading github.com/google/s2a-go v0.1.9
+go: downloading github.com/googleapis/enterprise-certificate-proxy v0.3.16
+go: downloading github.com/felixge/httpsnoop v1.0.4
+go: downloading github.com/go-logr/stdr v1.2.2
+go: downloading go.opentelemetry.io/auto/sdk v1.2.1
+go: downloading github.com/cespare/xxhash/v2 v2.3.0

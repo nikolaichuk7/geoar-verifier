@@ -1,0 +1,3 @@
+gotpm version dev, commit none, built at unknown
+- go-sev-guest version v0.3.2-0.20250814004405-ffb0869e6f4d
+- go-tdx-guest version v0.14.0

@@ -1,0 +1,8 @@
+instance-name=rats-snp-us-central1-b-cos3
+instance-id=3551693805101967552
+zone=us-central1-b
+machine-type=n2d-standard-2
+project=rats-probe
+captured=20260911T011619Z
+image=cos
+tee=snp

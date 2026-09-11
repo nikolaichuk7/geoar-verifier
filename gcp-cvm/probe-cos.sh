@@ -26,7 +26,8 @@ if [ -d /sys/kernel/config/tsm/report ]; then
 fi
 echo "tee=$TEE" >> metadata.txt
 DEV=(); [ -e /dev/sev-guest ] && DEV+=(--device /dev/sev-guest); [ -e /dev/tdx_guest ] && DEV+=(--device /dev/tdx_guest); [ -e /dev/tpmrm0 ] && DEV+=(--device /dev/tpmrm0); [ -e /dev/tpm0 ] && DEV+=(--device /dev/tpm0)
-docker run --rm ${DEV[@]+"${DEV[@]}"} -e GOTOOLCHAIN=auto -v "$OUT:/out" -v /sys:/sys:ro -v /sys/kernel/config:/sys/kernel/config golang:1.26 sh -c '
+# --privileged: gotpm reads the TCG event log from securityfs and talks to the TPM and TEE devices; the default container profile denies that
+docker run --rm --privileged ${DEV[@]+"${DEV[@]}"} -e GOTOOLCHAIN=auto -v "$OUT:/out" -v /sys:/sys:ro -v /sys/kernel/security:/sys/kernel/security:ro -v /sys/kernel/config:/sys/kernel/config golang:1.26 sh -c '
   set -e; git clone -q --depth 1 https://github.com/google/go-tpm-tools /src && cd /src && git rev-parse HEAD > /out/gotpm-commit.txt
   CGO_ENABLED=0 go build -o /tmp/gotpm ./cmd/gotpm && /tmp/gotpm --version > /out/gotpm-version.txt
   /tmp/gotpm token --output /out/gcp-attestation-token.jwt > /out/gotpm-token.log 2>&1 || /tmp/gotpm token --algo ecc --output /out/gcp-attestation-token.jwt >> /out/gotpm-token.log 2>&1 || echo "gotpm token failed" >> /out/gotpm-token.log

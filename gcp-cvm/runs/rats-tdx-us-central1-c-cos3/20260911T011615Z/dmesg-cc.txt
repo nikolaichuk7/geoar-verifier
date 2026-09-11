@@ -1,0 +1,6 @@
+[    0.000000] tdx: Guest detected
+[    1.623840] process: using TDX aware idle routine
+[    1.623840] Memory Encryption Features active: Intel TDX
+[    1.623840] smpboot: CPU0: Intel TDX (family: 0x6, model: 0x8f, stepping: 0x8)
+[    2.509159] software IO TLB: Memory encryption is active and system is using DMA bounce buffers
+[    3.572545] systemd[1]: Detected confidential virtualization tdx.
