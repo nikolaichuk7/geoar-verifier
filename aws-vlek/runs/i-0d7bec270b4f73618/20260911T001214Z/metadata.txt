@@ -1,0 +1,6 @@
+instance-id=i-0d7bec270b4f73618
+az=us-east-2a
+region=us-east-2
+type=m6a.large
+ami=ami-02b1d32fdf87a0437
+captured=20260911T001214Z

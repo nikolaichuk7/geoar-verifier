@@ -1,0 +1,6 @@
+instance-id=i-0bf334666a8c4868c
+az=eu-west-1a
+region=eu-west-1
+type=m6a.large
+ami=ami-0476808f142d6f705
+captured=20260911T001218Z

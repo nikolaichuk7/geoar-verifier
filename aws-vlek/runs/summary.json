@@ -1,0 +1,96 @@
+[
+ {
+  "instance": "i-0bf334666a8c4868c",
+  "az": "eu-west-1a",
+  "type": "m6a.large",
+  "captured": "20260911T001218Z",
+  "signing_key": "VLEK",
+  "mask_chip_key": 0,
+  "chip_id_zero": true,
+  "chip_id_prefix": "0000000000000000",
+  "host_data": "0000000000000000000000000000000000000000000000000000000000000000",
+  "nonce_matches_public_sentence": true,
+  "report_sig_ok": true,
+  "leaf": "vlek.pem",
+  "leaf_subject": "CN=SEV-VLEK,O=Advanced Micro Devices,ST=CA,L=Santa Clara,C=US,OU=Engineering",
+  "leaf_exts": {
+   "structVersion": "020100",
+   "productName": "16054d696c616e",
+   "blSPL": "020104",
+   "teeSPL": "020100",
+   "1.3.6.1.4.1.3704.1.3.4": "020100",
+   "1.3.6.1.4.1.3704.1.3.5": "020100",
+   "1.3.6.1.4.1.3704.1.3.6": "020100",
+   "1.3.6.1.4.1.3704.1.3.7": "020100",
+   "snpSPL": "02011d",
+   "ucodeSPL": "020200de",
+   "cspID": "161d434e3d63632d65752d776573742d312e616d617a6f6e6177732e636f6d"
+  },
+  "leaf_pubkey_sha256": "6f718ce827693226",
+  "chain": [
+   [
+    "leaf<-ASVK/ASK",
+    true,
+    "CN=SEV-VLEK,O=Advanced Micro Devices,ST=CA,L=Santa Clara,C=US,OU=Engineering"
+   ],
+   [
+    "ASVK/ASK<-ARK",
+    true,
+    "CN=SEV-VLEK-Milan,O=Advanced Micro Devices,ST=CA,L=Santa Clara,C=US,OU=Engineering"
+   ],
+   [
+    "ARK self-signed",
+    true,
+    "CN=ARK-Milan,O=Advanced Micro Devices,ST=CA,L=Santa Clara,C=US,OU=Engineering"
+   ]
+  ],
+  "fields_that_moved_between_two_reports": []
+ },
+ {
+  "instance": "i-0d7bec270b4f73618",
+  "az": "us-east-2a",
+  "type": "m6a.large",
+  "captured": "20260911T001214Z",
+  "signing_key": "VLEK",
+  "mask_chip_key": 0,
+  "chip_id_zero": true,
+  "chip_id_prefix": "0000000000000000",
+  "host_data": "0000000000000000000000000000000000000000000000000000000000000000",
+  "nonce_matches_public_sentence": true,
+  "report_sig_ok": true,
+  "leaf": "vlek.pem",
+  "leaf_subject": "CN=SEV-VLEK,O=Advanced Micro Devices,ST=CA,L=Santa Clara,C=US,OU=Engineering",
+  "leaf_exts": {
+   "structVersion": "020100",
+   "productName": "16054d696c616e",
+   "blSPL": "020104",
+   "teeSPL": "020100",
+   "1.3.6.1.4.1.3704.1.3.4": "020100",
+   "1.3.6.1.4.1.3704.1.3.5": "020100",
+   "1.3.6.1.4.1.3704.1.3.6": "020100",
+   "1.3.6.1.4.1.3704.1.3.7": "020100",
+   "snpSPL": "02011d",
+   "ucodeSPL": "020200de",
+   "cspID": "161d434e3d63632d75732d656173742d322e616d617a6f6e6177732e636f6d"
+  },
+  "leaf_pubkey_sha256": "5330c95b9cd4976c",
+  "chain": [
+   [
+    "leaf<-ASVK/ASK",
+    true,
+    "CN=SEV-VLEK,O=Advanced Micro Devices,ST=CA,L=Santa Clara,C=US,OU=Engineering"
+   ],
+   [
+    "ASVK/ASK<-ARK",
+    true,
+    "CN=SEV-VLEK-Milan,O=Advanced Micro Devices,ST=CA,L=Santa Clara,C=US,OU=Engineering"
+   ],
+   [
+    "ARK self-signed",
+    true,
+    "CN=ARK-Milan,O=Advanced Micro Devices,ST=CA,L=Santa Clara,C=US,OU=Engineering"
+   ]
+  ],
+  "fields_that_moved_between_two_reports": []
+ }
+]

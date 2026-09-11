@@ -1,0 +1,5 @@
+[    0.883202] Memory Encryption Features active: AMD SEV SEV-ES SEV-SNP
+[    1.122136] SEV: Using SNP CPUID table, 38 entries present.
+[    1.453133] SEV: SNP guest platform device initialized.
+[    1.530607] software IO TLB: Memory encryption is active and system is using DMA bounce buffers
+[    6.594349] sev-guest sev-guest: Initialized SEV guest driver (using vmpck_id 0)
