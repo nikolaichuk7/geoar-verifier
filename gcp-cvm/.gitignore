@@ -10,3 +10,5 @@ collect*.log
 verify.out
 exporter/guest-tls.key
 exporter/guest-ip.txt
+runs-early/*.console
+runs-early/*/*.tgz

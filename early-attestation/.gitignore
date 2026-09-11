@@ -1,0 +1,4 @@
+# never commit key material
+*tik*.pem
+**/tik.pem
+__pycache__/

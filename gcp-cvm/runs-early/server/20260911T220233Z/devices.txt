@@ -1,0 +1,1 @@
+crw------- 1 root root 10, 260 Sep 11 22:02 /dev/sev-guest

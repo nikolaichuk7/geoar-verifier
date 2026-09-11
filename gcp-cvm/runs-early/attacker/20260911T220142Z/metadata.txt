@@ -1,0 +1,6 @@
+cloud=google
+instance=rats-early-attacker-euw4a
+zone=europe-west4-a
+role=attacker
+captured=20260911T220142Z
+probe=early-attest

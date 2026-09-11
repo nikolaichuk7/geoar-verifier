@@ -1,0 +1,34 @@
+{
+ "server": {
+  "dir": "../gcp-cvm/runs-early/server/20260911T220233Z/",
+  "role": "server",
+  "region": "us-central1-b",
+  "instance": "rats-early-server-uscentral1b",
+  "spki_sha256": "89747f6e831c28cd",
+  "transcript_sha256": "595f7c380b045605",
+  "signing_key": "VCEK",
+  "chip_id": "0b0b368a140f008e0ff2d2dea2b7a645dbf54dabea2cfa77368bbb9a9155002067f3b375d72dba002db400160db47d8c0d6b4b574efae84075fe7e64db552f35",
+  "binder_match": true,
+  "report_signature_ok": true,
+  "chain_to_ARK_Milan": true,
+  "hwid_equals_chip_id": true,
+  "accept": true
+ },
+ "attacker": {
+  "dir": "../gcp-cvm/runs-early/attacker/20260911T220142Z/",
+  "role": "attacker",
+  "region": "europe-west4-a",
+  "instance": "rats-early-attacker-euw4a",
+  "spki_sha256": "89747f6e831c28cd",
+  "transcript_sha256": "ff4685dd57e0ed8b",
+  "signing_key": "VCEK",
+  "chip_id": "f72da6d73024ad54cc2044e41a7fdc0a4dcc5c02829756d32bd790af9b15c2ee5196b957e9953040a2ebaf04127350f37059c383052c2718228f4b1decf17380",
+  "binder_match": true,
+  "report_signature_ok": true,
+  "chain_to_ARK_Milan": true,
+  "hwid_equals_chip_id": true,
+  "accept": true
+ },
+ "same_key": true,
+ "diff_chip": true
+}
