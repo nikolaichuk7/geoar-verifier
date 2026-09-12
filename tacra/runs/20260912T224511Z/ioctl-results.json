@@ -1,0 +1,41 @@
+{
+ "tacra": {
+  "name": "tacra",
+  "key_sel": 1,
+  "ioctl_error": null,
+  "exitinfo2": "0x0",
+  "fw_status": 0,
+  "ok": true,
+  "version": 5,
+  "signing_key": "VCEK",
+  "mask_chip_key": 0,
+  "chip_id_zero": false,
+  "chip_id_prefix": "d29ed63f87559fe2",
+  "report_id": "8b8f87305dd5481e",
+  "measurement": "0e017d2fba7c4964",
+  "report_data": "9dd69fc2d286f4ff0053fe06c9ba25c5d45551264373c9d9e1754ad38c8866c99b97fa442b9b1bdeb4157da0167b3a624b77858cc3c98267b0b6a8daf84bc23c"
+ },
+ "ext_report": {
+  "ioctl_error": null,
+  "table": [
+   {
+    "guid": "VCEK",
+    "offset": 96,
+    "length": 1351,
+    "pem": false
+   },
+   {
+    "guid": "ASK",
+    "offset": 1447,
+    "length": 1677,
+    "pem": false
+   },
+   {
+    "guid": "ARK",
+    "offset": 3124,
+    "length": 1639,
+    "pem": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,6 @@
+cloud=google
+instance=rats-tacra-usc1b
+zone=us-central1-b
+ca_nonce=c456ed0cc3b9379313a47beb9b0d6f7aff3bb5c9f6e4745cda9c3f6c6cb11b1f
+captured=20260912T224511Z
+probe=tacra

@@ -1,0 +1,3 @@
+runs/*.console
+runs/**/*.tgz
+*csk.pem

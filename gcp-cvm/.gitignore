@@ -14,3 +14,4 @@ runs-early/*.console
 runs-early/*/*.tgz
 runs-ea2/*.console
 runs-ea2/*/*.tgz
+runs-tacra/

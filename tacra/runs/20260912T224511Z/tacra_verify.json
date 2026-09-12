@@ -1,0 +1,14 @@
+{
+ "run": "runs/20260912T224511Z",
+ "chip_id": "d29ed63f87559fe215dd7946b78504abfb471cdcab5a9a55a3f75aeb46d00930cb26ded59fa4ca9a8202a3de0fcd2532cc7b2bc1b07e1b9a605a8d026893f5f3",
+ "signing_key": "VCEK",
+ "1_binding_REPORT_DATA==SHA512(nonce||CSR)": true,
+ "2a_report_signature_ok": true,
+ "2b_chain_to_ARK_Milan": true,
+ "2c_hwID==CHIP_ID": true,
+ "3a_CSR_proof_of_possession": true,
+ "3b_CSKpub_matches": true,
+ "ISSUE_CREDENTIAL": true,
+ "cskpub_sha256": "6a74610e98561b73",
+ "ca_nonce": "c456ed0cc3b93793\u2026"
+}
