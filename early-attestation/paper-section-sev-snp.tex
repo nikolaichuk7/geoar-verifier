@@ -8,7 +8,7 @@
 %   \spec   -> draft-fossati-seat-early-attestation
 %   \snpabi -> AMD SEV-SNP ABI specification
 %   \rfc8446, \rfc9266 as usual
-% Requires: booktabs, tikz (arrows.meta, positioning). Figure is self-contained.
+% Requires: booktabs, tikz (positioning, fit, arrows.meta). Figure is self-contained.
 % ============================================================================
 
 \section{Practical Demonstration on AMD SEV-SNP}
@@ -84,29 +84,34 @@ VCEK, and verifies the VCEK chain to \texttt{ARK-Milan} fetched from the KDS.
 \begin{figure}[t]
 \centering
 \begin{tikzpicture}[
-  font=\small,
-  box/.style={draw, rounded corners, align=center, inner sep=4pt, minimum height=8mm},
-  fw/.style={draw, align=center, inner sep=4pt, minimum height=8mm, fill=black!5},
-  >=Stealth, node distance=6mm and 10mm]
-% guests
-\node[box] (hs) {\texttt{handshake\_stdlib.py}\\TLS 1.3 (MemoryBIO)\\transcript $CH\dots SH$};
-\node[box, below=of hs] (bind) {\texttt{binder.py}\\$s\_attest\_binder$};
-\node[fw, right=of hs] (snp) {SNP firmware\\\texttt{SNP\_GET\_REPORT}\\(signs any REPORT\_DATA)};
-\node[box, below=of snp] (rep) {VCEK-signed\\report + cert chain};
-% verifier + kds
-\node[box, right=22mm of snp] (ver) {\texttt{verify\_run.py}\\(Sec.~5.1.2 client)};
-\node[box, below=of ver] (kds) {AMD KDS\\ARK-Milan};
-% edges
+  font=\small, >=Stealth, node distance=7mm,
+  ours/.style={draw=violet!65!black, rounded corners, align=center, inner sep=4pt, text width=46mm, minimum height=9mm},
+  fw/.style={draw=black!45, fill=black!4, rounded corners, align=center, inner sep=4pt, text width=46mm, minimum height=9mm}]
+% guest pipeline, top to bottom
+\node[ours] (hs) {\texttt{handshake\_stdlib.py}\\[1pt]{\scriptsize real TLS 1.3, captures $CH\dots SH$}};
+\node[ours, below=of hs] (bind) {\texttt{binder.py}\\[1pt]{\scriptsize computes \emph{s\_attest\_binder}}};
+\node[fw, below=of bind] (snp) {SNP firmware\\[1pt]{\scriptsize \texttt{SNP\_GET\_REPORT}: signs any \texttt{REPORT\_DATA}}};
+\node[fw, below=of snp] (rep) {VCEK-signed report {\scriptsize + cert chain}};
 \draw[->] (hs) -- (bind);
-\draw[->] (bind) -- node[below, font=\scriptsize]{REPORT\_DATA} (snp.west|-bind) -- (snp);
+\draw[->] (bind) -- node[right=1pt, fill=white, inner sep=1pt, font=\scriptsize]{\texttt{REPORT\_DATA}} (snp);
 \draw[->] (snp) -- (rep);
-\draw[->] (rep) -- (ver);
-\draw[->] (hs.north) to[out=30,in=150] node[above, font=\scriptsize]{transcript, $SPKI$} (ver.north);
-\draw[<->] (ver) -- (kds);
-% dashed box = one SEV-SNP guest
-\begin{scope}[on background layer]
-\node[draw, dashed, rounded corners, fit=(hs)(bind)(snp)(rep), label=above:{one SEV-SNP guest (server, and again attacker)}] {};
-\end{scope}
+\node[draw, dashed, rounded corners, fit=(hs)(rep), inner xsep=5mm, inner ysep=5mm,
+      label={[font=\scriptsize\itshape]above:one SEV-SNP guest (server, then attacker)}] (guest) {};
+% verifier (right) and KDS (below it)
+\node[draw=green!45!black, rounded corners, align=left, inner sep=6pt, text width=62mm,
+      right=18mm of guest] (ver) {%
+  \textbf{\texttt{verify\_run.py}} --- the Sec.~5.1.2 client\\[3pt]
+  1.~recompute binder from the transcript it saw, SPKI\\
+  2.~\texttt{REPORT\_DATA} $=$ binder\\
+  3.~report signature (ECDSA-P384)\\
+  4.~chain to \texttt{ARK-Milan}\\
+  5.~\texttt{hwID} $=$ \texttt{CHIP\_ID}\\[3pt]
+  \emph{accepts} --- yet \texttt{CHIP\_ID} is the attacker's chip};
+\node[draw=green!45!black, rounded corners, align=center, inner sep=5pt, text width=32mm,
+      below=9mm of ver] (kds) {AMD KDS\\ \texttt{ARK-Milan} root};
+% single data flow across the trust boundary; the client already observed the handshake
+\draw[->, thick] (rep.east) -- ++(6mm,0) |- node[near end, above, fill=white, inner sep=1pt, font=\scriptsize]{report + chain} (ver.west);
+\draw[<->] (ver.south) -- (kds.north);
 \end{tikzpicture}
 \caption{Architecture of the demonstration. The guest computes the
 Section~5.1.1 binder over a real TLS~1.3 transcript and its identity key, and
