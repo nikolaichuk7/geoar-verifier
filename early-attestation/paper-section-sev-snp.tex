@@ -1,0 +1,178 @@
+% ============================================================================
+% Section for the SSR paper: Practical demonstration on AMD SEV-SNP
+% Author of this section: Serhii Nikolaichuk. Drop-in for the shared paper.
+% Every number below was measured on 2026-09-12 and is reproducible from the
+% public artifact (geoar-verifier/early-attestation). Cite keys marked TODO are
+% placeholders to be wired to the paper's existing bibliography:
+%   \paper  -> this paper's ESORICS baseline (Intra-handshake.fail)
+%   \spec   -> draft-fossati-seat-early-attestation
+%   \snpabi -> AMD SEV-SNP ABI specification
+%   \rfc8446, \rfc9266 as usual
+% Requires: booktabs, tikz (arrows.meta, positioning). Figure is self-contained.
+% ============================================================================
+
+\section{Practical Demonstration on AMD SEV-SNP}
+\label{sec:sev-snp-demo}
+
+The analysis in the preceding sections shows that binders which incorporate the
+server's public key (binder~4 and binder~6) do not correlate the Evidence with
+the session once \texttt{privEK} is available to the adversary, whether through
+leakage, runtime provisioning, or extraction on another machine
+(Section~\ref{sec:threat-model}, \paper{}~Sec.~7.1.4). This is not a hardware
+flaw: the target specification itself concedes in its Section~5.2 that ``a
+relying party cannot detect this attack'' when the identity key is generated
+outside the TEE~\spec{}. We instantiate exactly this case on production AMD
+SEV-SNP hardware and show, by measurement, that a Section~5.1.1--conforming
+client accepts a genuine, certificate-chain--verified attestation report issued
+by a \emph{different} physical processor than the one it believes it is talking
+to.
+
+\subsection{Experimental Setup}
+\label{sec:sev-snp-setup}
+
+We provisioned two Google Cloud Confidential VMs, each of type
+\texttt{n2d-standard-2} on the AMD EPYC ``Milan'' platform with SEV-SNP enabled,
+running Ubuntu~24.04 LTS (kernel \texttt{7.0.0-1011-gcp}). One VM, the
+\emph{server}, ran in \texttt{us-central1} (Council Bluffs, Iowa, USA); the
+other, the \emph{attacker}, ran in \texttt{europe-west4} (Eemshaven, the
+Netherlands). Neither instance exposed SSH or any inbound rule; each reported
+its results out through the serial console only, so that the measurement path
+never trusts the hypervisor.
+
+Both VMs were launched with \emph{the same} server TLS identity key (TIK),
+injected through instance metadata. A single private key shared across two
+machines is precisely the adversary model of binder~4 and binder~6: the
+attacker holds \texttt{privEK} but does not control the honest server. It is
+also the split-deployment condition of \spec{}~Sec.~5.2, in which the identity
+key does not reside in the TEE.
+
+On each VM, a self-contained program (Section~\ref{sec:sev-snp-arch}) performs a
+genuine TLS~1.3 handshake in memory (OpenSSL via \texttt{ssl.MemoryBIO},
+cipher suite \texttt{TLS\_AES\_256\_GCM\_SHA384}), extracts the exact
+$\mathit{ClientHello}\dots\mathit{ServerHello}$ transcript (365~bytes) from the
+record layer, and computes the Section~5.1.1 binder
+\[
+\begin{aligned}
+\mathit{attest\_base} &= \mathrm{HKDF\text{-}Expand\text{-}Label}(0,\ \text{``attestation base''},\ H(\mathit{CH}\dots\mathit{SH}),\ H_\text{len}),\\
+\mathit{s\_attest\_binder} &= \mathrm{HKDF\text{-}Expand\text{-}Label}(\mathit{attest\_base},\ \text{``attestation''},\ H(\mathit{SPKI}_\text{server}),\ H_\text{len}),
+\end{aligned}
+\]
+with $H=\text{SHA-384}$ per the negotiated suite~\rfc8446{}. It then requests a
+VCEK-signed attestation report through the \texttt{SNP\_GET\_REPORT} ioctl on
+\texttt{/dev/sev-guest}, placing the binder in the 64-byte \texttt{REPORT\_DATA}
+field (left-justified, zero-padded), and requests the certificate chain through
+\texttt{SNP\_GET\_EXT\_REPORT}. Every report is verified offline against the AMD
+Key Distribution Service (KDS): the ECDSA-P384 report signature under the VCEK,
+and the VCEK chain to \texttt{ARK-Milan}.
+
+\subsection{Software Architecture}
+\label{sec:sev-snp-arch}
+
+Figure~\ref{fig:sev-snp-arch} shows the components. The guest-side probe is two
+small, dependency-free Python modules: \texttt{binder.py} implements the
+Section~5.1.1 derivation byte-for-byte over \texttt{HKDF-Expand-Label}, and
+\texttt{handshake\_stdlib.py} drives the in-memory TLS~1.3 handshake, extracts
+the transcript, and issues the SEV-SNP ioctls. The signing oracle is the SNP
+firmware itself: it signs whatever \texttt{REPORT\_DATA} the guest supplies and
+never inspects a TLS key, so the in-TEE key check assumed by \spec{}~Sec.~5.1.3
+is not enforced by the hardware. The verifier, \texttt{verify\_run.py}, plays
+the Section~5.1.2 client: for each guest it recomputes the binder from the
+transcript it observed and the server SPKI, checks
+$\texttt{REPORT\_DATA}=\mathit{binder}$, verifies the report signature with the
+VCEK, and verifies the VCEK chain to \texttt{ARK-Milan} fetched from the KDS.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+  font=\small,
+  box/.style={draw, rounded corners, align=center, inner sep=4pt, minimum height=8mm},
+  fw/.style={draw, align=center, inner sep=4pt, minimum height=8mm, fill=black!5},
+  >=Stealth, node distance=6mm and 10mm]
+% guests
+\node[box] (hs) {\texttt{handshake\_stdlib.py}\\TLS 1.3 (MemoryBIO)\\transcript $CH\dots SH$};
+\node[box, below=of hs] (bind) {\texttt{binder.py}\\$s\_attest\_binder$};
+\node[fw, right=of hs] (snp) {SNP firmware\\\texttt{SNP\_GET\_REPORT}\\(signs any REPORT\_DATA)};
+\node[box, below=of snp] (rep) {VCEK-signed\\report + cert chain};
+% verifier + kds
+\node[box, right=22mm of snp] (ver) {\texttt{verify\_run.py}\\(Sec.~5.1.2 client)};
+\node[box, below=of ver] (kds) {AMD KDS\\ARK-Milan};
+% edges
+\draw[->] (hs) -- (bind);
+\draw[->] (bind) -- node[below, font=\scriptsize]{REPORT\_DATA} (snp.west|-bind) -- (snp);
+\draw[->] (snp) -- (rep);
+\draw[->] (rep) -- (ver);
+\draw[->] (hs.north) to[out=30,in=150] node[above, font=\scriptsize]{transcript, $SPKI$} (ver.north);
+\draw[<->] (ver) -- (kds);
+% dashed box = one SEV-SNP guest
+\begin{scope}[on background layer]
+\node[draw, dashed, rounded corners, fit=(hs)(bind)(snp)(rep), label=above:{one SEV-SNP guest (server, and again attacker)}] {};
+\end{scope}
+\end{tikzpicture}
+\caption{Architecture of the demonstration. The guest computes the
+Section~5.1.1 binder over a real TLS~1.3 transcript and its identity key, and
+obtains a genuine report from the SNP firmware with the binder in
+\texttt{REPORT\_DATA}. The verifier recomputes the binder and checks the report
+against the AMD KDS. The same components run on both guests; the attacker holds
+the server's leaked TIK.}
+\label{fig:sev-snp-arch}
+\end{figure}
+
+\subsection{Results}
+\label{sec:sev-snp-results}
+
+Table~\ref{tab:sev-snp-results} reports the outcome. Both guests produced
+version-5 SEV-SNP reports (CPUID family \texttt{0x19}, model \texttt{0x01};
+reported TCB \texttt{(bl\,4, tee\,0, snp\,29, ucode\,222)}) signed by the
+per-chip VCEK, and both reports pass the Section~5.1.2 client checks in full:
+the binder matches, the ECDSA-P384 signature is valid, the VCEK chains to
+\texttt{ARK-Milan}, and the VCEK \texttt{hwID} extension equals the report
+\texttt{CHIP\_ID}. The two guests presented the \emph{identical} server key
+($\mathrm{SHA\text{-}256}(\mathit{SPKI})=\texttt{b6b9ad29\ldots}$) and produced
+the \emph{identical} launch \texttt{MEASUREMENT} (\texttt{0e017d2f\ldots}); they
+differ only in \texttt{CHIP\_ID} and in physical location.
+
+\begin{table}[t]
+\centering
+\caption{Section~5.1.2 verification of both reports (measured 2026-09-12). The
+client accepts genuine, KDS-verified Evidence from the attacker's chip in the
+Netherlands while it believes it is talking to the server in Iowa. The naive
+relay of a report into the other guest's session is rejected on the binder.}
+\label{tab:sev-snp-results}
+\begin{tabular}{lll}
+\toprule
+ & \textbf{Server} & \textbf{Attacker} \\
+\midrule
+Region & us-central1 (Iowa, US) & europe-west4 (NL) \\
+\texttt{CHIP\_ID} (first 16) & \texttt{29f367a929677f92} & \texttt{f72da6d73024ad54} \\
+$\mathrm{SHA\text{-}256}(\mathit{SPKI})$ & \texttt{b6b9ad29\ldots} & \texttt{b6b9ad29\ldots} (same) \\
+Signing key & VCEK & VCEK \\
+Binder matches \texttt{REPORT\_DATA} & yes & yes \\
+Report signature (ECDSA-P384) & valid & valid \\
+Chain to \texttt{ARK-Milan} (KDS) & valid & valid \\
+\texttt{hwID} $=$ \texttt{CHIP\_ID} & yes & yes \\
+\midrule
+\textbf{Client verdict (Sec.~5.1.2)} & \textbf{accept} & \textbf{accept} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Three observations follow. First, the attacker's report is neither a replay nor
+a forgery: it is a fresh, genuine, KDS-verifiable SEV-SNP report signed by the
+attacker's own processor in the Netherlands, bound to the attacker's own live
+transcript with the client under the shared TIK. The transcript binding of
+\spec{}~Sec.~5.1.3 does not prevent this, because the attacker is an
+\emph{endpoint} of the connection and therefore chooses that transcript; only a
+value derived from the session's shared secret (e.g., the RFC~9266 exporter,
+\rfc9266{}) is outside the endpoint's control. Second, as a control we presented
+each guest's report in the other guest's session: the client recomputes the
+binder from the transcript it observed, so both cross-presentations fail the
+binder check and are rejected. This confirms that the attack is the leaked-key
+path specifically, not a generic replay. Third, the two machines are
+indistinguishable to the client by \texttt{MEASUREMENT} and by key, and differ
+only by \texttt{CHIP\_ID}, which a Section~5.1.1 binder does not cover; binding
+the Evidence additionally to the handshake-derived secret is what closes the
+gap, and holds as long as one of \texttt{privEK} or the shared secret remains
+secret (\paper{}~Sec.~7.2).
+
+All raw reports, certificates, transcripts, the probe, and the verifier are
+available so that the run reproduces end to end.\footnote{\url{https://github.com/nikolaichuk7/geoar-verifier}, directory \texttt{early-attestation}.}

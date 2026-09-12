@@ -1,0 +1,6 @@
+cloud=google
+instance=rats-ea2-server-usc1b
+zone=us-central1-b
+role=server
+captured=20260912T182214Z
+probe=early-attest

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 440" font-family="Arial, Helvetica, sans-serif" font-size="13">
+  <rect x="0" y="0" width="880" height="440" fill="#ffffff"/>
+  <text x="440" y="30" text-anchor="middle" font-size="16" font-weight="700" fill="#111827">Section 5.1.1 binder relay, measured on AMD SEV-SNP</text>
+
+  <!-- dashed guest boundary -->
+  <rect x="30" y="60" width="470" height="330" rx="10" fill="none" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="45" y="82" fill="#6b7280" font-size="12" font-style="italic">one SEV-SNP guest — run once as server, once as attacker (shares the leaked TIK)</text>
+
+  <!-- handshake -->
+  <rect x="55" y="100" width="200" height="66" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="1.5"/>
+  <text x="155" y="126" text-anchor="middle" font-weight="700" fill="#312e81">handshake_stdlib.py</text>
+  <text x="155" y="145" text-anchor="middle" fill="#3730a3" font-size="12">real TLS 1.3 (MemoryBIO)</text>
+  <text x="155" y="160" text-anchor="middle" fill="#3730a3" font-size="12">captures CH…SH transcript</text>
+
+  <!-- binder -->
+  <rect x="55" y="200" width="200" height="56" rx="8" fill="#eef2ff" stroke="#4f46e5" stroke-width="1.5"/>
+  <text x="155" y="224" text-anchor="middle" font-weight="700" fill="#312e81">binder.py</text>
+  <text x="155" y="242" text-anchor="middle" fill="#3730a3" font-size="12">s_attest_binder (HKDF)</text>
+
+  <!-- firmware -->
+  <rect x="300" y="100" width="180" height="66" rx="8" fill="#f3f4f6" stroke="#6b7280" stroke-width="1.5"/>
+  <text x="390" y="123" text-anchor="middle" font-weight="700" fill="#111827">SNP firmware</text>
+  <text x="390" y="141" text-anchor="middle" fill="#374151" font-size="12">SNP_GET_REPORT</text>
+  <text x="390" y="157" text-anchor="middle" fill="#374151" font-size="11">signs any REPORT_DATA</text>
+
+  <!-- report -->
+  <rect x="300" y="200" width="180" height="56" rx="8" fill="#f3f4f6" stroke="#6b7280" stroke-width="1.5"/>
+  <text x="390" y="224" text-anchor="middle" font-weight="700" fill="#111827">VCEK-signed report</text>
+  <text x="390" y="242" text-anchor="middle" fill="#374151" font-size="12">+ certificate chain</text>
+
+  <!-- verifier -->
+  <rect x="600" y="100" width="230" height="66" rx="8" fill="#ecfdf5" stroke="#059669" stroke-width="1.5"/>
+  <text x="715" y="126" text-anchor="middle" font-weight="700" fill="#065f46">verify_run.py</text>
+  <text x="715" y="145" text-anchor="middle" fill="#047857" font-size="12">the Section 5.1.2 client:</text>
+  <text x="715" y="160" text-anchor="middle" fill="#047857" font-size="11">recompute binder, check sig + chain</text>
+
+  <!-- KDS -->
+  <rect x="600" y="230" width="230" height="56" rx="8" fill="#ecfdf5" stroke="#059669" stroke-width="1.5"/>
+  <text x="715" y="254" text-anchor="middle" font-weight="700" fill="#065f46">AMD KDS</text>
+  <text x="715" y="272" text-anchor="middle" fill="#047857" font-size="12">ARK-Milan root</text>
+
+  <!-- arrows -->
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#374151"/></marker>
+  </defs>
+  <!-- hs -> binder -->
+  <line x1="155" y1="166" x2="155" y2="200" stroke="#374151" stroke-width="1.5" marker-end="url(#a)"/>
+  <!-- binder -> firmware (REPORT_DATA) -->
+  <path d="M255,228 L280,228 L280,133 L300,133" fill="none" stroke="#374151" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="286" y="185" fill="#6b7280" font-size="11" transform="rotate(-90 286 185)">REPORT_DATA</text>
+  <!-- firmware -> report -->
+  <line x1="390" y1="166" x2="390" y2="200" stroke="#374151" stroke-width="1.5" marker-end="url(#a)"/>
+  <!-- report -> verifier -->
+  <path d="M480,228 L540,228 L540,133 L600,133" fill="none" stroke="#374151" stroke-width="1.5" marker-end="url(#a)"/>
+  <!-- hs -> verifier (transcript, SPKI) over the top -->
+  <path d="M255,112 C420,60 540,60 600,112" fill="none" stroke="#374151" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="440" y="70" text-anchor="middle" fill="#6b7280" font-size="11">transcript, server SPKI</text>
+  <!-- verifier <-> KDS -->
+  <line x1="715" y1="166" x2="715" y2="230" stroke="#374151" stroke-width="1.5" marker-end="url(#a)"/>
+
+  <!-- verdict -->
+  <text x="440" y="330" text-anchor="middle" font-size="13" fill="#111827">Same leaked key on both guests, different CHIP_ID, different country.</text>
+  <text x="440" y="352" text-anchor="middle" font-size="13" font-weight="700" fill="#b91c1c">Client accepts a genuine report from the attacker's chip, believing it is the server.</text>
+  <text x="440" y="374" text-anchor="middle" font-size="12" fill="#065f46">Control: a naive relay into the other session is rejected on the binder.</text>
+</svg>

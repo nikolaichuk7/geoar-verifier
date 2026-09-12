@@ -1,0 +1,41 @@
+{
+ "binder": {
+  "name": "binder",
+  "key_sel": 1,
+  "ioctl_error": null,
+  "exitinfo2": "0x0",
+  "fw_status": 0,
+  "ok": true,
+  "version": 5,
+  "signing_key": "VCEK",
+  "mask_chip_key": 0,
+  "chip_id_zero": false,
+  "chip_id_prefix": "f72da6d73024ad54",
+  "report_id": "9025186b8a9f25de",
+  "measurement": "0e017d2fba7c4964",
+  "report_data": "cbde746cc163ca4f8bf8a4591decc0419302734575acd380a0e1416cbf346cdaf5d58d85eed02d18306965ca9f570d6d00000000000000000000000000000000"
+ },
+ "ext_report": {
+  "ioctl_error": null,
+  "table": [
+   {
+    "guid": "VCEK",
+    "offset": 96,
+    "length": 1351,
+    "pem": false
+   },
+   {
+    "guid": "ASK",
+    "offset": 1447,
+    "length": 1677,
+    "pem": false
+   },
+   {
+    "guid": "ARK",
+    "offset": 3124,
+    "length": 1639,
+    "pem": false
+   }
+  ]
+ }
+}

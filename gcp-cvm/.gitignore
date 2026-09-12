@@ -12,3 +12,5 @@ exporter/guest-tls.key
 exporter/guest-ip.txt
 runs-early/*.console
 runs-early/*/*.tgz
+runs-ea2/*.console
+runs-ea2/*/*.tgz

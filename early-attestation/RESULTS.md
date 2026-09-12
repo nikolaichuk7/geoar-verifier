@@ -1,6 +1,6 @@
 # Relaying the Section 5.1.1 attestation binder, measured on SEV-SNP
 
-11 September 2026. This directory measures the attestation binder of
+11 September 2026; re-run 12 September 2026 (numbers below are the 12 Sep run). This directory measures the attestation binder of
 draft-fossati-seat-early-attestation-06, Section 5.1.1, on real AMD SEV-SNP hardware, and shows
 that it does not bind Evidence to the endpoint once the server's TLS identity key is available to
 an attacker. This is the experiment Muhammad Usama Sardar suggested (LinkedIn, 11 Sep): put the
@@ -33,11 +33,13 @@ transcript, derives `s_attest_binder`, and requests a VCEK-signed report (`KEY_S
 
 | role | region | instance | chip (`CHIP_ID`, first 16) |
 |---|---|---|---|
-| server S | us-central1-b (Iowa) | rats-early-server-uscentral1b | `0b0b368a140f008e` |
-| attacker A | europe-west4-a (Netherlands) | rats-early-attacker-euw4a | `f72da6d73024ad54` |
+| server S | us-central1-b (Iowa) | rats-ea2-server-usc1b | `29f367a929677f92` |
+| attacker A | europe-west4-a (Netherlands) | rats-ea2-attacker-euw4a | `f72da6d73024ad54` |
 
-Both reports carry the identical server key: `SHA-256(SPKI) = 89747f6e831c28cd…` on both. The two
-transcripts differ (each guest ran its own handshake): `SHA-256 = 595f7c38…` (S), `ff4685dd…` (A).
+Both reports carry the identical server key: `SHA-256(SPKI) = b6b9ad29…` on both, and the identical
+launch `MEASUREMENT` `0e017d2f…` (same VM image). The two transcripts differ (each guest ran its own
+handshake): `SHA-256 = 283db7ab…` (S), `d9dc7c12…` (A). Both are `n2d-standard-2`, AMD Milan, Ubuntu
+24.04 (kernel 7.0.0-1011-gcp), report version 5, reported TCB (bl 4, tee 0, snp 29, ucode 222).
 
 ## Result: the Section 5.1.2 client accepts genuine Evidence from the wrong machine
 
@@ -54,15 +56,16 @@ The attacker's Evidence is not a replay and not a forgery: it is a fresh, genuin
 SEV-SNP report signed by the attacker's own chip in the Netherlands, bound to the attacker's own
 live `ClientHello...ServerHello` with the client, under the leaked server key. The client's Section
 5.1.2 check passes in full, yet the machine that signed is a different chip in a different country
-from the server the client believes it reached. Files: `runs-early/server/20260911T220233Z`,
-`runs-early/attacker/20260911T220142Z`; machine-checked in `runs.summary.json`.
+from the server the client believes it reached. Files: `../gcp-cvm/runs-ea2/server/`, `../gcp-cvm/runs-ea2/attacker/`; machine-checked in
+`../gcp-cvm/runs-ea2/verify_run.json`. Earlier 11 Sep run kept under `../gcp-cvm/runs-early/`.
 
 ## Why the transcript binding does not prevent this
 
 Section 5.1.3 argues that binding to `Hash(ClientHello...ServerHello)` gives relay protection
 because the two Hellos' randoms are fresh per connection. That defeats a **replay** of the server's
-own report into another connection (we confirm this: presenting S's report on A's transcript fails
-the binder, `poc_mock.py`). It does not defeat this attack, because the attacker does not replay:
+own report into another connection (we confirm this on the
+real reports: presenting either guest's report in the other's session fails the binder check and is
+rejected, `verify_run.py` control; the logic is also proven on mock chips in `poc_mock.py`). It does not defeat this attack, because the attacker does not replay:
 the attacker is an **endpoint** of the connection with the client, so it chooses that transcript and
 computes a fresh binder over it, then obtains a fresh report from a TEE it controls. The transcript
 hash is public to the endpoints; only a value derived from the session's **shared secret** is not.
@@ -103,3 +106,8 @@ ever presented the same public key in the two roles would compute the same binde
 mock chips), `verify_run.py` (offline Section 5.1.2 verification of a two-guest run against the KDS).
 The guest is `../gcp-cvm/probe-early-attest.sh`; launch two guests with one shared `tik-pem` in the
 metadata and `role=server` / `role=attacker`.
+
+## Paper section
+
+`paper-section-sev-snp.tex` is the write-up of this run for the SSR paper (experimental setup,
+software architecture with a TikZ figure, results table), drop-in LaTeX with placeholder cite keys.

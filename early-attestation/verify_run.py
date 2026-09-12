@@ -70,6 +70,21 @@ def main(server_dir, attacker_dir):
     for r in (S,A):
         print(f"{r['role']:8} region={r['region']:16} chip={r['chip_id'][:16]}..  "
               f"accept={r['accept']}  binder={r['binder_match']} sig={r['report_signature_ok']} chain={r['chain_to_ARK_Milan']}")
+    # Control (naive relay): would the honest server report be accepted if presented in the attacker's
+    # session? The 5.1.2 client recomputes the binder from the transcript IT observed (the attacker's),
+    # so a report bound to a different transcript must fail the binder check. Recompute cross-wise.
+    import os as _os
+    def binder_of(dirpath):
+        tr=open(_os.path.join(dirpath,"cap-transcript.bin"),"rb").read()
+        spki=open(_os.path.join(dirpath,"spki.der"),"rb").read()
+        hn=json.load(open(_os.path.join(dirpath,"cap-hs.json")))["hash"]
+        return B.into_report_data(B.server_binder(tr,spki,hn))
+    def report_data(dirpath):
+        rep=open(_os.path.join(dirpath,"report-binder.bin"),"rb").read()[:1184]; return rep[0x50:0x90]
+    S_rep_in_A_session = (report_data(server_dir) == binder_of(attacker_dir))   # server's report, attacker's transcript
+    A_rep_in_S_session = (report_data(attacker_dir) == binder_of(server_dir))
+    print(f"\ncontrol (naive relay): server report accepted in attacker session = {S_rep_in_A_session}; "
+          f"attacker report in server session = {A_rep_in_S_session} (both must be False)")
     same_key = S["spki_sha256"]==A["spki_sha256"]
     diff_chip = S["chip_id"]!=A["chip_id"]
     print(f"\nsame server TIK (SPKI) on both: {same_key};  different CHIP_ID: {diff_chip}")
@@ -77,7 +92,7 @@ def main(server_dir, attacker_dir):
         print("ATTACK CONFIRMED: the client accepts genuine, KDS-verified Evidence from the attacker's")
         print("chip (a different machine, "+A['region']+") while the server's key it saw is identical,")
         print("so it cannot tell it is not talking to the server ("+S['region']+"). Section 5.1.1 binder relayed.")
-    json.dump({"server":S,"attacker":A,"same_key":same_key,"diff_chip":diff_chip}, open("verify_run.json","w"), indent=1, default=str)
+    json.dump({"server":S,"attacker":A,"same_key":same_key,"diff_chip":diff_chip,"naive_relay_server_report_in_attacker_session":S_rep_in_A_session,"naive_relay_attacker_report_in_server_session":A_rep_in_S_session}, open("verify_run.json","w"), indent=1, default=str)
 
 if __name__=="__main__":
     main(sys.argv[1], sys.argv[2])
